@@ -418,7 +418,7 @@ Para hacer un rebase en la rama feature de la rama main que comando ejecutariamo
     $ git checkout main
     git rebase feature  
         - Este comando fusiona la rama feature con la rama main.
-        NOTA: Nunca debes reorganizar las confirmaciones una vez que se hayan enviado a un repositorio publico. La reorganizacion sustituiria las confirmaciones antiguas por las nuevas y pareceria que esa parte del historial de tu rpoyecto se hubiera desvanecido.
+        - NOTA: Nunca debes reorganizar las confirmaciones una vez que se hayan enviado a un repositorio publico. La reorganizacion sustituiria las confirmaciones antiguas por las nuevas y pareceria que esa parte del historial de tu rpoyecto se hubiera desvanecido.
         - NOTA: El comando rebase es una mala practica, sobretodo en respositorios remotos. Con rebase puedes recoger todos los cambios confirmados en una rama y ponerlos sobre otra.
 
 ------------------------------
