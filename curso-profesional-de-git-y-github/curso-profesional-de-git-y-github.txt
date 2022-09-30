@@ -408,7 +408,7 @@ En que situaciones es deberias evitar que un archivos se vaya a un repositorio, 
 
 
 Que es rebase?
-    Es el proceso de mover o combinar una secuencia de confirmaciones en una nueva confirmacion base.
+    Es el proceso de mover o combinar una secuencia de confirmaciones en una nueva confirmacion base. En otras palabras, es sobreescribir una secuencia de commit con otra, para que pareciera como si las secuencias de commits reemplazadas nunca hubieran pasado.
 
 
 Para hacer un rebase en la rama feature de la rama main que comando ejecutariamos?
@@ -420,6 +420,109 @@ Para hacer un rebase en la rama feature de la rama main que comando ejecutariamo
         - Este comando fusiona la rama feature con la rama main.
         - NOTA: Nunca debes reorganizar las confirmaciones una vez que se hayan enviado a un repositorio publico. La reorganizacion sustituiria las confirmaciones antiguas por las nuevas y pareceria que esa parte del historial de tu rpoyecto se hubiera desvanecido.
         - NOTA: El comando rebase es una mala practica, sobretodo en respositorios remotos. Con rebase puedes recoger todos los cambios confirmados en una rama y ponerlos sobre otra.
+
+
+---------------------------------------------------------------------
+| GIT STASH: GUARDANDO CAMBIOS EN MEMORIA PARA RECUPERARLOS DESPUES |
+---------------------------------------------------------------------
+
+
+Que es un stage?
+    Es una lista de estados que que nos guarda algunos cambios que hicimos en Staging para poder cambiar de rama sin perder el trabajo que todavia no guardamos en un commit.
+
+
+En que casos podria ser util hacer un stage?
+    Cuando necesitamos cambiar de rama y no tenemos cambios que ameriten hacer un commit podermos guardarlos y no perderlos.
+
+
+Para agregar los cambios al stage se utiliza el comando?
+    $ git stash
+    o bien: $ git stage save "Mensaje sobre el elemento del staged"
+
+
+Por que decimos que el stash se comporta de manera tipo LIFO?
+    Porque el ultimo dato en entrar es el primero en salir.
+
+
+Para que sirve el metodo pop?
+    Para sacar de la lista el ultimo estado del stash y lo insertara en el stagin area.
+    NOTA: Es importante saber en que rama te encuentras para poder recuperarlo ya que el stash siempre recuperara los cambios que hiciste en el lugar que lo llamas.
+
+Cual es el comando para recuperar los ultimos cambios desde el stage al staging area?
+    $ git stash pop
+
+
+Cual es el comando para aplicar los cambios de un stash especifico y eliminarlo del stage?
+    $ git stash pop stash@{numero-del-stash}
+
+
+Cual es el comando para retomar los cambios de una posicion especifica del stash?
+    $ git stash apply stash@{numero-del-stash}
+
+
+Cual es el comando para ver la lista de cambios guardados en stash?
+    $ git stash list
+
+
+Con que comando podemos crear una rama y aplicar sl stash mas reciente?
+    $ git stash branch nombre-de-la-nueva-rama
+
+
+Que comando podemos usar para crear una rama y aplicar un stash especifico(obtenido desde $ git stash list)?
+    $ git stash branch nombre-de-la-nueva-rama stahs@{numero-del-stash}
+
+
+Que comando se utiliza para eliminar los cambios mas recientes dentro del stash?
+    $ git stash drop
+
+
+Que comando se utiliza para eliminar un stash a traves de su indice(obtenido con $ git stash list)?
+    $ git stash drop stash@{numero-del-stash}
+
+
+Que comando sirve para eliminar todos los elementos del stash?
+    $ git stash clear.
+
+
+Que consideraciones se debe tener en cuanta al hacer uso de los stash?
+    - El cambio mas reciente al crear in stash SIEMPRE recibe el valor 0 y los que estaban antes aumentan su valor.
+    - Al crear un stash tomara los archivos que han sido midificados y eliminados. Para que tomen un archivo creado es necesario agregarlo al staging area con git add nombre-del-archivo con la intencion de que git tenga un seguimiento de ese archivo, o tambien utilizando el comando $ git stash -u(que cuardara los archivos que no esten en el staging)
+    - Al aplicar un stash este no se elimina, es buena practica eliminarlo.
+
+
+------------------------------------------------------------
+| GIT CLEAN: LIMPIANDO EL PROYECTO DE ARCHIVOS NO DESEADOS |
+------------------------------------------------------------
+
+
+Para que sirve el comando $ git clean?
+    Para borrar los archivos que no estan en seguimiento ya que no forman parte de nuestro directorio de trabajo.
+
+
+En la ejecucion del comando $ git clean se puede producio un error. Como podemos hacer para que el comando sea efectivo (forzarlo)?
+    $ git clean -f
+        Es una medida de seguridad, ya que el comando clean no se puede deshacer.
+        NOTA: Cuando hay archivos sin seguimiento, con el mismo nombre que otro archivo que si esta en seguimiento dentro de otras carpetas, el comando git clean no las borra, ya que a git no le importan las carpetas, sino los archivos.
+        NOTA: El comando $ git clean solo puede borrar archivos que puede indexar, esto significa que si un archivo esta incluido dentro de .gitignore no sera eliminado con el comando.
+
+
+    Cual es el comando para revisar los archivos que no tienen seguimiento?
+        $ git clean --dry-run
+            Lo que hace el comando es simular cuales archivos serian los que va a borrar. Significa algo asi como "Ejecucion en seco"
+
+
+-------------------------------------------
+| TRAYENDO COMMITS VIEJOS CON CHERRY-PICK |
+-------------------------------------------
+
+
+Que es el comando $ git cherry-pick?
+    Es un comando que permite tomar uno o varios commits de otra rama sin necesidad de tener que hacer un merge.
+    NOTA: El uso del comando cherry-pick es considerada una mala practica porque significa que estamos reconstruyendo el historial del proyecto.
+
+
+Como se usa el comando $ git cherry-pick?
+    $ git cherry-pick numero-del-commit
 
 ------------------------------
 //////////////////////////////
