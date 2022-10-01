@@ -488,7 +488,7 @@ Que comando sirve para eliminar todos los elementos del stash?
 
 Que consideraciones se debe tener en cuanta al hacer uso de los stash?
     - El cambio mas reciente al crear un stash SIEMPRE recibe el valor 0 y los que estaban antes aumentan su valor.
-    - Al crear un stash tomara los archivos que han sido midificados y eliminados. Para que tomen un archivo creado es necesario agregarlo al staging area con git add nombre-del-archivo con la intencion de que git tenga un seguimiento de ese archivo, o tambien utilizando el comando $ git stash -u(que cuardara los archivos que no esten en el staging)
+    - Al crear un stash tomara los archivos que han sido midificados y eliminados. Para que tomen un archivo creado es necesario agregarlo al staging area con git add nombre-del-archivo con la intencion de que git tenga un seguimiento de ese archivo, o tambien utilizando el comando $ git stash -u(que guardara los archivos que no esten en el staging)
     - Al aplicar un stash este no se elimina, es buena practica eliminarlo.
 
 
