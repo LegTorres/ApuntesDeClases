@@ -118,7 +118,7 @@ Cuales son los pasos a seguir para conectar un repositorio de GitHub con nuestro
 
 
 Como te autenticas en GitHub 2022?
-    - Renombrar la rama master a main. Para eso debemos estar popsicionados en la rama a la que queremos renombrar y ejecutar: 
+    - Renombrar la rama master a main. Para eso debemos estar posicionados en la rama a la que queremos renombrar y ejecutar: 
         $ git branch -M main.
     - Crear un token de acceso personal, y usarlo como contrasena cuando nos pida clave:
         - Settings > Developer settings > Personal access tokens > Generate new token(Se puede colocar un nombre, una fecha de expiracion, etc?) > Tildar en repo > Generate token. 
@@ -218,9 +218,9 @@ Que es un alias?
 
 Como se agrega un alias solo para git?
     - Para un proyecto:
-        $ git config alias.nombre-del-alias "log --all --graph --decorate --online"
+        $ git config alias.nombre-del-alias "log --all --graph --decorate --oneline"
     - Global:
-        $ git config --global alias.nombre-del-alias "log --all --graph --decorate --online"
+        $ git config --global alias.nombre-del-alias "log --all --graph --decorate --oneline"
     - Para correrlo:
         $ git nombre-del-alias
 
@@ -303,7 +303,7 @@ Como se realiza un pull request?
         $ git commit -am "Comentario"
     - Se suben al remoto los cambios:
         $ git push origin nombre-de-la-rama
-    - En GitHub se hace el p[ull request comparando la rama main con la del fix.
+    - En GitHub se hace el pull request comparando la rama main con la del fix.
     - Uno o varios colaboradores revisan que el codigo sea correcto y dan el feedback(En el chat del pull request)
     - El colaborador hace los cambios deseados en la rama y lo vuelve a subir al remoto(Automaticamente jala la historia de los cambios que se hagan en la rama, en remoto)
     - Se aceptan los cambios en GitHub.
@@ -331,7 +331,7 @@ Como se hace un fork remoto desde consola en GitHub?
     - Al crear el remoto adicional podemos hacer pull desde el nuevo origen.(En caso de tener permisos podemos hacer fetch y push)
         $ git pull nombre-del-remoto rama
         $ git pull upstream main
-    - Este pull nmos traera los cambios del remoto, por lo que se estara al dia. El flujo de trabajo cambia, en adelante se estara trabajando haciendo pull desde el upstream y push al origin para pasar a hacer pull request.
+    - Este pull nos traera los cambios del remoto, por lo que se estara al dia. El flujo de trabajo cambia, en adelante se estara trabajando haciendo pull desde el upstream y push al origin para pasar a hacer pull request.
         $ git pull upstream main
         $ git push origin main
 
@@ -449,6 +449,7 @@ Para que sirve el metodo pop?
     Para sacar de la lista el ultimo estado del stash y lo insertara en el stagin area.
     NOTA: Es importante saber en que rama te encuentras para poder recuperarlo ya que el stash siempre recuperara los cambios que hiciste en el lugar que lo llamas.
 
+
 Cual es el comando para recuperar los ultimos cambios desde el stage al staging area?
     $ git stash pop
 
@@ -465,7 +466,7 @@ Cual es el comando para ver la lista de cambios guardados en stash?
     $ git stash list
 
 
-Con que comando podemos crear una rama y aplicar sl stash mas reciente?
+Con que comando podemos crear una rama y aplicar el stash mas reciente?
     $ git stash branch nombre-de-la-nueva-rama
 
 
@@ -486,7 +487,7 @@ Que comando sirve para eliminar todos los elementos del stash?
 
 
 Que consideraciones se debe tener en cuanta al hacer uso de los stash?
-    - El cambio mas reciente al crear in stash SIEMPRE recibe el valor 0 y los que estaban antes aumentan su valor.
+    - El cambio mas reciente al crear un stash SIEMPRE recibe el valor 0 y los que estaban antes aumentan su valor.
     - Al crear un stash tomara los archivos que han sido midificados y eliminados. Para que tomen un archivo creado es necesario agregarlo al staging area con git add nombre-del-archivo con la intencion de que git tenga un seguimiento de ese archivo, o tambien utilizando el comando $ git stash -u(que cuardara los archivos que no esten en el staging)
     - Al aplicar un stash este no se elimina, es buena practica eliminarlo.
 
@@ -715,7 +716,7 @@ $ git config --global user.email "mi-correo-electronico"
 $ git config pull.rebase false  # merge
 $ git config pull.rebase true   # rebase
 $ git config pull.ff only       # fast-forward only
-$ fit config --global pull.ff true 
+$ git config --global pull.ff true 
 
 
 

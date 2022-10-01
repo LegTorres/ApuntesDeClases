@@ -1,1 +1,252 @@
- 
+------------------------
+| CONFIGURACION DE GIT |
+------------------------
+
+
+Editar las configuraciones de git.
+    $ git config --list
+        # Muestra el listado de las opciones de configuracion.
+
+    $ git config --list --show-origin
+        # Muestra donde esta el archivo de configuraciones.
+
+    $ git config --global user.name "nombre-de-usuario"
+        # Configura el nombre de usiario.
+
+    $ git config --global user.email "email-de-usuario"
+        # Configura el email de usuario.
+
+    $ git config --global pull.ff true
+        # Configurar la forma de conciliar push/pull de ramas divergentes con un servidor remoto.
+
+Manejo de alias.
+    $ git config alias.<nombre-del-alias> "<comando-del-alias>"
+    $ git config --global alias.<nombre-del-alias> "<comando-del-alias>"
+        # EJEMPLO: $ git config --global alias.arboloto "log --all --graph --decorate --oneline"
+    $ git <nombre-del-alias> # Ejecuta el alias.
+
+
+--------------------------
+| COMANDOS BASICOS DE GIT |
+--------------------------
+
+
+Iniciar un repositorio de git en la carpeta del proyecto (INIT).
+    $ git init
+
+
+Agregar archivos al staging area, para asi darles seguimiento (ADD).
+    $ git add <nombre-del-archivo>
+    $ git add . # Agrega todos los archivos que estan en el directorio.
+
+
+Enviar los ultimos cambios de los archivos a las bases de datos de git (Tienen que estar en seguimiento antes) (COMMIT).
+    $ git commit -m "mensaje-de-descripcion-del-commit"
+    $ git commit -am "Mensaje-de-descripcio-del-commit"
+        # Si habian sido seguidos antes evita tener que usar $git add.
+    $ git commit --amend
+        # Remienda el ultimo commit agregando archivos nuevos (que se han agregado al staging are con add) por ejemplo y modifica el mensaje de dicho commit.
+
+
+Muestra el estado de la base de datos (STATUS).
+    $ git status
+
+
+Muestra el histortial de todos los cambios hechos (SHOW).
+    $ git show
+    $ git show <nombre-del-archivo>
+
+
+Muestra los cambios especificos que se hicieron, en cuales archivos a partir del commit (LOG).
+    $ git log
+    $ git log <nombre-del-archivo>
+    $ git log --stat # Explica brevemente el numero de lineas que se cambiaron.
+    $ git log -S <palabra-por-buscar> # Buscar una palabra en los commits.
+
+
+Realiza busquedas en los archivos (GREP).
+    $ git grep <termino-por-buscar>
+        # NOTA: Para buscar etiquetas se escribe entre comillas
+    $ git grep -n <termino-por-buscar>
+        # Muestra en que lineas esta el termino que buscamos.
+    $ git grep -c <termino por buscar>
+        # Muestra el numero de veces que aparece el termino que estamos buscando.
+
+
+Muestra la direfencia entre dos commits de nuestro archivo (DIFF).
+    $ git diff
+    $ git diff <commit-id-1> <commit-id-2>
+        # Muestra la diferencia entre dos commits determinados.
+
+
+Dejar de darle seguimiento a un archivo. Remover un archivo de la lista (RM).
+    $ git rm <nombre-del-archivo>
+    $ git rm --cached <nombre-del-archivo>
+        # Solo se elimina el indice de cambios en memoria.
+    $ git rm --force <nombre-del-archivo>
+        # Fuerza la eliminacion del disco duro.
+
+
+Maneja las ramas de nuestro proyecto (BRANCH).
+    $ git branch <nombre-de-la-nueva-rama> # Crea una nueva rama.
+    $ git branch -d <nombre-de-la-rama> # Elimina una rama existente.
+    $ git branch -r # Muestra todas las ramas remotas.
+    $ git branch -a # Muestra todas las ramas locales y remotas.
+    $ git branch -M <nuevo-nombre-de-la-rama-actual> # Renombra la rama actual.
+
+
+Muestra las ramas que tiene un proyecto (SHOW-BRANCH).
+    $ git show-branch --all
+
+
+Movernos a traves de ramas y commits (CHECKOUT).
+    $ git checkout <nombre-de-la-rama-o-id-del-commit>
+    $ git checkout -b <nombre-de-la-nueva-rama> # Crea una rama y nos mueve hacia ella.
+
+
+Crea un commit combinando la rama actual con otra (MERGE).
+    $ git merge <nombre-de-la-otra-rama>
+    $ git merge --abort # Aborta el merge
+
+
+Regresar a un commit anterior del proyecto eliminando las modificaciones posteriores (RESET).
+    $ git reset --hard <id-del-commit>  # Elimina los cambios que esten en staging.
+    $ git reset --soft <ide-del-commit> # Mantiene los cambios actuales en memoria.
+    $ git reset HEAD
+        # Saca los archivos del staging, pero no los borra, solo los deja fuera del ultimo commit.
+
+
+Manejo de tag (TAG).
+    $ git tag
+        # Lista los tag de nuestro repositorio local, igual que: $ git show-ref --tags
+    $ git tag -a <nombre-del-tag> -m "<mensaje-describiendo-el-tag>" <id-del-commit>
+         # Crea un nuevo tag y lo asigna a un commit.
+    $ git tag -d <nombre-del-tag>
+        # Borra un tag en el repositorio local.
+    $ git push <nombre-del-remoto> --tags
+        # Publica un tag en el repositorio remoto.
+    $ git push <nombre-del-remoto> : refs/tags/<nombre-del-tag>
+        # Borra un tag del repositorio remoto.
+
+
+Hacer un rebase (REBASE).
+    $ git rebase <rama-a-la-que-queremos-transplantar-los-cambios-de-la-rama-actual>
+        # Pasamos los cambios en los que trabajamos
+    $ git checkout <rama-a-la-que-queremos-transplantar-los-cambios-de-la-rama-actual>
+    $ git rebase <rama-desde-donde-previamente-hicimos-el-revase>
+    NOTA: Siempre se debe hacer rebase desde la rama que queremos transplantar a la rama que queremos desaparecer primero, de lo contrario creara un conflicto.
+
+
+Guardar cambios con stash (STASH).
+    $ git stash
+        # guarda los cambios recientes en stash
+    $ git stash save "<mensaje-describiendo-el-stash>"
+        # Guarda el stash con un mensaje.
+    $ git stash pop
+        # Trae los cambios del stash mas reciente.
+    $ git stash por stash@{<numero-del-stash>}
+        # Trae los cambios de un stash especifico.
+    $ git stash apply stash@{<numero-del-stash>}
+        # Retoma los cambios de una posicio especifica del stash.
+    $ git stash list # Muestra la lista de cambios guardados en el stash.
+    $ git stash branch <nombre-de-la-nueva-rama>
+        # Crea una rama y aplica los cambios del stash mas reciente.
+    $ git stash branch <nombre-de-la-nueva-rama> stast@{<numero-del-stash>}
+        # crea una nueva rama y aplica los cambios de un stash especifico.
+    $ git stash drop
+        # Elimina los cambios del stash mas reciente
+    $ git stash drop stash@{<numero-del-stash>}
+        # sirve para eliminar in stash a traves de su indice.
+    $ git stash clear
+        # Elimina todos los elementos del stash.
+    $ git stash -u
+        # Guardara los archivos que no esten en el staging area.
+
+
+Limpiar el proyecto de archivos no deseados (CLEAN).
+    $ git clean -f
+        # Elimina los archivos que no estan en seguimiento y que no estan agregados en el archivo .gitignore.
+    $ git clean --dry-run
+        # Muestra los archivos que serian eliminados al ejecutar el comando $ git clean -f.
+
+
+Tomar uno o mas commits de una rama sin necesidad de hacer merge (CHERRY-PICK).
+    $ git cherry-pick <numero-del-comit>
+
+
+----------------------------------------------
+| CONEXION CIFRADA A SERVIDOR REMOTO CON GIT |
+----------------------------------------------
+
+
+Generar llaves SSH.
+    $ ssh-keygen -t -rsa -b 4096 -C "<correo-electronico>"
+        # -t: Algoritmo para la creacion de las llaves.
+        # -b: Complejidad de bytes del cifrado.
+        # -C: A que correo se ligara la llave.
+
+
+Evaluar que el servidor de llaves SSH este corriendo en el equipo.
+    $ eval $(ssh-agent -s)
+
+
+Agregar la llave SSH al servidor SSH.
+    $ ssh-add <ruta-hacia-llave-privada> # Windows y Linux.
+    $ ssh-add -K <ruta-hacia-llave-privada> # MacOS. En caso de dar error borrar -K.
+
+
+-------------------------------------------
+| COMANDOS UTILES PARA SERVIDORES REMOTOS |
+-------------------------------------------
+
+
+Clonar un repositorio remoto publico (CLONE).
+    $ git clone <url-del-repositorio>
+
+
+Gestionar el origen de un repositorio remoto (REMOTE).
+    $ git remote add <nombre-del-remoto> <url-del-remoto>
+        # Guarda la url del repositorio remoto en una variable con un nombre determinado.
+    $ git remote -v
+        # Revisa que url se ha guardado en nuestra variable de origen remoto.
+    $ git remote set-url <nombre-del-remoto> <url-del-remoto>
+        # Actualiza la url del repositorio remoto.
+
+
+Manejar un fork de GitHub.
+    $ git clone <url-del-repositorio-remoto-fork>
+        # Clonar el repositorio despues de haber sido creado el fork en el sitio web de GitHub.
+    $ git push <remoto-de-mi-fork> <rama-de-mi-fork>
+        # enviar los cambios al remoto de mi fork, para poder hacer pull request.
+    $ git remote add <nombre-del-remoto-original> <url-del-remoto-original>
+        # Generamos un remoto adicional para traer los cambios del proyecto original del cual hemos creado nuestro fork. Por lo general se suele llamar upstream, aunque este nombre es opcional.
+    $ git pull <nombre-del-remoto-original> <rama-de-mi-fork>
+        # Traemos los cambios del proyecto original a nuestro fork local para mantenernos actualizados.
+    $ git push <remoto-de-mi-fork> <rama-de-mi-fork>
+        # Agregamos los cambios traidos del repositorio original a nuestro fork remoto para que se mantenga actualizado con el repositorio original.
+
+
+Traer las actualizaciones de servidor remoto y las guarda en nuestro servidor (FETCH).
+    $ git fetch <url-de-repositorio-remoto>
+
+
+Combinar los comandos fetch y merge con un repositorio remoto (PULL).
+    $ git pull <url-del-servidor-remoto> <nombre-de-la-rama>
+    $ git pull <url-del-servidor-remoto> <nombre-de-la-rama> --allow-unrelated-histories
+        # Trae la version del repositorio remoto y hace commit conb los archivos de ambas partes.
+
+
+Envia nuestro archivo a un servidor remoto (PUSH).
+    $ git push <url-de-repositorio-remoto> <nombre-de-la-rama>
+
+
+Muestra cuantos commits ha hecho cada miembro del equipo (SHORTLOG).
+    $ git shortlog -sn
+    $ git shortlog -sn --all # Muestra incluso los commits eliminados.
+    $ git shortlog -sn --all --no-merges # Deja fuera los merges.
+
+
+Muestra quien hizo cada cosa linea por linea (BLAME).
+    $ git blame <nombre-del-archivo>
+    $ git blame <nombre-del-archivo> -L<numero-de-linea-inicial>,<numero-de-linea-final>
+        # Indica desde que linea empezar a ver.
