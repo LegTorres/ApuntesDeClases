@@ -68,6 +68,7 @@ Cuales tipos de reset que hay?
 Que representa la cabecera(HEAD)?
     Representa la rama y el commit de dicha rama donde estamos trabajando. Por defecto, sera la rama main.
 
+
 Que es un conflicto en git?
     Es cuando dos ramas diferentes hacen cambios distintos en una misma linea.
 
@@ -523,6 +524,85 @@ Que es el comando $ git cherry-pick?
 
 Como se usa el comando $ git cherry-pick?
     $ git cherry-pick numero-del-commit
+
+
+-----------------------------
+| USO DE GIT RESET Y REFLOG |
+-----------------------------
+
+
+Que es un reflog o registro de referencia?
+    Es un mecanismo de git a traves del cual se realiza el seguimiento de las actualizaciones en el extremo de las ramas.
+
+
+---------------------------------
+| RECONSTRUIR COMMITS CON AMEND |
+---------------------------------
+
+
+Para que sirve el comando amend?
+    Puede modificar el commit mas reciente en la misma rama. Es usado para agregar archivos nuevos o actualizar el commit anterior y no generar commits innecesarios. Tambien es una forma sencilla de editar o agregar comentarios al commit anterior ya que abrira la consola para editar este commit anterior.
+
+
+Cuales son los comando para ejecutar un amend?
+    $ git add -A
+        NOTA: Para hacer uso del amend los archivos deben estar en staging area usando el comando $ git add mi-archivo.
+    $ git commit --amend
+        Remendar el ultimo commit.
+
+
+Por que se dice que usar el comando amend es mala practica?
+    Porque si se ha hecho un push o pull al repositorio remoto, en dicho caso va a generar un conflicto que se va a arreglar haciendo un commit adicional, por lo que se perdera el beneficio del amend.
+
+-----------------------------------------------
+| BUSCAR EN ARCHIVOS Y COMMITS CON GREP Y LOG |
+-----------------------------------------------
+
+Cual es el coamando usado para buscar palabras palabras en los archivos de nuestro proyecto?
+    $ git grep termino-por-buscar
+    NOTA: Para buscar etiquetas html(como <p> por ejemplo) se debe escribir la etiqueta dentro de comillas.
+
+
+Si queremos saber en que lineas esta la palabra color, que comando podemos usar?
+    $ git grep -n color
+
+
+Si queremos aber cuantas veces utilizamos una palabra-o-etiqueta en nuestros archivos usamos el comando:?
+    $ git grep -c palabra-o-etiqueta
+
+
+Que comando utilizas si lo que quieres es hacer una busqueda en los commits y no en los archivos?
+    $ git log -S "palabra-que-quieres-buscar"
+
+
+-----------------------------------------------------
+| COMANDOS Y RECURSOS COLABORATIVOS EN GIT Y GITHUB |
+-----------------------------------------------------
+
+Que comando muestra cuantos commit han hecho cada miembro del equipo?
+    $ git shortlog -sn
+    $ git shortlog -sn --all 
+        # Muestra hasta los que se hayan eliminado.
+    $ git shortlog -sn --all --no-merges 
+        # Muestra cuantos commits ha hecho cada miembro, quitando los eliminados sin los merges.
+
+
+Que comando muestra quien hizo cada cosa linea por linea?
+    $ git blame nombre-del-archivo
+    $ git blame nombre-del-archivo -linea-inicial,linea-final
+        # Indica desde que linea empezar a ver. Ejemplo: -L35,50
+        
+
+Que opcion nos muestra como funciona un comando en particular?
+    $ git nombre-del-comando --help
+
+
+Que comando muestra todas las ramas remotas?
+    $ git branch -r
+
+Que comando muestra todas las ramas, tanto locales como remotas?
+    $ git branch -a
+
 
 ------------------------------
 //////////////////////////////
