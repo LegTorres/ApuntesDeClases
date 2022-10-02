@@ -1,0 +1,148 @@
+
+==================================================
+|                                                |
+| INTRODUCCION A LA TERMINAL Y LINEA DE COMANDOS |
+|                                                |
+==================================================
+
+
+----------------------------
+| COMANDOS DE BASH Y LINUX |
+----------------------------
+
+
+CD (Change Directory): Moverse dentro de los directorios.
+	$ cd [RUTA/A/DONDE/QUEREMOS/MOVERNOS]
+	$ cd .. # Nos mueve un directorio mas atras.
+
+
+PWD (Print Wonking Directory): Muestra el directorio en el que nos encontramos.
+	$ pwd
+
+
+FILE: Muestra informacion de un archivo.
+	$ file [NOMBRE-DEL-ARCHIVO]
+
+
+LS (List): Lista los archivos y directorios dentro de la la hubicacion actual.
+	$ ls -l # Formato de lista larga
+	$ ls -a # No ignora los archivos ocultos.
+	$ ls -h # Formato simplificado para facil lectura.
+
+
+MKDIR (Making Directory): Crea uno o mas directorio.
+	$ mkdir [NOMBRE-DEL-DIRECTORIO-A-CREAR]
+		# NOTA: para crear directorios con espacios en sus nombres se escribe entre comillas("")
+	$ mkdir -p [NOMBRE/DE/LOS/DIRECTORIOS]
+		# Crea un directorio padre con directorios hijos.
+	$ mkdir -v [NOMBRE-DEL-DIRECTORIO-A-CREAR]
+		# Describe el procedimiento del comando.
+
+
+TOUCH: Actualiza la fecha de acceso y modificacion de cada fichero. Si no existe dicho fichero, lo crea. Es muy utilizado para crear uno o varios archivos
+	$ touch [NOMBRE-DEL-ARCHIVO]
+
+
+CP (Copy): Copia un archivo.
+	$ cp [NOMBRE-ARCHIVO-ORIGEN] [NOMBRE-ARCHIVO-COPIA]
+		# copia solo un archivo.
+	$ cp -r [NOMBRE-DEL-DIRECTORIO-ORIGEN] [NOMBRE-DEL-DIRECTORIO-DESTINO]
+		# Copia un directorio con todos sus archivos y subdirectorios.
+	$ cp -v [NOMBRE-DEL-ARCHIVO-ORIGEN] [NOMBRE-ARCHIVO-COPIA]
+		# Da detalles sobre lo que va haciendo.
+
+
+MV (Move): Mueve archivos o directorios.
+	$ mv [ARCHIVO-O-DIRECTORIO-ORIGEN] [RUTA-Y-ARCHIVO-O-DESTINO]
+
+
+RM (Remove): Elimina archivos y directorios.
+	$ rm [NOMBRE-DEL-ARCHIVO-A-ELIMINAR]
+	$ rm -i [NOMBRE-DEL-ARCHIVO]
+		# Eliminacion interactiva, pregunta si estas seguro de eliminar los archivos.
+	$ rm -r [NOMBRE-DEL-DIRECTORIO]
+		# Eliminacion recursiva. Elimina todo dentro de una carpeta.
+	$ rm -f [NOMBRE-DEL-ARCHIVO-O-DIRECTORIO]
+		# Fuerza a borrar todo, incluso los archivos que no se pueden borrar.
+	$ rm -rf / --no-preserve-root
+		# Borra el directorio ROOT. PELIGRO, TODO EL SISTEMA SERA BORRADO.
+
+
+HEAD: Muestra las primeras lineas de un archivo.
+	$ head [NOMBRE-DEL-ARCHIVO]
+		# Muestra las primeras 10 lineas de un archivo.
+	$ head [NOMBRE-DEL-ARCHIVO] -n 20
+		# Muestra las primeras 20 ineas de un archivo.
+
+
+TAIL: Imprime las ultimas lineas de un archivo.
+	$ tail [NOMBRE-DEL-ARCHIVO]
+		# Imprime las 10 ultimas lineas de un archivo.
+	$ tail [NOMBRE-DEL-ARCHIVO] -n 13
+		# Imprime las 13 ultimas lineas de un archivo.
+
+
+LESS: Muestra todo el contenido de un archivo.
+	$ less [NOMBRE-DEL-ARCHIVO]
+	NOTA: presionando la tecla slash  (/) puedes hacer una busqueda dentro del documento, solo escribe y presiona enter.
+
+XDG-OPEN: Abre el archivo o directorio con el programa predeterminado para su extension.
+	$ xdg-open [NOMBRE-DEL-ARCHIVO-O-DIRECTORIO]
+
+
+TYPE: Muestra que tipo de comando es.
+	$ type [NOMBRE-DEL-COMANDO]
+
+
+ALIAS: Permite crear alias con uno o varios comandos combinados.
+	$ alias [NOMBRE-DEL-ALIAS]="[COMANDO-A-EJECUTAR]"
+
+
+HELP: Nos permite consultar la documentacion de un comando.
+	$ help [COMANDO]
+
+
+MAN (Manual): Muestra el manual con la informacion de un comando.
+	$ man [COMANDO]
+
+INFO: Similar al comando $ man, pero un poco resumido.
+	$ info [COMANDO]
+
+WHATIS: Describe un comando en una sola linea (No funciona con todos los comandos)
+	$ whatis [COMANDO]
+
+
+----------------------------
+| NOTAS SOBRE LOS COMANDOS |
+----------------------------
+
+
+NOTA 1:
+	Varios argumentos de un comando pueden agruparse en un solo: por ejemplo en lugar de utilizar $ s -l -h -a, se puede escribir $ ls -lha
+
+
+NOTA 2:
+	Los operadores de ruta relativa son los siguientes:
+	(~) Hace referencia a la carpeta del usuario en el /home. 
+	(.) Hace referencia al directorio actual.
+	(..) Hacen referencia al directorio anterior.
+
+NOTA 3:
+	Un comando puede significar 4 cosas:
+	1- Un programa ejacutable.
+	2- Un comando de utilidad de shell. Esto es un programa en si mismo, que puede tener funciones como por ejemplo $ cd.
+	3- Una funcion de shell. Son funciones externas al comando de utilidad, por ejemplo $ mkdir.
+	4- Un alias. Como por ejemplo $ ls.
+
+NOTA 4:
+	El comando ALIAS crea alias temporales que duraran solo mientras la sesion actual este activa. Para crear alias permanentes se deben hacer dentro del archivo de configuracion de la shell. Y si creamos un alias con el mismo nombre de uno permanente el temporal tendra prioridad sobre el alias permanente durante la sesion actual.
+
+
+NOTA 4:
+	Los wildcard o comodines son una serie de caracteres que nos permiten encontrar patrones.
+	(*) Reemplaza todos los caracteres.
+	(?) Reemplaza un solo caracter. (??) Si son dos caracteres...  
+	([ci]) Busca por cualquiera de los caracteres especificos dentro de los corchetes. Distingue entre mayusculas y minusculas.
+	([5-8]) Busca entre el rango de 5 y 8.
+
+
