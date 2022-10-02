@@ -28,6 +28,11 @@ LS (List): Lista los archivos y directorios dentro de la la hubicacion actual.
 	$ ls -l # Formato de lista larga
 	$ ls -a # No ignora los archivos ocultos.
 	$ ls -h # Formato simplificado para facil lectura.
+	$ ls -d # Lista directorios solamente.
+
+
+WC (Words Count?): Muestra el conteo de: Lineas, Palabras y Bytes por cada archivo en dicho orden.
+	$ wc [NOMBRE-DEL-ARCHIVO]
 
 
 MKDIR (Making Directory): Crea uno o mas directorio.
@@ -43,17 +48,23 @@ TOUCH: Actualiza la fecha de acceso y modificacion de cada fichero. Si no existe
 	$ touch [NOMBRE-DEL-ARCHIVO]
 
 
-CP (Copy): Copia un archivo.
+CP (Copy): Copia uno o varios archivos/directorios.
 	$ cp [NOMBRE-ARCHIVO-ORIGEN] [NOMBRE-ARCHIVO-COPIA]
-		# copia solo un archivo.
+		# copia solo un archivo. Puede especificarse el nombre del archivo o carpeta que sera la copia de destino o solo el de la carpeta contenedora
 	$ cp -r [NOMBRE-DEL-DIRECTORIO-ORIGEN] [NOMBRE-DEL-DIRECTORIO-DESTINO]
 		# Copia un directorio con todos sus archivos y subdirectorios.
+	$ cp -r [ARCHIVO1] [ARCHIVO2] [CARPETA1] [CARPETA2] [CARPETA-DESTINO]
+		# Copia multiples archivos y directorios. El ultimo elemento debe ser la carpeta de destino.
 	$ cp -v [NOMBRE-DEL-ARCHIVO-ORIGEN] [NOMBRE-ARCHIVO-COPIA]
 		# Da detalles sobre lo que va haciendo.
 
 
-MV (Move): Mueve archivos o directorios.
+MV (Move): Mueve o renombra archivos o directorios.
 	$ mv [ARCHIVO-O-DIRECTORIO-ORIGEN] [RUTA-Y-ARCHIVO-O-DESTINO]
+	$ mv -i [ARCHIVO-O-DIRECTORIO-ORIGEN] [RUTA-Y-ARCHIVO-O-DESTINO]
+		# Pide confirmacion antes de sobreescribir un archivo.
+	$ mv [ARCHIVO1] [ARCHIVO2] [CARPETA1] [CARPETA2] [CARPETA-DESTINO]
+		# Puede mover multiples archivos y directorios. El ultimo elemento debe ser la carpeta de destino.
 
 
 RM (Remove): Elimina archivos y directorios.
@@ -86,6 +97,19 @@ LESS: Muestra todo el contenido de un archivo.
 	$ less [NOMBRE-DEL-ARCHIVO]
 	NOTA: presionando la tecla slash  (/) puedes hacer una busqueda dentro del documento, solo escribe y presiona enter.
 
+
+CAT (Concatenar): Concatena el conntenido de multiples archivos y los muestra en pantalla.
+	$ cat [ARCHIVO1] [ARCHIVO2] [ARCHIVO-ETC]
+
+
+TEE: Crea un archivo en base a una entrada. Generalmente se usa la salida estandar de otro comando como la entrada estandar del comando tee.
+	$ [COMANDO] [OPCION] | tee [NOMBRE-DEL-ARCHIVO] 
+
+
+SORT: Muestra de manera ordena alfabeticamente el contenido de un archivo.
+	$ sort [NOMBRE-DEL-ARCHIVO]
+
+
 XDG-OPEN: Abre el archivo o directorio con el programa predeterminado para su extension.
 	$ xdg-open [NOMBRE-DEL-ARCHIVO-O-DIRECTORIO]
 
@@ -105,11 +129,49 @@ HELP: Nos permite consultar la documentacion de un comando.
 MAN (Manual): Muestra el manual con la informacion de un comando.
 	$ man [COMANDO]
 
+
 INFO: Similar al comando $ man, pero un poco resumido.
 	$ info [COMANDO]
 
+
 WHATIS: Describe un comando en una sola linea (No funciona con todos los comandos)
 	$ whatis [COMANDO]
+
+
+WHOAMI: Devuelve el nombre del usuario actual.
+	$ whoami
+
+
+ID: Devuelve el UID de mi usuario, y mas informacion extra de a que grupos llega a pertenecer.
+	$ id
+
+
+SU (Switch User): Cambia de usuario.
+	$ su root
+
+
+CHMOD (Change Mode): Cambia los permisos de un archivo o directorio.
+	$ chmod 755 [ARCHIVO-O-DIRECTORIO]
+		# En representacion octal, el propietario tiene todos los permisos, el grupo y otros solo de lectura y ejecucion.
+	$ chmod -R 777 [DIRECTORIO]
+		# Asigna todos los permisos a un directorio y a todos los subdirectorios.
+	$ chmod a+rwx [ARCHIVO]
+		# Agrega permisos de lectura, escritura y ejecucion a todos los usuarios.
+	$ chmod g-w [ARCHIVO]
+		# Elimina el permiso de escritura al grupo.
+	$ chmod ugo+rwx [ARCHIVO] 
+		# Agrega permisos de escritura, lectura y ejecucion tanto al propietario como al grupo y a otros.
+	$ chmod go=rx [ARCHIVO]
+		# Da permisos de lectura y ejecucion al grupo y a otros, pero remueve el permiso de escritura.
+	$ chmod o= [ARCHIVO]
+		# Elimina todos los permisos al grupo otros.
+	$ chmod u+rwx,g=rw,o-rwx [ARCHIVO]
+		# Da todos los permisos al propietario, da permisos de lectura y escritura pero quita el permiso de ejecucion al grupo, y quita todos los permisos a otros.
+	$ chmod --reference=ref[ARCHIVO-DE-REFERENCIA] [ARCHIVO]
+		# Configura los permisos de el archivo para que sean los mismos del archivo de referencia.
+	$ chmod a+X *
+		Asigna permisos de ejecucion solo a los directorios de nuestro directorio de trabajo, sin tocar archivos.
+
 
 
 ----------------------------
@@ -129,10 +191,10 @@ NOTA 2:
 
 NOTA 3:
 	Un comando puede significar 4 cosas:
-	1- Un programa ejacutable.
-	2- Un comando de utilidad de shell. Esto es un programa en si mismo, que puede tener funciones como por ejemplo $ cd.
-	3- Una funcion de shell. Son funciones externas al comando de utilidad, por ejemplo $ mkdir.
-	4- Un alias. Como por ejemplo $ ls.
+		1- Un programa ejacutable.
+		2- Un comando de utilidad de shell. Esto es un programa en si mismo, que puede tener funciones como por ejemplo $ cd.
+		3- Una funcion de shell. Son funciones externas al comando de utilidad, por ejemplo $ mkdir.
+		4- Un alias. Como por ejemplo $ ls.
 
 NOTA 4:
 	El comando ALIAS crea alias temporales que duraran solo mientras la sesion actual este activa. Para crear alias permanentes se deben hacer dentro del archivo de configuracion de la shell. Y si creamos un alias con el mismo nombre de uno permanente el temporal tendra prioridad sobre el alias permanente durante la sesion actual.
@@ -140,9 +202,98 @@ NOTA 4:
 
 NOTA 4:
 	Los wildcard o comodines son una serie de caracteres que nos permiten encontrar patrones.
-	(*) Reemplaza todos los caracteres.
-	(?) Reemplaza un solo caracter. (??) Si son dos caracteres...  
-	([ci]) Busca por cualquiera de los caracteres especificos dentro de los corchetes. Distingue entre mayusculas y minusculas.
-	([5-8]) Busca entre el rango de 5 y 8.
+		(*) Reemplaza todos los caracteres.
+		(?) Reemplaza un solo caracter. (??) Si son dos caracteres...  
+		([ci]) Busca por cualquiera de los caracteres especificos dentro de los corchetes. Distingue entre mayusculas y minusculas.
+		([5-8]) Busca entre el rango de 5 y 8.
+			EJEMPLOS:
+			([[:upper:]]*) Nos mostraria todos los resultados que empiecen con mayuscula y que les sigan cualquier combinacion de caracteres. Para las minusculas se usa :lower:
+			NOTA: Si no agregamos los corchetes internos nos hara una busqueda por los caracteres (: u p p e r :)
 
 
+NOTA 5:
+	Las entradas y salidas en un comando son las direcciones en las que viaja la informacio con la que opera dicho comando, y son tres:
+		0	-	stdin	-	Standar Input: 
+			Entrada de datos al comando.
+		1	-	stdout	-	Standar Output: 
+			Salida que devuelve el comando. 
+		2	-	stderr	-	Standar Error: 
+			Salida que devuelve el comando cuando ha habido un error.
+	La informacion se puede redireccionar hacia y desde un comando con ciertos operadores. Como ejemplo tenemos:
+		(>) Redirecciona el standa output a un archivo, sobreescribiendo su contenido si el archivo ya existe, si no, lo crea.
+			Ejemplo:
+			[COMANDO] > [ARCHIVO-DE-DESTINO]
+			Puede crear un archivo vacio, en el que escribir linea a linea si se usa de la siguiente manera:
+			$ > [NOMBRE-DEL-ARCHIVO]
+		(>>) Concatena el standar output al final de un archivo conservando el contenido previo.
+			Ejemplo:
+			$ [COMANDO] >> [ARCHIVO-DE-DESTINO]
+		(2>) Redirecciona el standar error hacia un archivo. Tambien se puede usar el operador de concatenar (2>>)
+			Ejemplo:
+			$ [COMANDO] 2> [ARCHIVO-DE-DESTINO]
+		Se puede redireccionar el stdout y stderr a diferentes archivos con un mismo comando.
+			Ejemplo:
+			$ [COMANDO] > [ARCHIVO-STDOUT] 2> [ARCHIVO-STDERR]
+		(2>&1) Redirecciona la salida de un comando, sin importar si es un standar output o un standar error. Funciona para redireccion y para concatenacion igualmente.
+			Ejemplo:
+			$ [COMANDO] > [ARCHIVO-DE-DESTINO] 2>&1
+		(<<) HereDoc Redirecciona un bloque de texto interactivo delimitado por una palabra que hayamos especificado. Dejara de recibir entradas hasta que ingresemos la parabra delimitadora.
+			Ejemplo:
+			$ [COMANDO] << [PALABRA-DELIMITADORA]
+		(<<<) HereString Es muy parecida a HereDoc, con la diferencia que no se pasa un delimitador, sino que se pasa una cadena que es interpretada por el comando como un argumento. Este argumento puede ser una variable de shell.
+		Ejemplo:
+			$ bc <<< 5*5
+
+		
+NOTA 6:
+	(|) Pipe Operator es un operador que permite tomar la salida de un comando y lo combierte en la entrada de otro.
+		Ejemplo:
+			$ [COMANDO1] | [COMANDO2]
+			$ ls -lah | less
+
+
+NOTA 7:
+	Los operadores de control son sombolos reservados por la terminal que nos permiten concatenar comandos.
+		(;) Ejecutar varios comandos en una misma linea, de manera sincrona, o sea, en el orden que fueron escritos.
+			Ejemplo:
+			[COMANDO1] ; [COMANDO2] ; [COMANDO...]
+		(&) Ejecuta los comandos de manera asincrona, sin esperar que se termine de ejecutar el primero para luego ejecutar el segundo.
+			Ejemplo:
+			[COMANDO1] & [COMANDO2] & [COMANDO...]
+		(&&) Condicion AND. Ejecuta el segundo comando solo si el primero se ha ejecutado con exito.
+			Ejemplo:
+			[COMANDO1] && [COMANDO2] && [COMANDO...]
+		(||) Condicio OR. Ejecuta el primer comando que no produzca error, sin importar cuantos comandos se hayan escrito en esa linea, solo ejecutara UNO.
+
+
+NOTA 8:
+	Los permisos aparecen reflejados con el comando $ ls -l y el primer simbolo indica que clase de archivo es. Por ejemplo:
+		(-) Archivo normal.
+		(d) Directorio.
+		(l) Enlsace simbolico
+		(b) Bloque especial. Son archivos que manejan informacion para el sistema, como la informacion de un disco duro.
+	Los permisos se leen en grupos de tres en tres, y van en el siguiente orden:
+		* Owner: El dueno del archivo, quien lo creo a no ser que se haya cambiado. Le corresponde el primero, segundo y tercer caracter.
+		* Group: El grupo, del cual se le dan los mismos permisos a todos sus miembros. Le corresponden el cuarto, quinto y sexto caracter.
+		* World: Tambien llamado otros. Es cualquier otro usuario que no sea ni el propietario ni pertenezca a un grupo de usuarios. Le corresponden el septimo, octavo y noveno caracter.
+	Los permisos, dentro del grupo perteneciente a cada categoria, se escriben en el orden RWX(Readable, Writable y Executable). Para indicar que un permiso no esta disponible se reemplaza la letra correspondiente a un permiso por un gion (-)
+
+
+NOTA 9:
+	Para modificar los permisos de un archivo/directorio con el comando chmod se puede utilizar con el sistema octal o con sistema de notacion de texto.
+		Ejemplo de sistema octal: 
+			$ chmod -R 777 [ARCHIVO-O-DIRECTORIO]
+		Ejemplo de sistema de notacion de texto.
+			$ chmod -R u+rwx [ARCHIVO]
+			SIMBOLOS de GRUPO (Se pueden agrupar): 
+				(u) Propietario del archivo
+				(g) Grupo
+				(o) Otros
+				(a) Todos
+			SIMBOLOS de OPCIONES:
+				(+) Agrega permisos.
+				(-) Quita permisos.
+				(=) Asigna los permisos que se especifiquen y elimina los permisos anteriores. Si el simbolo no va precedido por un tipo de valor(rwx), quita todos los permisos.
+			NOTA: Se pueden agrupar grupos de permisos diferentes por cada tipo de usuario separados por comas sin espacio. Ejemplo:
+				$ chmod -R u=rwx,go=rw [ARCHIVO-O-DIRECTORIO]
+			
