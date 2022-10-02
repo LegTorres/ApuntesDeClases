@@ -147,7 +147,11 @@ ID: Devuelve el UID de mi usuario, y mas informacion extra de a que grupos llega
 
 
 SU (Switch User): Cambia de usuario.
-	$ su root
+	$ su [NOMBRE-DE-USUARIO]
+
+
+PASSWD (Password): Cambia la contrasena del usuario especificado.
+	$ passwd
 
 
 CHMOD (Change Mode): Cambia los permisos de un archivo o directorio.
