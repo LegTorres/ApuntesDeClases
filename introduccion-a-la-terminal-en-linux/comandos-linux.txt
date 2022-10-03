@@ -48,6 +48,11 @@ TOUCH: Actualiza la fecha de acceso y modificacion de cada fichero. Si no existe
 	$ touch [NOMBRE-DEL-ARCHIVO]
 
 
+LN (Link): Crea un enlace hacia una ubicacion especifica.
+	$ ln -s [RUTA-DEL-ENLACE] [NOMBRE-ENLACE]
+		#  Crea un enlace simbolico hacia una direccion especifica. Los enlaces simbolicos en si no tienen permisos.
+
+
 CP (Copy): Copia uno o varios archivos/directorios.
 	$ cp [NOMBRE-ARCHIVO-ORIGEN] [NOMBRE-ARCHIVO-COPIA]
 		# copia solo un archivo. Puede especificarse el nombre del archivo o carpeta que sera la copia de destino o solo el de la carpeta contenedora
@@ -177,6 +182,9 @@ CHMOD (Change Mode): Cambia los permisos de un archivo o directorio.
 		Asigna permisos de ejecucion solo a los directorios de nuestro directorio de trabajo, sin tocar archivos.
 
 
+PRINTENV (Print Enviroment Variable): Imprime el listado de las variables de entorno.
+	$ printenv
+
 
 ----------------------------
 | NOTAS SOBRE LOS COMANDOS |
@@ -301,3 +309,11 @@ NOTA 9:
 			NOTA: Se pueden agrupar grupos de permisos diferentes por cada tipo de usuario separados por comas sin espacio. Ejemplo:
 				$ chmod -R u=rwx,go=rw [ARCHIVO-O-DIRECTORIO]
 			
+
+NOTA 10:
+	Para agregar un directorio a la variable de entorno PATH, escribimos en el archivo de configuracion de nuestra shell (bash, zsh, etc.) la linea:
+		PATH=$PATH:[RUTA/A/MIS/BINARIOS]
+			# Los dos puntos se usan para separar rutas direfentes en la variable path.
+	Para crear variables de entorno en el archivo de configuracion de nuestra shell escribimos el nombre de la variable en mayusculas, con el siguiente formato:
+		NOMBRE_DE_MI_VARIABLE="[VALOR-DE-MI-VARIABLE]"
+			# No se deja espacios alrededor del igual.
