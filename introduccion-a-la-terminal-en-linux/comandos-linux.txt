@@ -186,6 +186,96 @@ PRINTENV (Print Enviroment Variable): Imprime el listado de las variables de ent
 	$ printenv
 
 
+FIND: Busca archivos en una ubicacion determinada.
+	$ find 
+		# Sin una ubicacion ni argumentos especificos muestra todo el contenido de la carpeta y sub carpetas.
+	$ find [RUTA/OPCIONAL] -name "[NOMBRE-A-BUSCAR]"
+		# Busca todos los archivos y directorios por nombre.
+	$ find -type [OPCION]
+		# Busca por tipo: archivo(f), directorio(d), o enlace simbolico(l). Se puede usar mas de uno si se separa por comas.
+	$ find -size [OPCION]
+		# Busca por tamanos. Se usan los simbolos: + = Mayores que y - = Menores que. Las unidades de medida son: c=Byte, k=Kilobyte, M=Megabyte y G=Gygabyte. Ejemplo: $ find . -size +4k
+	$ find  -empty
+		# Busca los directorio vacios.
+	$ find -maxdepth [NIVELES]
+		# Delimita en cuantos niveles de subdirectorios como maximo hara la busqueda (1 respresenta el nivel actual). 
+	$ find -mindepth [NIVELES]
+		# Delimita a partir de en que nivel de subdirectorios comenzara la busqueda 
+	
+
+WHICH: Muestra le ruta completa de un comando en shell (Siempre y cuando este sea un binario)
+	$ which [NOMBRE-DEL-COMANDO]
+
+
+WHEREIS: Muestra donde estan ubicados los binarios, fuentes y manuales de un comando.
+	$ whereis [COMANDO]
+
+
+GREP (Global Regular Expression Print): Busca texto dentro de un archivo o un standar output utilizando expresiones regulares (regex)
+	$ grep [EXPRESION-REGULAR] [ARCHIVO-DONDE-BUSCAR]
+	$ grep -i [EXPRESION-REGULAR] [ARCHIVO-DONDE-BUSCAR]
+		# Ignora distincion entre mayusculas y minusculas.
+	$ grep -c [EXPRESION-REGULAR] [ARCHIVO-DONDE-BUSCAR]
+		# Muestra cuantas veces se encuantra la palabra que buscamos.
+	$ grep -v [EXPRESION-REGULAR] [ARCHIVO-DONDE-BUSCAR]
+		# muestra los resultados que NO coinciden con la expresion regular.
+	$ grep -m [NUMERO] [EXPRESION-REGULAR] [ARCHIVO-DONDE-BUSCAR]
+		$ Limita la busqueda a los primeros resultados que especifiquemos.
+
+
+IFCONFIG: Muestra informacion sobre el dispositivo de red. (En algunas distribuciones linux no viene instalado por defecto)
+	$ ifconfig
+
+
+NETSTAT: Muestra informacion de la red, de forma mas amigable que ifconfig. (En algunas distribuciones linux no viene instalado por defecto)
+	$ netstat
+
+
+PING: Envia paquetes a un sitio web, y nos ayuda a saber si esta disponible o no.
+	$ ping [URL/DEL/SITIO/WEB]
+	$ ping -c [NUMERO] [URL/DEL/SITIO/WEB]
+		# Limita el numero de paquetes enviados.
+	$ ping -s [NUMERO] [URL/DEL/SITIO/WEB]
+		# Especifica el tamano de los paquetes enviados en bytes.
+
+
+CURL: Transfiere archivos hacia o desde un servidor en internet.
+	$ curl [URL/DEL/SITIO/WEB]
+
+
+WGET: Descarga uno o varios archivos desde internet.
+	$ wget [URL/DEL/SITIO/WEB]
+
+
+TRACEROUTE: Muestra las direcciones ip de todos los intermediarios entre el equipo que hace una peticion y el servidor. (En algunas distribuciones linux no viene instalado por defecto)
+	$ traceroute
+	
+
+IP: Muestra o manipula el enrutado, dispositivos de redes, interfaces y tuneles.
+	$ ip address
+		# Muestra la informacion de la ip de nuestro equipo.
+
+
+TAR: Comprime/descomprime archivos y directorios en formato: .tar, .tar.gz, tar.bz2 o .tgz. NOTA: En todos los casos hay que usar la letra (f) al final de las opciones para indicar que estamos comprimiendo/descomprimiendo.
+	$ tar -cf [NOMBRE-COMPRIMIDO].tar [ARCHIVOS/DIRECTORIOS-A-COMPRIMIR]
+		# Comprime uno o varios archivos o directorios. 
+	$ tar -cvf [NOMBRE-COMPRIMIDO].tar [ARCHIVOS/DIRECTORIOS-A-COMPRIMIR]
+		# Muestra en pantalla lo que el comando va comprimiendo.
+	$ tar -czf [NOMBRE].tar.gz [ARCHIVOS-DIRECTORIOS-A-COMPRIMIR]
+		# Comprime archivos o directorios en formato .tar.gz o tgz, segun se especifique.
+	$ tar -xzvf [ARCHIVO-COMPRIMIDO]
+		# Descomprime un archivo 
+
+
+ZIP | UNZIP: Comprime/descomprime archivos en formato .zip.
+	$ zip [COMPRIMIDO].zip [ARCHIVOS-A-COMPRIMIR]
+		# Comprime uno o varios archivos.
+	$ zip -r [COMPRIMIDO].zip [DIRECTORIO-A-COMPRIMIR]
+		# Comprime carpetas y sus subcarpetas en formato zip. 
+	$ unzip [COMPRIMIDO].zip
+		# Descomprime un archivo con formato zip.
+
+
 ----------------------------
 | NOTAS SOBRE LOS COMANDOS |
 ----------------------------
