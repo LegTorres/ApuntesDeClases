@@ -103,8 +103,9 @@ LESS: Muestra todo el contenido de un archivo.
 	NOTA: presionando la tecla slash  (/) puedes hacer una busqueda dentro del documento, solo escribe y presiona enter.
 
 
-CAT (Concatenar): Concatena el conntenido de multiples archivos y los muestra en pantalla.
+CAT (Concatenar): Concatena el conntenido de multiples archivos y los muestra en pantalla. 
 	$ cat [ARCHIVO1] [ARCHIVO2] [ARCHIVO-ETC]
+		# Si no se le especifica un archivo se puede usar el comando cat como un editor simple. Al terminar de escribir se presiona CTRL + D para guardar lo escrito y finalizar el proceso.
 
 
 TEE: Crea un archivo en base a una entrada. Generalmente se usa la salida estandar de otro comando como la entrada estandar del comando tee.
@@ -276,6 +277,33 @@ ZIP | UNZIP: Comprime/descomprime archivos en formato .zip.
 		# Descomprime un archivo con formato zip.
 
 
+PS: Muestra los procesos que estan activos e informacion sobre los mismos.
+	$ ps
+
+
+TOP: Muestra informacion detallada de los procesos, ademas de la gestion de recursos.
+	$ top
+		# Se puede filtrar por user presionando la tecla (u). Presionando la tecla (h) mostrara un cuadro de ayuda para mas opciones. Para salir presiona la techa (q).
+
+
+KILL: Matar un proceso en base a su PID.
+	$ kill [PID-DEL-PROCESO]
+
+
+JOBS: Muestra los trabajos en la sesion actual.
+	$  jobs
+
+
+FG (Foreground): Trae al foreground los procesos que estan en background.
+	$ fg [NUMERO-DE-TRABAJO]
+		# NOTA: En bash solo se escribe el numero del trbajo, pero en ZSH, debe escribirse el signo de porcentaje (%) delante del numero del trabajo.
+
+
+BG (Background): Manda procesos al background.
+	$ bg [NUMERO-DE-TRABAJO]
+		# NOTA: Este comando es util cuando abrimos un programa con interfaz grafica y no nos deja seguir usando la terminal. Podemos suspenderlo y luego mandarlo al background, de esa forma podremos seguir usando la terminal y el programa.
+
+
 ----------------------------
 | NOTAS SOBRE LOS COMANDOS |
 ----------------------------
@@ -407,3 +435,10 @@ NOTA 10:
 	Para crear variables de entorno en el archivo de configuracion de nuestra shell escribimos el nombre de la variable en mayusculas, con el siguiente formato:
 		NOMBRE_DE_MI_VARIABLE="[VALOR-DE-MI-VARIABLE]"
 			# No se deja espacios alrededor del igual.
+
+
+NOTA 11:
+	Combinacion de teclas en la terminal.
+	CTRL + D: Termina un proceso.
+	CTRL + Z: Suspende un proceso, con lo que despues podremos traerlo a foreground.
+	Para enviar un trabajo al background se puede hacer escribiendo el sumbolo (&) al final del comando.
