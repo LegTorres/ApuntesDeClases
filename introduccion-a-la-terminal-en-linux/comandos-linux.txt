@@ -304,6 +304,9 @@ BG (Background): Manda procesos al background.
 		# NOTA: Este comando es util cuando abrimos un programa con interfaz grafica y no nos deja seguir usando la terminal. Podemos suspenderlo y luego mandarlo al background, de esa forma podremos seguir usando la terminal y el programa.
 
 
+CHSH (Change Shell): Cambia la shell por defecto a nuestro emulador de terminal.
+	$ chsh
+		# Pedira ingresar la ruta al binario de la nueva shell por defecto.. Ejemplo: /bin/bash
 ----------------------------
 | NOTAS SOBRE LOS COMANDOS |
 ----------------------------
