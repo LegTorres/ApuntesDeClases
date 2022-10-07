@@ -1,3 +1,57 @@
 ==========================================
 | FLUJO DE DESARROLLO MODERNO CODESTREAM |
 ==========================================
+
+------------------------------------------
+| FLUJO DE TRABAJO Y PRINCIPO SHIFT LEFT |
+------------------------------------------
+
+
+Cual es la definicion de Flujo de trabajo?
+    Es una secuencia de tareas organizadas de cierta manera para llegar a la mayor eficiencia y productividad.
+
+
+Cuales son los ciclos de vida en software?
+    Cascada y moderno.
+
+
+Como se realiza el ciclo de un proyecto en cascada?
+    Cada grupo de trabajo realiza sus actividades de manera separada pasando de uno en uno.
+
+
+Como se realiza el ciclo moderno?
+    Todos los departamentos estan conectados de tal manera que trabajan uno con otro haciendop un flujo de trabajo.
+
+
+Que es el principio Shift Left?
+    Es el que indica que moviendo el enfoque de la calidad a la izquierda para comprimir el ciclo se logra mejor calidad y  mejor rendimiento. Esto se hace porque corregir errores en produccion es mucho mas caro que hacerlo al principio del diseno.
+
+
+Como se hace la revision de codigo en la colaboracion moderna?
+    Se hacen muchas revisiones de codigo pequenas a medida que se va desarrollando el proyecto. Esto hace que se tome mucho menos tiempo en promedio en cada revision.
+
+
+------------------------------
+| EL EDITOR DE TEXTO MODERNO |
+------------------------------
+
+
+Cual es el eje del flujo de trabajo en un desarrollador?
+    El editor de codigo.
+
+
+Que implica que los editores de codigo modernos sean extensibles?
+    Que se puede extender su funcionalidad a base de integrarle nuevas herramientas para mejorar la productividad al evitar cambiar de contexto y las distracciones.
+
+
+Cuales son los beneficios de la integracion en el editor?
+    - Ahorras tiempo.
+    - Reduces distracciones.
+    - Tienes acceso a todo el codigo en todo momento.
+    - Mejoras la calidad.
+    - Mejoras la comunicacion.
+    - No tienes que cambiar de herramientas.
+
+
+
+
