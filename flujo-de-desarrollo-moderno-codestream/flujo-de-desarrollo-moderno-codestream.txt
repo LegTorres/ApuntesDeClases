@@ -53,5 +53,6 @@ Cuales son los beneficios de la integracion en el editor?
     - No tienes que cambiar de herramientas.
 
 
-
+Que es un feedback request?
+    Es un concepto relacionado con un pull request, que se realiza antes para atomizar la colaboracion y permite pedir feedbacks sobre codigo en cualquier estado de tu repositorio.
 
