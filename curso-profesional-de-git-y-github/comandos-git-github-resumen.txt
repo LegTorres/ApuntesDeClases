@@ -10,6 +10,9 @@ Editar las configuraciones de git.
     $ git config --list --show-origin
         # Muestra donde esta el archivo de configuraciones.
 
+    $ git config --global init.defaultBranch <nombre>
+        # Cambia el nombre por defecto de la rama principal.
+
     $ git config --global user.name "nombre-de-usuario"
         # Configura el nombre de usiario.
 
