@@ -10,6 +10,9 @@ Editar las configuraciones de git.
     $ git config --list --show-origin
         # Muestra donde esta el archivo de configuraciones.
 
+    $ git config --global init.defaultBranch <nombre>
+        # Cambia el nombre por defecto de la rama principal.
+
     $ git config --global user.name "nombre-de-usuario"
         # Configura el nombre de usiario.
 
@@ -180,7 +183,7 @@ Tomar uno o mas commits de una rama sin necesidad de hacer merge (CHERRY-PICK).
 
 
 Generar llaves SSH.
-    $ ssh-keygen -t -rsa -b 4096 -C "<correo-electronico>"
+    $ ssh-keygen -t rsa -b 4096 -C "<correo-electronico>"
         # -t: Algoritmo para la creacion de las llaves.
         # -b: Complejidad de bytes del cifrado.
         # -C: A que correo se ligara la llave.
