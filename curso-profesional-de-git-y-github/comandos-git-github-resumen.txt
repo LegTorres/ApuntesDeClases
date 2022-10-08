@@ -180,7 +180,7 @@ Tomar uno o mas commits de una rama sin necesidad de hacer merge (CHERRY-PICK).
 
 
 Generar llaves SSH.
-    $ ssh-keygen -t -rsa -b 4096 -C "<correo-electronico>"
+    $ ssh-keygen -t rsa -b 4096 -C "<correo-electronico>"
         # -t: Algoritmo para la creacion de las llaves.
         # -b: Complejidad de bytes del cifrado.
         # -C: A que correo se ligara la llave.
