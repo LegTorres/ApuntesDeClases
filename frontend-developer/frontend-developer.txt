@@ -1,0 +1,163 @@
+===============================
+| CURSO DE FRONTEND DEVELOPER |
+===============================
+
+
+Cuales son las tres tecnologias esenciales sobre las que se contrulle la Web?
+    - HTML.
+    - CSS.
+    - JavaScript.
+
+
+Que es html?
+    El Lenguaje de Marcado de Hipertexto o HTML por sus siglas en ingles (HyperText Markup Language) es el codigo para construir la estructura de una pagina web.
+
+
+Que es CSS?
+    El lenguaje de Hojas de Estilo en Cascada o CSS por sus siglas en ingles (ascade Style Sheets) es el codigo para describir la presentacion de los elementos de la pagina web.
+
+
+Para que sirven las herramientas del navegador?
+    Para visualizar lo que ocurre con el codigo generado y para identificar los elementos estructurados en la pagina web con sus estilos.
+
+
+De que manera se despliegan las herramientas del navegador?
+    - F12
+    - Ctrl + Shift + I
+    - Cmd + Opt + I (En MacOs)
+    - Click Derecho > Inspeccionar.
+
+
+Que son los motores de renderizado?
+    Son programas que traducen nuestro codigo en un lenguaje que entienda el navegador y que asi pueda mostrarlo en pantalla.
+
+
+Cuales son los motores del navegador?
+    - Chrome    :   Blink
+    - Firefox   :   Gecko
+    - Edge      :   Blink (Hasta el 2020 usaba Edge HTML)
+    - Safari    :   Webkit
+
+Cuales son los cinco pasos del proceso de renderizado que realiza el navegador?
+    - Transforma los archivos a un arbol de objetos HTML o CSS, estos se denominan DOM (Document Object Model) y CSSDOM (Cascade Style Sheet Object Model). Cada nodo en el arbol es una representacion de los elementos que contiene el archivo HTML o CSS.
+    - Calcula el estilo correspondiente a cada nodo del DOM relacionado al CSSDOM.
+    - Calcula las dimensiones de cada nodo donde va la pantalla.
+    - Pinta o renderiza los diferentes elementos como cajas o contenedores.
+    - Agrupa todas las cajas en diferentes capas para convertirlas en una imagen que se renderiza en pantalla. 
+
+
+Cuales son los elementos que contiene la estructura de archivo HTML?
+    - Etiquetas: Es la representacion de un elemento HTML. Estan divididas en: 
+        - Etiquetas de apertura.
+        - Etiquetas de cierre.
+    - Contenido: Es todo el texto o elementos encerrados por la etiqueta, este valor es opcional en algunas de ellas.
+
+
+Que son los atributos HTML?
+    Son propiedades en las etiquetas de apertura que manejan el comportamiento del elemento. Su valor va entre comillas.
+
+
+Que son los elementos vacios?
+    Son aquellas etiquetas HTML que unicamente se representan en una etiqueta de apertura. Por ejemplo la etiqueta <img.../>. Estas etiquetas pueden cerrarse utilizando la barra inclinada (/) al final de la etiqueta.
+
+
+Que es el anidamiento de elementos?
+    Consiste en elvolver varias etiquetas en otras. Aquellas que envuelven a otras se las denomina padres, y las que son el contenido de otras se las denomina hijos.
+
+    
+Cuales son las etiquetas principales de la estructura basica de un archivo HTML?
+    - Etiqueta Doctype (<!DOCTYPE html>): 
+        Especifica que el archivo se maneje con la version 5 de HTML. No requiere etiqueta de cierre, y no precisa que se escriba la barra inclinada (/)
+    - Etiqueta HTML (<html></html>):
+        Define el elemento raiz dfe un docmento HTML. Todos los demas elementos deben estar contenidos dentro de ella. En esta etiqueta se especifica el lenguaje de pagina web mediante la propiedad (lang)
+    - Etiqueta Head (<head></head>):
+        Define toda la metainformacion, es decir toda la informacion que no es contenido como tal. Por ejemplo, los enlaces CSS, el titulo, la imagen que aparece en la pestana del navegador, etc. Es importante para motores de busqueda como Google.
+    - Etiqueta Body (<body></body>):
+        Define el contenido de la pagina web. Debe ser hijo cercano de <html> y padre de todas las etiquetas HTML, excepto aquellas que definan metainformacion.
+    - Comentarios HTML (<!-- -->):
+        Codigo o informacion que es ignorada por el navegador.
+
+
+En que consiste el HTML semantico?
+    En que cada elemento tenga su propia etiqueta que lo defina correctamente. sin utilizar etiquetas muy generales como <div> o <span>.
+
+
+Cual es el problema con la etiqueta <div> en un contexto semantico?
+    Es que esta define un bloque generico de contenido, que no tiene ningun valor semantico.
+
+
+Cuales son las etiquetas semanticas para definir una interfaz de una pagina web?
+    - HEADER:   Define el encabezado de la pagina.
+    - NAV:      Define una barra de navegacion que incluye enlaces.
+    - SECTION:  Define una seccion de la pagina.
+    - FOOTER:   Define un pie de pagina o de seccion.
+    - ARTICLE:  Define un articulo, el cual puede tener su propio encabezado.
+
+
+Cuales son las ventajas de utilizar HTML semantico?
+    - Ayuda a tu sitio a ser accesible.
+    - Mejora tu posicionamiento (SEO).
+    - Codigo mas claro, legible y mantenible.
+    - Ayuda a buscadores (como Google) a encontrar tu pagina.
+
+
+--------------------------------
+| ETIQUETAS DE HTML MAS USADAS |
+--------------------------------
+
+
+Las etiquetas de siseno mas usadas son las siguientes:
+
+    Etiquetas de layout o diseno:
+        HEADER
+        NAV
+        SECTION
+        ARTICLE
+        ASIDE
+        FOOTER
+
+    Etiquetas de enlace:    
+        A (anchor):     
+            Define un vinculo hacia una url. Se utiliza con el atributo href con el valor del enlace. Ejemplo: 
+                <a href="ruta-hacia-punto-enlace">TEXTO</a> 
+   
+    Etiquetas para texto:
+        H1...H6: 
+            Definen diferentes tipos de titulos con diferente orden de importancia donde H1 tiene la mayor relevancia. Solo debe existir un H1 por pagina web. Ejemplo:
+                <h1>Texto del Titulo</h1>
+        P: 
+            Define un parrafo. Ejemplo:
+                <p>Contenido del parrafo.</p>
+        SPAN: 
+            Define un contenedor generico de tipo inline. Igual que div, debe evitar su uso innecesario dado que no tiene valor semantico. Se suelen usar para darles estilo a alguna palabra o flase que queramos resaltar. Eemplo:
+                <span>Contenido</span>
+   
+    Etiquetas para multimedia:
+        IMG:
+            Define una imagen. Es necesario especificar el atributo SRC con la url de la imagen. El atributo ALT representa un texto alternativo en caso de que la imagen no cargue correctamente. Ejemplo:
+                <img src="URL-DE-LA-IMAGEN" alt="TEXTO-ALTERNATIVO"/>
+        SVG:
+            Define un svg. Ejemplo
+                <svg>CONTENIDO</svg>
+        IFRAME:
+            Define un contenerdor para una pagina web dentro de otra pagina web.
+        VIDEO:
+            Define un contenedor de video.
+
+    Etiquetas para Formularios:
+        FORM:
+            Define un formulario.
+        INPUT:
+            Define un elemento de entrada del formulario. Es necesario especificar el tipo de elemento con el atributo type. Exieten varios tipos de input.
+        LABEL:
+            Define el titulo para la etiqueta INPUT. Es utilizado para acciones de accesibilidad.
+        BUTTON:
+            Define un boton. Es usado para la interactividad de la pagina.
+  
+    Etiquetas para listas: 
+        UL: 
+            Define una lista DESORDENADA.
+        OL:
+            Define una lista ORDENADA.
+        LI:
+            Define un elemento dentro de una lista.
