@@ -101,63 +101,216 @@ Cuales son las ventajas de utilizar HTML semantico?
     - Ayuda a buscadores (como Google) a encontrar tu pagina.
 
 
+-----------------------------
+| NOTAS SOBRE EL USO DE CSS |
+-----------------------------
+
+
+Que es una declaracion CSS?
+    Es un bloque que especifica el conjunto de estilos que se anadiran a un elemento HTML. Su estructura contiene lo siguiente:
+        - Selector:
+            Define el elemento o conjunto de ellos a los cuales se agregaran los estilos.
+        - Propiedad:
+            Es el nombre del estilo de CSS.
+        - Valor:
+            Es el valor que tomara la propiedad.
+
+
+Como se establecen los tamanos de los elementos o tipografias?
+    - PX (px):
+        Establece una longitud en pixeles.
+    - PORCENTAJE (%):
+        Establece un porcentaje con respecto a una medida base.
+
+
+Cuales son los tipos de selectores?
+    SELECTORES BASICOS:
+        - Selectores de Tipo:
+            Selecciona los elementos que coincidan con el nombre de una etiqueta HTML.
+        - Selector de Clase:
+            Selecciona todos los elementos que coincidan con las etiquetas HTML que contengan el atributo class con el mismo valor. Para especificarla se escribe el signo de punto (.) delante del nombre de clase.
+        - Selector de Identificador Unico (id):
+            Selecciona el unico elemento que coincida con la etiqueta HTML que contenga el atributo id con dicho valor. Se especifica colocando el simbolo de numeral (#) delante del nombre de id.
+        - Selector de Atributo:
+            Selecciona los elementos que coincidan con la etiqueta HTML que contenga el atributo y valor especificado. Se especifica escribiendo el nombre de la etiqueta HTML, seguido de atributo y valor entre corchetes. Por ejemplo:
+                a[href="URL"]{}
+        - Selector Universal:
+            Selecciona todos los elementos del documento mediante un asterisco (*).
+    SELECTORES COMBINADORES (Union de dos o mas selectores):
+        - Combinadores Descendientes:
+            Selecciona todos los elementos del selector de la derecha que son hijos del selector de la izquierda, independientemente de la profundidad. Van separados por espacio . Ejemplo: 
+                padre hijo { } 
+        - Combinador de Hijo Directo:
+            Selecciona todos los elementos de la redecha que son hijos directos (En el primer nivel de profundidad) de la izquierda. Estan separados por el simbolo mayor que (>). Por ejemplo:
+                padre > hijos_directos
+        - Combinador de Elementos Adyacentes:
+            Selecciona todos los elementos del selector de la derecha que esten adyacentes (que compraten el mismo padre y estan inmediatamente situados hacia abajo de otro elemento)  al selector de la izquierda. Estan separados por el signo mas (+). Ejemplo:
+                elemento_html + elemento_adyacente { }
+        - Combinador General de Hermanos:
+            Selecciona todos los elementos del selector de la derecha que son hermanos (Que comparten el mismo padre y estan situados hacia abajo de otro elemento) de selector de la izquierda. Estos selectores estan separados por el simbolo de virgulilla (~). 
+                Nota: Una vecumplida la regla especificada en el combinador(A inmediatamenbte despues de B), no importa si las siguentes etiquetas cumplen esa condicion, el estilo se aplicara siempre.
+    SELECTORES DE PSEUDOCLASES:
+        - Definen el estilo de un estado especial de un elemento. Por ejemplo si esta posicionado el puntero del mouse sobre un elemento o si un enlace ha sido visitado o no, etc.  La pseudoclase va separada del selector por los dos puntos (:). Ejemplo:
+            selector : pseudoclase
+    SELECTORES DE PSEUDOELEMENTOS:
+        - Definen el estilo de una parte especifica de un elemento. Los pseudoelementos van separados de los selectores por dos puntos dobles (::). Ejemplo:
+            selector ::pseudoelemento
+            Nota: No debe haber espacio entre los dos puntos dobles y el pseudoelemento.
+        
+
+Cuales son las pseudoclases mas utilizadas?
+    :HOVER:
+        Representa el estado en el cual es cursor esta encima del elemento.
+    :FOCUS:
+        Representa el estado en el cual un elemento dentro de un formulario ha recibido el foco.
+    :ACTIVE:
+        Representa el estado de un elemento que no ha sido visitado.
+    :VISITED:
+        Representa el estado de un elemento que ya ha sido visitado.
+    :NOT():
+        Representa el estado en el cual no coinciden los selectores que se indiquen. Ejemplo:
+            selector : not(selector-a-excluir) { }
+            Aplicara los estilos a todos los elementos "selector" excepto al que coincide con "selector-a-excluir".
+    :NTH-CHILD():
+        Representa el estado en el cual coinciden los hijos del elemento segun el valor indicado.
+        NOTA: La formula matematica es: An+B, donde A y B son numeros enteros. Ejemplo:
+                selector: nht-child(valor)
+                Seleccionaria de entre los elementos "selector" a aquel que coincida con "valor"
+                Valores de palabras clave:
+                    odd: Los elementos hijos en posiciones pares.
+                    even: Los elementos hijos en posiciones impares.
+            
+
+Cuales son los Pseudoelementos mas utilizados?
+    ::BEFORE:
+        Agrega un contenido (mediante la propiedad content) ANTES del elemento. 
+        Ejemplo, agregando un asterisco rojo delante de cada h2:
+            h2::before{content: " * "; color: red;} 
+    ::AFTER:
+        Agrega un contenido DESPUES del elemento. Se usa igual que el pseudoelemento before.
+    ::FIRST_LETTER:
+        Agrega estilos a la primera letra del texto de cualquier elemento.
+    ::PLACEHOLDER:
+        Agrega estilos al texto provisional en un elemento input o elemento textarea.
+    
+
+Qué es la cascada en CSS?
+    La cascada es el concepto que determina qué estilos se colocan sobre otros, priorizando a aquellos que se encuentren más abajo del código. 
+
+
+Qué es especificidad en CSS
+    Consiste en dar un valor a una regla CSS sobre qué tan específico es el estilo, esto para que los navegadores puedan saber qué estilos aplicar sobre otros, independientemente de dónde se encuentren en el código. El estilo se aplicará donde la especificidad sea mayor.
+
+
+Cuales son los 6 tipos de especificidad?
+    1 !important (10000):
+        La palabra reservada !important es un valor de toda propiedad CSS que provee una especificidad de 10000, por lo que se aplicará ante otros estilos. Esto es una mala práctica.
+    2 Estilos en Linea (1000):
+        Son las propiedades CSS escritas en el HTML a través de la propiedad style de toda etiqueta. También es una mala práctica.
+    3 Selectores Tipo ID (100):
+    4 Selectores Tipo CLASES, ATRIBUTOS y PSEUDOCLASES (10):
+    5 Selectores Tipo ELEMENTOS y PSEUDOELEMENTOS (1):
+    6 Selectores de tipo UNIVERSAL (0):
+    NOTA: Los selectores combinadores suman la especifidad de cada selector basico para obtener le especificidad total de la regla CSS.
+
+
+Que es la propiedad display?
+    Es la que establece el tipo de visualizacion de los elementos HTML sin afectar el flujo normal de los elementos. Existen etiquetas que por defecto su display ya está determinado, como la etiqueta <div> que tiene display block, <span> tiene display inline y <button> tiene display inline-block.
+
+
+Cuales son los tipos de display mas usados?
+    - Visualizacion en  bloque (block):
+        Establece que un elemento ocupará todo el espacio disponible por defecto y el siguiente elemento a este se situará por debajo. Es posible añadir medidas de anchura y altura a estos a elementos. También es posible agregar todas las propiedades del modelo de caja.
+    - Visualizacion en linea (inline):
+        Establece que un elemento ocupará el espacio del contenido del mismo y el siguiente elemento se situará a la derecha. No es posible añadir medidas de anchura y altura a estos a elementos. Tampoco es posible agregar todas las propiedades del modelo de caja, únicamente funcionará la propiedad margin en el eje horizontal.
+    - Visualizacion de bloque y linea (inline-block):
+        Combina las ventajas de bloque de colocar medidas al elemento y propiedades del modelo de caja correctamente; con las ventajas de inline de colocar un elemento seguido de otro en el mismo espacio. Si elemento excede el contenido total, se coloca en la siguiente línea por debajo.
+    - Visualizacion nula (none):
+        Desactiva la visualización de un elemento, como si el elemento no existiera.
+    - Visualizacion Flex (flex):
+        Consiste en el ordenamiento de elementos hijos en un solo eje, por defecto horizontalmente. El elemento padre o contenedor deberá contener la propiedad display con el valor flex. A partir de aquí, ya puedes ordenar los hijos según sea necesario.
+    - Visualizacion Grid (grid)
+        Consiste en el ordenamiento de elementos hijos en dos ejes, como si fuera una cuadrícula o tabla. El elemento padre o contenedor deberá contener la propiedad display con el valor grid y debes definir las medidas de las columnas y de las filas. A partir de aquí, ya puedes ordenar los hijos según sea necesario.
+    NOTA: 
+        El display flex y grid son formas de visualización de elementos recientes y cada uno tienen sus propias características para crear interfaces de manera efectiva, a partir de un contenedor padre que dotará a los elementos hijos de capacidades de posicionamiento. Ambas son herramientas muy útiles en el desarrollo, especialmente para la creación de interfaces amigables al usuario y aptas para responsive design.
+
+        
+NOTA CURIOSA POR INVESTIGAR:
+    Parece ser que si se escribe un espacio entre el pseudoelemento o pseudoclase y el selector en el archivo HTML da no aplica algunos estilos, mientras que dentro del archivo CSS es al reves, pues el no dejar ese espacio es el que genera el error.
+
+
 --------------------------------
 | ETIQUETAS DE HTML MAS USADAS |
 --------------------------------
 
 
-Las etiquetas de siseno mas usadas son las siguientes:
+Etiquetas de layout o diseno:
+    HEADER
+    NAV
+    SECTION
+    ARTICLE
+    ASIDE
+    FOOTER
 
-    Etiquetas de layout o diseno:
-        HEADER
-        NAV
-        SECTION
-        ARTICLE
-        ASIDE
-        FOOTER
+Etiquetas de enlace:    
+    A (anchor):     
+        Define un vinculo hacia una url. Se utiliza con el atributo href con el valor del enlace. Ejemplo: 
+            <a href="ruta-hacia-punto-enlace">TEXTO</a> 
 
-    Etiquetas de enlace:    
-        A (anchor):     
-            Define un vinculo hacia una url. Se utiliza con el atributo href con el valor del enlace. Ejemplo: 
-                <a href="ruta-hacia-punto-enlace">TEXTO</a> 
-   
-    Etiquetas para texto:
-        H1...H6: 
-            Definen diferentes tipos de titulos con diferente orden de importancia donde H1 tiene la mayor relevancia. Solo debe existir un H1 por pagina web. Ejemplo:
-                <h1>Texto del Titulo</h1>
-        P: 
-            Define un parrafo. Ejemplo:
-                <p>Contenido del parrafo.</p>
-        SPAN: 
-            Define un contenedor generico de tipo inline. Igual que div, debe evitar su uso innecesario dado que no tiene valor semantico. Se suelen usar para darles estilo a alguna palabra o flase que queramos resaltar. Eemplo:
-                <span>Contenido</span>
-   
-    Etiquetas para multimedia:
-        IMG:
-            Define una imagen. Es necesario especificar el atributo SRC con la url de la imagen. El atributo ALT representa un texto alternativo en caso de que la imagen no cargue correctamente. Ejemplo:
-                <img src="URL-DE-LA-IMAGEN" alt="TEXTO-ALTERNATIVO"/>
-        SVG:
-            Define un svg. Ejemplo
-                <svg>CONTENIDO</svg>
-        IFRAME:
-            Define un contenerdor para una pagina web dentro de otra pagina web.
-        VIDEO:
-            Define un contenedor de video.
+Etiquetas para texto:
+    H1...H6: 
+        Definen diferentes tipos de titulos con diferente orden de importancia donde H1 tiene la mayor relevancia. Solo debe existir un H1 por pagina web. Ejemplo:
+            <h1>Texto del Titulo</h1>
+    P: 
+        Define un parrafo. Ejemplo:
+            <p>Contenido del parrafo.</p>
+    SPAN: 
+        Define un contenedor generico de tipo inline. Igual que div, debe evitar su uso innecesario dado que no tiene valor semantico. Se suelen usar para darles estilo a alguna palabra o flase que queramos resaltar. Eemplo:
+            <span>Contenido</span>
 
-    Etiquetas para Formularios:
-        FORM:
-            Define un formulario.
-        INPUT:
-            Define un elemento de entrada del formulario. Es necesario especificar el tipo de elemento con el atributo type. Exieten varios tipos de input.
-        LABEL:
-            Define el titulo para la etiqueta INPUT. Es utilizado para acciones de accesibilidad.
-        BUTTON:
-            Define un boton. Es usado para la interactividad de la pagina.
-  
-    Etiquetas para listas: 
-        UL: 
-            Define una lista DESORDENADA.
-        OL:
-            Define una lista ORDENADA.
-        LI:
-            Define un elemento dentro de una lista.
+Etiquetas para multimedia:
+    IMG:
+        Define una imagen. Es necesario especificar el atributo SRC con la url de la imagen. El atributo ALT representa un texto alternativo en caso de que la imagen no cargue correctamente. Ejemplo:
+            <img src="URL-DE-LA-IMAGEN" alt="TEXTO-ALTERNATIVO"/>
+    SVG:
+        Define un svg. Ejemplo
+            <svg>CONTENIDO</svg>
+    IFRAME:
+        Define un contenerdor para una pagina web dentro de otra pagina web.
+    VIDEO:
+        Define un contenedor de video.
+
+Etiquetas para Formularios:
+    FORM:
+        Define un formulario.
+    INPUT:
+        Define un elemento de entrada del formulario. Es necesario especificar el tipo de elemento con el atributo type. Exieten varios tipos de input.
+    LABEL:
+        Define el titulo para la etiqueta INPUT. Es utilizado para acciones de accesibilidad.
+    BUTTON:
+        Define un boton. Es usado para la interactividad de la pagina.
+
+Etiquetas para listas: 
+    UL: 
+        Define una lista DESORDENADA.
+    OL:
+        Define una lista ORDENADA.
+    LI:
+        Define un elemento dentro de una lista.
+
+
+---------------------------------
+| PROPIEDADES DE CSS MAS USADAS |
+---------------------------------
+
+
+COLOR:
+    Establece el color de texto de un elemento.
+BACKGROUND-COLOR:
+    Establece un color de fondo de un elemento.
+FONT-SIZE:
+    Establece el tamano de la fuente.
+WIDTH:
+    Establece el ancho de un elemento.
+HEIGHT:
+    Establece la altura de un elemento.

@@ -1,0 +1,32 @@
+nav  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+    
+}
+
+
+nav ul li a{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+nav ul li :hover {
+    background-color: lightgreen;
+}
+nav ul li::after {
+    content: "|";
+    margin:1rem;
+    color: red;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+
+a {
+  text-decoration: none;  
+}

@@ -1,0 +1,68 @@
+=====================================================
+| CURSO DE PREWORK PREPARANDO EL ESPACIO DE TRABAJO |
+=====================================================
+
+
+---------------------------
+| EXTENSIONES DE VS CODE: |
+---------------------------
+
+
+    Auto Rename Tag
+    Color Highlight
+    Live Server
+    Material Icon Theme
+    Prettier - Code Formatter
+    C/C++
+    C/C++ Compile Run
+
+
+--------------------------------------------------
+| COMANDOS Y TRUCOS UTILES DE VISUAL STUDIO CODE |
+--------------------------------------------------
+
+
+    CTRL + ALT + SHIFT + ARROW KEY (Funciona en Manjaro Kde)
+        Copia una linea de codigo.
+    SHIFT + TAB
+        Mueve la tabulacion de multiples lineas de codigo hacia la izquierda.
+    CTRL + /
+        Comenta las lineas seleccionadas.
+
+---------------------------
+| INSTALACION DE NODE-JS: |
+---------------------------
+
+
+    Instalando NVM:
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+    Instalando NODEJS a traves de NVM
+        nvm install --lts
+
+
+----------------------------------------
+| CREANDO UNA APLICACION CON REACT-JS: |
+----------------------------------------
+
+
+    npx create-react-app nombre-de-mi-aplicacion
+    cd nombre-de-mi-aplicacion
+    npm start
+
+
+-------------------------------
+| PERSONALIZACION DE TERMINAL |
+-------------------------------
+
+
+    Instalando PowerLine:
+        sudo apt install powerline
+        Agregar las siguientes lineas de codigo al archivo .bashrc:
+        powerline-daemon -q
+            POWERLINE_BASH_CONTINUATION=1
+            POWERLINE_BASH_SELECT=1
+            . /usr/share/powerline/bindings/bash/powerline.sh
+        Agregar las siguientes lineas de codigo al archivo .zshrc:
+            powerline-daemon -q
+            . /usr/share/powerline/bindings/zsh/powerline.zsh

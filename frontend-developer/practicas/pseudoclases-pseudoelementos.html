@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudoclases y Pseudoelementos</title>
+    <style>
+
+        section{
+            color:white;
+            background-color: darkslategrey;
+            margin: 40px;
+            padding: 5px 20px;
+            border-radius: 15px;
+        }
+        div {
+            padding: 10px;
+        }
+
+        #hover:hover{
+            color: salmon;
+            background-color: blue;
+        }
+        section div:nth-child(odd) {
+            color: red;
+        }
+        
+        section div:nth-child(even) {
+            color: turquoise;
+        }
+        section div:nth-child(1) {
+            color: yellow;
+        }
+        input::placeholder{
+            color: rgb(255, 0, 123);
+        }
+        div::before {
+            content: " | ";
+        }
+        div::after {
+            content: " | ";
+            color: red;
+        }
+        #uno {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Pseudoclases y Pseudoelementos</h1>
+
+    <section>
+        <div><a href="index.html">Regresar</a> prueba de :nth-child(1)</div>
+        <h2>Pseudoclases</h2>
+
+        <div id="hover"> :Hover</div>
+        <div> :Active</div>
+        <div> :Visited</div>
+        <div> :Not()</div>
+        <div> :nth-child()</div>
+    </section>
+
+    <section>
+
+        <h2>Pseudoelementos</h2>
+
+        <div id="uno">Uno</div>
+        <div>Dos</div>
+        <div>Tres</div>
+        <div>Cuatro</div>
+        <div>Cinco</div>
+        <div>Seis</div>
+        <div>Siete</div>
+        <div>Ocho</div>
+        <div><input type="text" placeholder="Nombre de placeholder"></div>
+    </section>
+</body>
+</html>

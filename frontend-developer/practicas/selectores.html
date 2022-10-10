@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectores</title>
+</head>
+<body>
+    <style>
+        /****************************
+         * Selectores Basicos *
+         ***************************/
+        body {
+            background: blue;
+        }
+        div {
+            border: black 5px solid;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        .seccion{
+            margin: 40px;
+            background-color: darkslategrey;
+            padding: 5px 20px;
+            border-radius: 15px;
+        }
+
+        #titulo {
+            background-color: darkgreen;
+            padding: 10px;
+            text-align: center;
+        }
+
+        a[href="index.html"]{
+            background: green;
+            padding: 5px;
+            margin-bottom: 100px;
+        }
+
+        * {
+            color: #eee;
+        }
+
+        /****************************
+         * Selectores Combinadores *
+         ***************************/
+
+         /* Combinador de Descendiente*/
+        div div{
+            color: black;
+            background: white;
+            border: black 1px solid;
+            border-radius: none;
+            margin: 25px;
+            padding: 10px;
+        }
+         
+        /* Combinador de Hijo directo*/
+        section > p{
+            color: darkgreen;
+            background-color: rgb(34, 32, 32);
+            padding: 10px;
+        }
+
+        /* Combinador Adyacente */
+        p + a {
+            color: black;
+        }
+
+        /* Combinador hermano */
+        p ~ h3 {
+            color: red;
+        }
+        
+    </style>
+
+    <h1 id="titulo">Selectores en CSS</h1>
+
+    <section class="seccion">
+        <h2 class="subtitulo"> Haciendo uso de selectores especificos</h2>
+        <a href="index.html">Regresar</a>
+        <a href="etiquetas.html">Etiquetas HTML</a>
+        <p>Etiqueta parrafo para ejemplo de selectores</p>
+    </section>
+
+    <section class="seccion">
+
+        <h2 class="subtitulo"> Haciendo uso de selectores combinadores</h2>
+        <a href="">Enlace hijo de section</a>
+        <p>Parrafo hijo de section</p>
+
+        <div>
+            <h3>Combinador adyacente</h3>
+            <p>Parrafo 1 nieto de section</p>
+            <a href="">Enlace 1</a>
+            <p>parrafo 2</p>
+            <a href="">Enlace 2</a>
+            <a href="">Enlace 3</a>
+            <p></p>
+            <a href="">Enlace 4</a>
+           
+        </div>
+        <div>
+            <h3>Combinador Hermano antes de una etiqueta p1</h3>
+
+            <h3>Combinador Hermano antes de una etiqueta p2</h3>
+            <h3>Combinador Hermano antes de una etiqueta p3</h3>
+            <p>Parrafo 1 nieto de section</p>
+            <h3>Primer Encabezado</h3>
+            <p>Parrafo 2</p>
+            <h3>Segundo Encabezado3 </h3>
+            <h3>Segundo Encabezado4 </h3>
+            <h3>Segundo Encabezado5 </h3>
+            <h3>Segundo Encabezado6 </h3>
+            <h3>Segundo Encabezado7 </h3>
+            <h3>Segundo Encabezado8 </h3>
+            <a href=""></a>
+            <img src="" alt="No Imagen">
+            <h3>Segundo Encabezado9 </h3>
+            <h3>Segundo Encabezado10 </h3>
+
+            
+           
+        </div>
+        <p>Parrafo hijo ultimo de section</p>
+
+    </section>
+    
+</body>
+</html>
