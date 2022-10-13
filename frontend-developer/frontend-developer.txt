@@ -234,9 +234,85 @@ Cuales son los tipos de display mas usados?
     NOTA: 
         El display flex y grid son formas de visualización de elementos recientes y cada uno tienen sus propias características para crear interfaces de manera efectiva, a partir de un contenedor padre que dotará a los elementos hijos de capacidades de posicionamiento. Ambas son herramientas muy útiles en el desarrollo, especialmente para la creación de interfaces amigables al usuario y aptas para responsive design.
 
-        
+
+Cuales son los cuatro elementos de los que se compone el modelo de caja?
+    - MARGING
+        Consiste en el espacio entre el borde y otro elemento HTML. Puedes establecer el margin en cada posición en una sola línea de las siguientes maneras:
+            margin: [arriba] [derecha] [abajo] [izquierda]
+            margin: [arriba] [abajo] [derecha e izquierda]
+            margin: [arriba y abajo] [derecha e izquierda]
+        NOTA: Los margenes superior e inferior de dos elementos que chocan el uno con el otro tienden a solaparse, por lo que si los dos elementos tienen un margen de 10px no tendran 20px de separacion, sino solo 10px.
+    - BORDER
+        El perfil o borde de un elemento HTML. Tiene las siguientes propiedades:
+            border-color: El color del borde.
+            border-width: La anchura del borde.
+            border-style: El estilo propio del borde, estos pueden ser: 
+                none (Sin borde)
+                dotted (puntos)
+                dashed (guiones)
+                solid (continuo)
+                double (doble continuo)
+                groove (recuadro)
+        NOTA: También se puede establecer los tres valores en una sola propiedad border donde no importa el orden, ademas de poder asignar los valores de cada lado de forma individual.
+    - PADDING
+        Es el espacio entre el borde y el contenido del elemento HTML. Puedes establecer el padding en cada posición en una sola línea de las siguientes maneras:
+            padding: [arriba] [derecha] [abajo] [izquierda]
+            padding: [arriba] [abajo] [derecha e izquierda]
+            padding: [arriba y abajo] [derecha e izquierda]
+    - CONTENIDO
+    NOTA: Es una buena practica utilizar un selector universal para restablecer los valores de marging y padding a 0 para evitar errores inseperados.
+
+
 NOTA CURIOSA POR INVESTIGAR:
     Parece ser que si se escribe un espacio entre el pseudoelemento o pseudoclase y el selector en el archivo HTML da no aplica algunos estilos, mientras que dentro del archivo CSS es al reves, pues el no dejar ese espacio es el que genera el error.
+
+
+Que es el tamano total del elemento?
+    Es la suma de los valores de las propiedades border, padding y width o height,  dependiendo del eje. La propiedad margin no está incluida en este cálculo.
+
+
+Que es la propiedad box-sizing?
+    Es aquella que establece como se calculara el width y el height si incluyen bordes y espacios internos (padding). Es buena practica colocarla en el selctor universal para que todos los elementos sigan esta tendencia. Sus valores son:
+        border-box:
+            El tamano total del elemento sera igual al especificado en el width y height, provocando que las medidas del contenido cambien con respecto a los bordes y espacios internos para adaptarse a la media especificada. De esa manera, contenido, border y padding se ajustaran al width y height.
+
+
+Cual es el problema que suele surgir con el tamano de los bordes y como se soluciona?
+    Que en caso de, por ejemplo, agregar un borde al realizar un hover el elemento podra necesitar un espacio adicional, y en un contenedor con mas elementos esto puede provocar conflictos. 
+    Se soluciona colocando un borde TRANSPARENTE del mismo tamano que el otro borde, esto hara que el elemento mantenga su tamano total.
+
+
+Que es el colapso de margenes en dos elementos?
+    Es cuando dos elementos bloque adyacentes tienen un determinado valor de margin, entonces estos márgenes se solapan en un solo valor, el mayor de ambos. Esto no sucede cuando los elementos no son bloque (como por ejemplo flex, grid o inline-block) o cuando estan dentro de un contenedor que no sea bloque.
+
+
+En que consiste el posicionamiento en CSS?
+    En cómo un elemento se situará, con respecto a su elemento padre y al flujo normal del documento. El flujo normal del documento es el orden de los elementos establecidos en el HTML.
+
+Cuales son las propiedades de posicion en CSS?
+    POSITION
+    TOP
+    BOTTOM
+    LEFT
+    RIGHT
+    NOTA: Los ultimos cuatro valores estan establecidos en el padre proximo que tenga la posicion relative. Si top y bottom están definidos, top gana. Si left y rigth están definidos, left gana. 
+
+Como se define la propiedad position?
+    STATIC
+        Es el valor por defecto de todo elemento HTML, consiste en respetar el flujo normal del documento donde las propiedades de posición no pueden ser establecidas.
+    RELATIVE
+        Consiste en respetar el flujo normal del documento donde las propiedades de posición sí pueden ser establecidas.
+    ABSOLUTE
+        Consiste en quitar al elemento del flujo normal del documento donde las propiedades de posición sí pueden ser establecidas. Nota, el elemento que sigue da la impresion de desaparecer de la pantalla debido a que se posiciona por detras de el elemento con posicionamiento absoluto.
+        NOTA: El elemento con posición absoluta se desplazará arriba, abajo, izquierda o derecha con respecto al elemento padre más próximo con posición relativa. Si no existe un padre con posición relativa de un elemento con posición absoluta, este se desplazará con respecto al elemento raíz del documento.
+    STICKY
+        Consiste en quitar al elemento del flujo normal del documento y fijarlo en un lugar mientras su contenedor sea visible donde las propiedades de posición sí pueden ser establecidas. Cuando deja de ser visible, el siguiente elemento con la propiedad sticky ocupa su lugar. NOTA: Esta propiedad solo funciona si tiene otros elememtos hermanos con dicha propiedad
+    FIXED
+        Consiste en quitar al elemento del flujo normal del documento y fijarlo en un lugar; donde las propiedades de posición sí pueden ser establecidas.
+    INITIAL
+        Indica cual es la posicion inicial del elemento que queremos formatear.
+    INHERITAL
+        Indica que el elemento hereda las propiedades del elemento padre.
 
 
 --------------------------------
