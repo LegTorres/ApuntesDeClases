@@ -289,6 +289,7 @@ Que es el colapso de margenes en dos elementos?
 En que consiste el posicionamiento en CSS?
     En cómo un elemento se situará, con respecto a su elemento padre y al flujo normal del documento. El flujo normal del documento es el orden de los elementos establecidos en el HTML.
 
+
 Cuales son las propiedades de posicion en CSS?
     POSITION
     TOP
@@ -296,6 +297,7 @@ Cuales son las propiedades de posicion en CSS?
     LEFT
     RIGHT
     NOTA: Los ultimos cuatro valores estan establecidos en el padre proximo que tenga la posicion relative. Si top y bottom están definidos, top gana. Si left y rigth están definidos, left gana. 
+
 
 Como se define la propiedad position?
     STATIC
@@ -313,6 +315,67 @@ Como se define la propiedad position?
         Indica cual es la posicion inicial del elemento que queremos formatear.
     INHERITAL
         Indica que el elemento hereda las propiedades del elemento padre.
+
+
+En que consiste el contexto de apilamiento?
+    En la superposición de capas o elementos a lo largo del eje Z del navegador. Esto es importante para evitar que un elemento esté ocultando a otro. 
+    
+    
+Que son los planos y ejes?
+    El navegador está constituido de tres planos y ejes: el ancho o X; el alto o Y; y el de profundidad o Z. El eje X positivo está hacia la derecha; el eje Y positivo está hacia abajo; y el eje Z positivo está hacia el usuario.
+
+
+Que es la propiedad Z-INDEX?
+    Es la que define si un elemento estara por delante de los demas. Por defecto, todos los elementos tienen un valor de AUTO, es decir, esta definido por la estructura HTML. Los primeros elementos estaran por detras y los ultimos estaran por delante. Si se establece un valor positivo, este elemento se situa por delante de los demas. Si su valor es negativo, se situa por detras.
+    NOTA: Si un elemento que tiene un z-index menor a otros, sus hijos nunca estaran por encima, aunque su z-index sea mayor. 
+
+
+Que propiedad CSS se puede usar para ocultar los bordes que sobresalen a su contenedor?
+    overflow-hidden.
+
+
+Cuales son los dos tipos de medidas existentes en CSS?
+    ABSOLUTAS:
+        PX (px):
+            Pixeles (1/19 in) 
+        CM (cm):
+            Centimetros (96/254 px)
+        MM (mm):
+            Milimetros (1/10 cm)
+        Q (Q):
+            Cuartos de milimetros (1/4 mm)
+        IN (in):
+            Pulgada (2.54cm = 96 px)
+        PC (pc):
+            Picas (1/6 in)
+        PT (pt):
+            Puntos (1/72 in)
+    RELATIVAS:
+        EM (em): 
+            Depende del elemento que lo contiene. Es decir, si un elemento tiene font-size de 20px, el valor de em es igual a 20px. 2em será de 40px
+        REM (rem):
+            Depende del elemento raíz. El valor del font-size del elemento raíz es de 16px, por lo tanto, 2rem es igual a 32px.
+        VW (vw):
+            Representan el 1% del ancho de la pantalla (view width)
+        VH (vh): 	
+            Representa el 1% de la altura de la pantalla (view height)
+        VMIN (vmin):
+            Representa el 1% de la dimensión más pequeña de la pantalla
+        VMAX (vmax): 	
+            Representa el 1% de la dimensión más grande de la pantalla
+        CH (ch): 	
+            Anchura del caracter “0” del elemento que lo contiene
+        LH (lh): 	
+            Altura de la línea del elemento que lo contiene.
+        NOTA:  Los porcentajes representan el tamano conrespecto al elemento padre, no al tamano de la pantalla.
+
+
+Cual seria el problema con el uso de medidas absolutas utilizando CSS?
+    El tamaño de la letra no cambiará, por lo que será un problema para el usuario.
+
+
+Cual seria una forma de solucionar el problema con las medidas absolutas a traves del uso de la medida rem?
+    Cambiando la propiedad font-size a 62.5% para la etiqueta HTML. Este cambio hara que la medida rem sea igual a 10px en lugar de 16px que es la medida de fuente del html por defecto. Esto facilita hacer los calculos.
 
 
 --------------------------------
@@ -379,14 +442,34 @@ Etiquetas para listas:
 | PROPIEDADES DE CSS MAS USADAS |
 ---------------------------------
 
+ETIQUETAS DE TEXTOS:
+    COLOR:
+        Establece el color de texto de un elemento.
+    FONT-SIZE:
+        Establece el tamano de la fuente.
+    FONT-WEIGHT: 
+        Establece el resaltado del texto, con valores de 100 a 900 en intervalos de 100; donde 100 es delgada y 900 es negrita.
+    FONT-FAMILY: 
+        Establece el tipo de fuente.
+    TEXT-ALIGN: 
+        Establece la posición del texto: right, left, center y justify.
 
-COLOR:
-    Establece el color de texto de un elemento.
-BACKGROUND-COLOR:
-    Establece un color de fondo de un elemento.
-FONT-SIZE:
-    Establece el tamano de la fuente.
-WIDTH:
-    Establece el ancho de un elemento.
-HEIGHT:
-    Establece la altura de un elemento.
+ETIQUETAS DE TAMANOS:
+    WIDTH:
+        Establece el ancho de un elemento.
+    HEIGHT:
+        Establece la altura de un elemento.
+
+ETIQUETAS DE COLORES DE FONDO:
+    BACKGROUND-COLOR:
+        Establece un color de fondo de un elemento.
+    BACKGROUND:
+
+ETIQUETAS DE LAYOUT:
+    DISPLAY:
+
+ETIQUETAS DE MODELO DE CAJA:
+    MARGING
+    PADDING
+    BORDER
+    
