@@ -1,5 +1,6 @@
 ===============================
 | CURSO DE FRONTEND DEVELOPER |
+|           HTML               |
 ===============================
 
 
@@ -37,6 +38,7 @@ Cuales son los motores del navegador?
     - Firefox   :   Gecko
     - Edge      :   Blink (Hasta el 2020 usaba Edge HTML)
     - Safari    :   Webkit
+
 
 Cuales son los cinco pasos del proceso de renderizado que realiza el navegador?
     - Transforma los archivos a un arbol de objetos HTML o CSS, estos se denominan DOM (Document Object Model) y CSSDOM (Cascade Style Sheet Object Model). Cada nodo en el arbol es una representacion de los elementos que contiene el archivo HTML o CSS.
@@ -101,9 +103,9 @@ Cuales son las ventajas de utilizar HTML semantico?
     - Ayuda a buscadores (como Google) a encontrar tu pagina.
 
 
------------------------------
-| NOTAS SOBRE EL USO DE CSS |
------------------------------
+==============================
+| TIPOS DE SELECTORES EN CSS |
+==============================
 
 
 Que es una declaracion CSS?
@@ -114,13 +116,6 @@ Que es una declaracion CSS?
             Es el nombre del estilo de CSS.
         - Valor:
             Es el valor que tomara la propiedad.
-
-
-Como se establecen los tamanos de los elementos o tipografias?
-    - PX (px):
-        Establece una longitud en pixeles.
-    - PORCENTAJE (%):
-        Establece un porcentaje con respecto a una medida base.
 
 
 Cuales son los tipos de selectores?
@@ -160,7 +155,7 @@ Cuales son los tipos de selectores?
 
 Cuales son las pseudoclases mas utilizadas?
     :HOVER:
-        Representa el estado en el cual es cursor esta encima del elemento.
+        Representa el estado en el cual el cursor esta encima del elemento.
     :FOCUS:
         Representa el estado en el cual un elemento dentro de un formulario ha recibido el foco.
     :ACTIVE:
@@ -194,6 +189,11 @@ Cuales son los Pseudoelementos mas utilizados?
         Agrega estilos al texto provisional en un elemento input o elemento textarea.
     
 
+----------------------------------
+| CASCADA Y ESPECIFICIDAD EN CSS |
+----------------------------------
+
+
 Qué es la cascada en CSS?
     La cascada es el concepto que determina qué estilos se colocan sobre otros, priorizando a aquellos que se encuentren más abajo del código. 
 
@@ -212,6 +212,11 @@ Cuales son los 6 tipos de especificidad?
     5 Selectores Tipo ELEMENTOS y PSEUDOELEMENTOS (1):
     6 Selectores de tipo UNIVERSAL (0):
     NOTA: Los selectores combinadores suman la especifidad de cada selector basico para obtener le especificidad total de la regla CSS.
+
+
+----------------------------------
+| ATRIBUTO DISPLAY Y MODELO CAJA |
+----------------------------------
 
 
 Que es la propiedad display?
@@ -286,6 +291,11 @@ Que es el colapso de margenes en dos elementos?
     Es cuando dos elementos bloque adyacentes tienen un determinado valor de margin, entonces estos márgenes se solapan en un solo valor, el mayor de ambos. Esto no sucede cuando los elementos no son bloque (como por ejemplo flex, grid o inline-block) o cuando estan dentro de un contenedor que no sea bloque.
 
 
+--------------------------------
+| POSICIONAMIENTO DE ELEMENTOS |
+--------------------------------
+
+
 En que consiste el posicionamiento en CSS?
     En cómo un elemento se situará, con respecto a su elemento padre y al flujo normal del documento. El flujo normal del documento es el orden de los elementos establecidos en el HTML.
 
@@ -331,7 +341,12 @@ Que es la propiedad Z-INDEX?
 
 
 Que propiedad CSS se puede usar para ocultar los bordes que sobresalen a su contenedor?
-    overflow-hidden.
+    overflow: hidden;
+
+
+--------------------------
+| MEDIDAS UTILIZANDO CSS |
+--------------------------
 
 
 Cuales son los dos tipos de medidas existentes en CSS?
@@ -378,98 +393,110 @@ Cual seria una forma de solucionar el problema con las medidas absolutas a trave
     Cambiando la propiedad font-size a 62.5% para la etiqueta HTML. Este cambio hara que la medida rem sea igual a 10px en lugar de 16px que es la medida de fuente del html por defecto. Esto facilita hacer los calculos.
 
 
---------------------------------
-| ETIQUETAS DE HTML MAS USADAS |
---------------------------------
+---------------------------------------
+| DISEÑO RESPONSIVO CON MEDIA QUERIES |
+---------------------------------------
 
 
-Etiquetas de layout o diseno:
-    HEADER
-    NAV
-    SECTION
-    ARTICLE
-    ASIDE
-    FOOTER
-
-Etiquetas de enlace:    
-    A (anchor):     
-        Define un vinculo hacia una url. Se utiliza con el atributo href con el valor del enlace. Ejemplo: 
-            <a href="ruta-hacia-punto-enlace">TEXTO</a> 
-
-Etiquetas para texto:
-    H1...H6: 
-        Definen diferentes tipos de titulos con diferente orden de importancia donde H1 tiene la mayor relevancia. Solo debe existir un H1 por pagina web. Ejemplo:
-            <h1>Texto del Titulo</h1>
-    P: 
-        Define un parrafo. Ejemplo:
-            <p>Contenido del parrafo.</p>
-    SPAN: 
-        Define un contenedor generico de tipo inline. Igual que div, debe evitar su uso innecesario dado que no tiene valor semantico. Se suelen usar para darles estilo a alguna palabra o flase que queramos resaltar. Eemplo:
-            <span>Contenido</span>
-
-Etiquetas para multimedia:
-    IMG:
-        Define una imagen. Es necesario especificar el atributo SRC con la url de la imagen. El atributo ALT representa un texto alternativo en caso de que la imagen no cargue correctamente. Ejemplo:
-            <img src="URL-DE-LA-IMAGEN" alt="TEXTO-ALTERNATIVO"/>
-    SVG:
-        Define un svg. Ejemplo
-            <svg>CONTENIDO</svg>
-    IFRAME:
-        Define un contenerdor para una pagina web dentro de otra pagina web.
-    VIDEO:
-        Define un contenedor de video.
-
-Etiquetas para Formularios:
-    FORM:
-        Define un formulario.
-    INPUT:
-        Define un elemento de entrada del formulario. Es necesario especificar el tipo de elemento con el atributo type. Exieten varios tipos de input.
-    LABEL:
-        Define el titulo para la etiqueta INPUT. Es utilizado para acciones de accesibilidad.
-    BUTTON:
-        Define un boton. Es usado para la interactividad de la pagina.
-
-Etiquetas para listas: 
-    UL: 
-        Define una lista DESORDENADA.
-    OL:
-        Define una lista ORDENADA.
-    LI:
-        Define un elemento dentro de una lista.
+Que es el diseno responsivo (responsive design)?
+    Es un conjunto de herramientas para que tu sitio se vea bien en varias medidas de pantalla, esto incluye imágenes, tipografía, internacionalización de la página y entre otros.
 
 
----------------------------------
-| PROPIEDADES DE CSS MAS USADAS |
----------------------------------
+Que son las medias queries?
+    Son reglas CSS que establecen un comportamiento distinto o diferentes estilos en un cierto rango de la pantalla. Esto sirve para establecer el layout del sitio web para diferentes tipos de pantalla: escritorio, tablets y celulares.
 
-ETIQUETAS DE TEXTOS:
-    COLOR:
-        Establece el color de texto de un elemento.
-    FONT-SIZE:
-        Establece el tamano de la fuente.
-    FONT-WEIGHT: 
-        Establece el resaltado del texto, con valores de 100 a 900 en intervalos de 100; donde 100 es delgada y 900 es negrita.
-    FONT-FAMILY: 
-        Establece el tipo de fuente.
-    TEXT-ALIGN: 
-        Establece la posición del texto: right, left, center y justify.
 
-ETIQUETAS DE TAMANOS:
-    WIDTH:
-        Establece el ancho de un elemento.
-    HEIGHT:
-        Establece la altura de un elemento.
+Cuales son los tipos de media querie que hay en CSS?
+    max-width / max-height: 
+        Establece un rango máximo para cierto comportamiento.
+    min-width / min-height: 
+        Establece un rango mínimo para cierto comportamiento.
+    NOTA: Estos valores son parecidos a condicionales, mientras se cumpla la condicion, aplica determinados estilos.
 
-ETIQUETAS DE COLORES DE FONDO:
-    BACKGROUND-COLOR:
-        Establece un color de fondo de un elemento.
-    BACKGROUND:
 
-ETIQUETAS DE LAYOUT:
-    DISPLAY:
+Cual es la estructura de la media querie?
+    Debe empezar con @media, seguido del tipo de la media querie estableciendo un rango, envolviendo las reglas CSS dentro de ese rango.
+    EJEMPLO:
+        @media (max-width: 375px) {
+            /* Regras CSS*/
+        }
+    NOTA: Una gran herramienta para trabajar con queries es la opcion "Toggle device tool", en las herramientas de desarrollo del navegador, esta nos permite manipular la pantalla y observar en cuantos pixeles esta ocurriendo determinados estilos.
 
-ETIQUETAS DE MODELO DE CAJA:
-    MARGING
-    PADDING
-    BORDER
-    
+
+---------------------
+| ARQUITECTURAS CSS |
+---------------------
+
+
+Que son las arquitecturas CSS y para que sirven?
+    Consisten en manejar el código CSS con una serie de reglas y patrones para facilitar su lectura, mantenibilidad y escabilidad.
+    El código que has manejado no se asemeja a la realidad, pues deberás manejar varios cientos o miles de líneas de código. Las arquitecturas CSS se encargan de manejar una norma en el código para que cualquiera pueda añadir o quitar funcionalidad sin mucho trabajo.
+
+
+Cuales son los objetivos de la arquitectura CSS?
+    - Ser predecible: 
+        El código debe ser lo menos complejo posible.
+    - Reutilizable: 
+        El código debe ser lo menos redundante, para evitar problemas con la especificidad.
+    - Mantenible:
+        El código debe ser lo más fácil de manejar para añadir o quitar estilos.
+    - Escalable:
+        El código debe ser capaz de crecer.
+
+
+Cuales son las buenas practicas de las arquitecturas de CSS?
+    - Lineamientos y estándares: 
+        Definir normas en tu grupo de trabajo de cómo estará escrito el código.
+    - Documentación:
+        Establecer una breve explicación del código y de los lineamientos, esto sirve especialmente para nuevas personas se familiaricen con lo que deben hacer.
+    - Componentes:
+        Establecer de manera componetizada cada uno de los elementos de tu página, es decir, manejarlos por partes para después unirlos en un todo.
+
+
+Que es CSS Orientado a Objetos (OOCSS)?
+    Consiste en separar la estructura principal y la piel o máscara.
+    En otras palabras, consiste en tener objetos que son estructuras principales. Estos objetos estarán unidos en una máscara, donde esta será la que cambie pero manteniendo la estructura intacta.
+
+
+Qué es Bloque, Elemento y Modificador (BEM)? 
+    Es una de las mas usadas. Consiste en manejar los elementos en clases definidas por bloques, elementos y modificadores.
+        Bloque: 
+            Es la estructura principal que es contenedora de varios elementos.
+        Elemento:
+            Es el elemento HTML que hace referencia el contenedor.
+        Modificador:
+            Es un estilo específico para el elemento. Por ejemplo, un botón que tenga un color diferente a los demás, esto tiene relación con la especificidad.
+
+
+Qué es la Arquitectura Escalable y Modular de CSS (SMACSS: Scalable and Modular Architecture for CSS)
+    Indica el orden de componentes que estarán ubicados en carpetas. La unión de estos componentes dará como resultado tu página web con estilos.
+        Base: 
+            Elementos base, como botones, títulos, enlaces.
+        Layout:
+            Estructura de la página, relacionado con el Responsive Design.
+        Módulos:
+            Elementos que contienen a los elementos base.
+        Estado:
+            Estilos relacionados con el comportamiento de elemento, relacionado con las pseudoclases y pseudoelementos.
+        Temas: 
+            Conjunto de estilos que definen tu página web.
+
+
+Qué es el triángulo invertido de CSS (ITCSS: Inverted Triangle CSS)
+    Consiste en separar los archivos del proyecto; mediante ajustes, herramientas, elementos, entre otros. Todo esto para manejar los detalles de especificidad, claridad y magnitud.
+
+
+Qué es el diseño atómico?
+    Consiste en manejar los elementos como una estructura mínima, a partir de la unión de varias de estas, dará como resultado los estilos de la página web. Se basa en la estructura mínima de la materia, los átomos.
+        Átomos: 
+            Estructura mínima; como botones, enlaces, títulos, entre otros.
+        Moléculas: 
+            Unión de átomos.
+        Organismos:
+            Unión de moléculas.
+        Plantillas:
+            Unión de organismos.
+        Páginas:
+            Unión de plantillas.
+
+

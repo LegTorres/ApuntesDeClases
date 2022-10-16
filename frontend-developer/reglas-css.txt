@@ -1,0 +1,247 @@
+
+=================================
+| PROPIEDADES DE CSS MAS USADAS |
+=================================
+
+-------------------------
+| PROPIEDADES DE TEXTOS |
+-------------------------
+
+COLOR:
+    Establece el color de texto de un elemento.
+FONT-SIZE:
+    Establece el tamano de la fuente.
+FONT-WEIGHT: 
+    Establece el resaltado del texto, con valores de 100 a 900 en intervalos de 100; donde 100 es delgada y 900 es negrita.
+FONT-FAMILY: 
+    Establece el tipo de fuente.
+TEXT-ALIGN: 
+    Establece la posición del texto: right, left, center y justify.
+
+
+--------------------------
+| PROPIEDADES DE TAMAÑOS |
+--------------------------
+
+WIDTH:
+    Establece el ancho de un elemento.
+HEIGHT:
+    Establece la altura de un elemento.
+
+
+-----------------------------------
+| PROPIEDADES DE COLORES DE FONDO |
+-----------------------------------
+
+BACKGROUND-COLOR:
+    Establece un color de fondo de un elemento.
+BACKGROUND:
+
+
+-------------------------
+| PROPIEDADES DE LAYOUT |
+-------------------------
+
+DISPLAY:
+    Establece los tipos de visualización interna y externa de un elemento. La tipo externa establece la participacion de un elemento en flow layout; la tipo interna establece el layout(Diseño) de los hijos. Sus valores son:
+        NONE:
+            Desactiva la visualización de un elemento, como si el elemento no existiera.
+        BLOCK:
+            Establece que un elemento ocupará todo el espacio disponible por defecto y el siguiente elemento a este se situará por debajo. Es posible añadir medidas de anchura y altura a estos a elementos. También es posible agregar todas las propiedades del modelo de caja.
+        INLINE:
+            Establece que un elemento ocupará el espacio del contenido del mismo y el siguiente elemento se situará a la derecha. No es posible añadir medidas de anchura y altura a estos a elementos. Tampoco es posible agregar todas las propiedades del modelo de caja, únicamente funcionará la propiedad margin en el eje horizontal.
+        INLINE-BLOCK:
+            Combina las ventajas de bloque de colocar medidas al elemento y propiedades del modelo de caja correctamente; con las ventajas de inline de colocar un elemento seguido de otro en el mismo espacio. Si elemento excede el contenido total, se coloca en la siguiente línea por debajo.
+        FLEX:
+            Consiste en el ordenamiento de elementos hijos en un solo eje, por defecto horizontalmente. El elemento padre o contenedor deberá contener la propiedad display con el valor flex. A partir de aquí, ya puedes ordenar los hijos según sea necesario.
+        GRID:
+            Consiste en el ordenamiento de elementos hijos en dos ejes, como si fuera una cuadrícula o tabla. El elemento padre o contenedor deberá contener la propiedad display con el valor grid y debes definir las medidas de las columnas y de las filas. A partir de aquí, ya puedes ordenar los hijos según sea necesario.
+POSITION:
+    STATIC:
+        Es el valor por defecto de todo elemento HTML, consiste en respetar el flujo normal del documento donde las propiedades de posición no pueden ser establecidas.
+    RELATIVE:
+        Consiste en respetar el flujo normal del documento donde las propiedades de posición sí pueden ser establecidas.
+    ABSOLUTE:
+        Consiste en quitar al elemento del flujo normal del documento donde las propiedades de posición sí pueden ser establecidas. Nota, el elemento que sigue da la impresion de desaparecer de la pantalla debido a que se posiciona por detras de el elemento con posicionamiento absoluto.
+        NOTA: El elemento con posición absoluta se desplazará arriba, abajo, izquierda o derecha con respecto al elemento padre más próximo con posición relativa. Si no existe un padre con posición relativa de un elemento con posición absoluta, este se desplazará con respecto al elemento raíz del documento.
+    STICKY:
+        Consiste en quitar al elemento del flujo normal del documento y fijarlo en un lugar mientras su contenedor sea visible donde las propiedades de posición sí pueden ser establecidas. Cuando deja de ser visible, el siguiente elemento con la propiedad sticky ocupa su lugar. NOTA: Esta propiedad solo funciona si tiene otros elememtos hermanos con dicha propiedad
+    FIXED:
+        Consiste en quitar al elemento del flujo normal del documento y fijarlo en un lugar; donde las propiedades de posición sí pueden ser establecidas.
+    INITIAL:
+        Indica cual es la posicion inicial del elemento que queremos formatear.
+    INHERITAL:
+        Indica que el elemento hereda las propiedades del elemento padre.
+TOP:
+BOTTOM:
+LEFT:
+RIGHT:
+    Los cuatro valores estan establecidos en el padre proximo que tenga la posicion relative. Si top y bottom están definidos, top gana. Si left y rigth están definidos, left gana. 
+
+Z-INDEX:
+    Define si un elemento estara por delante de los demas. Por defecto, todos los elementos tienen un valor de AUTO. Los primeros elementos estaran por detras y los ultimos estaran por delante. Si su valor es negativo, se situa por detras.
+
+
+---------------------------------
+| PROPIEDADES DE MODELO DE CAJA |
+---------------------------------
+
+MARGING:
+    Consiste en el espacio entre el borde y otro elemento HTML. Puedes establecer el margin en cada posición en una sola línea de las siguientes maneras:
+            [arriba] [derecha] [abajo] [izquierda]
+            [arriba] [abajo] [derecha e izquierda]
+            [arriba y abajo] [derecha e izquierda]
+PADDING:
+    Es el espacio entre el borde y el contenido del elemento HTML. Puedes establecer el padding en cada posición en una sola línea de las siguientes maneras:
+            [arriba] [derecha] [abajo] [izquierda]
+            [arriba] [abajo] [derecha e izquierda]
+            [arriba y abajo] [derecha e izquierda]
+BORDER:
+    El perfil o borde de un elemento HTML. Tiene las siguientes propiedades:
+            border-color: El color del borde.
+            border-width: La anchura del borde.
+            border-style: El estilo propio del borde, estos pueden ser: 
+                none (Sin borde)
+                dotted (puntos)
+                dashed (guiones)
+                solid (continuo)
+                double (doble continuo)
+                groove (recuadro)
+BOX-SIZING:
+    Es aquella que establece como se calculara el width y el height si incluyen bordes y espacios internos (padding). Sus valores son:
+        BORDER-BOX:
+            El tamaño total del elemento sera igual al especificado en el width y height, provocando que las medidas del contenido cambien con respecto a los bordes y espacios internos para adaptarse a la media especificada. 
+OVERFLOW:
+    Especifica: si recortar contenido, dibujar barras de desplazamiento o mostrar el contenido excedente en un elemento a nivel de bloque.  Sus valores son:
+        VISIBLE:
+            Valor por defecto. El contenido no es recortado, podría ser dibujado fuera de la caja contenedora.
+        HIDDEN
+            El contenido es recortado y no se muestran barras de posición.
+        SCROLL
+            El contenido es recortado y el navegador web usa las barras de desplazamiento, se haya recortado contenido o no. Esto previene cualquier problema con las barras de desplazamiento apareciendo o desapareciendo en un entorno dinámico. Puede que las impresoras impriman contenido excedente.
+        AUTO
+            Depende del agente de usuario. Navegadores de escritorio como Firefox proveen barras de desplazamiento si hay contenido excedente. 
+
+
+==================================
+| CASCADA Y ESPECIFICIDAD EN CSS |
+==================================
+
+1 !important (10000):
+    La palabra reservada !important es un valor de toda propiedad CSS que provee una especificidad de 10000, por lo que se aplicará ante otros estilos. Esto es una mala práctica.
+2 Estilos en Linea (1000):
+    Son las propiedades CSS escritas en el HTML a través de la propiedad style de toda etiqueta. También es una mala práctica.
+3 Selectores Tipo ID (100):
+4 Selectores Tipo CLASES, ATRIBUTOS y PSEUDOCLASES (10):
+5 Selectores Tipo ELEMENTOS y PSEUDOELEMENTOS (1):
+6 Selectores de tipo UNIVERSAL (0):
+NOTA: Los selectores combinadores suman la especifidad de cada selector basico para obtener le especificidad total de la regla CSS.
+
+
+
+==============================
+| TIPOS DE SELECTORES EN CSS |
+==============================
+
+BASICOS (Selector minimo):
+    TIPO(etiqueta):
+        Que coincidan con el nombre de una etiqueta HTML.
+    CLASE (.nombre-de-clase):
+        Que coincidan con las etiquetas HTML que contengan el atributo class con el mismo valor. 
+    IDENTIFICADOR UNICO (#id-de-etiqueta):
+        Que coincida con la etiqueta HTML que contenga el atributo id con dicho valor. 
+    ATRIBUTO (etiqueta[propiedad="valor"]):
+        Que coincidan con la etiqueta HTML que contenga el atributo (cualquiera que sea) y valor especificado. 
+    UNIVERSAL (*):
+        Selecciona todos los elementos del documento.
+COMBINADORES (Union de dos o mas selectores):
+    DESCENDIENTES (elemento-padre elemento-hijo):
+        Todos los elementos del selector de la derecha que son hijos del selector de la izquierda, independientemente de la profundidad. 
+    HIJO DIRECTO (elemento-padre > elemento-hijo):
+        Todos los elementos de la redecha que son hijos directos (En el primer nivel de profundidad) de la izquierda. 
+    ELEMENTOS ADYACENTES (elemento-uno + elemento-dos):
+        Todos los elementos del selector de la derecha que esten adyacentes (que compraten el mismo padre y estan inmediatamente situados hacia abajo de otro elemento)  al selector de la izquierda. 
+    GENERAL DE HERMANOS (elemento-uno ~ elemento-dos):
+        Todos los elementos del selector de la derecha que son hermanos (Que comparten el mismo padre y estan situados hacia abajo de otro elemento) de selector de la izquierda. Estos selectores estan separados por el simbolo de virgulilla (~). 
+            Nota: Una vecumplida la regla especificada en el combinador(A inmediatamenbte despues de B), no importa si las siguentes etiquetas cumplen esa condicion, el estilo se aplicara siempre.
+PSEUDOCLASES (Un estado especial de un elemento):
+    :HOVER:
+        El cursor esta encima del elemento.
+    :FOCUS:
+        Elemento dentro de un formulario ha recibido el foco.
+    :ACTIVE:
+        Elemento que no ha sido visitado.
+    :VISITED:
+        Elemento que ya ha sido visitado.
+    :NOT():
+        El estado en el cual no coinciden los selectores que se indiquen entre los parentesis. 
+    :NTH-CHILD():
+        El estado en el cual coinciden los hijos del elemento segun el valor indicado.
+        NOTA: La formula matematica es: An+B, donde A y B son numeros enteros. Ejemplo:
+                selector: nht-child(valor)
+                Seleccionaria de entre los elementos "selector" a aquel que coincida con "valor"
+                Valores de palabras clave:
+                    odd: Los elementos hijos en posiciones pares.
+                    even: Los elementos hijos en posiciones impares.    
+PSEUDOELEMENTOS (Estilo de una parte especifica de un elemento):
+    ::BEFORE:
+        Agrega un contenido (mediante la propiedad content) ANTES del elemento. 
+        Ejemplo, agregando un asterisco rojo delante de cada h2:
+            h2::before{content: " * "; color: red;} 
+    ::AFTER:
+        Agrega un contenido DESPUES del elemento. Se usa igual que el pseudoelemento before.
+    ::FIRST_LETTER:
+        Agrega estilos a la primera letra del texto de cualquier elemento.
+    ::PLACEHOLDER:
+        Agrega estilos al texto provisional en un elemento input o elemento textarea.
+
+
+=======================================
+| DISEÑO RESPONSIVO CON MEDIA QUERIES |
+=======================================
+
+ESTRUCTURA:
+    @media (TIPO-DE-MEDIA-QUERTY: VALOR) { /* Reglas CSS */ }
+TIPOS:
+    MAX-WIDTH / MAX-HEIGHT: 
+        Establece un rango máximo para cierto comportamiento.
+    MIN-WIDTH / MIN-HEIGHT: 
+        Establece un rango mínimo para cierto comportamiento.
+
+
+==========================
+| MEDIDAS UTILIZANDO CSS |
+==========================
+
+ABSOLUTAS:
+    PX (px):
+        Pixeles (1/19 in) 
+    CM (cm):
+        Centimetros (96/254 px)
+    MM (mm):
+        Milimetros (1/10 cm)
+    Q (Q):
+        Cuartos de milimetros (1/4 mm)
+    IN (in):
+        Pulgada (2.54cm = 96 px)
+    PC (pc):
+        Picas (1/6 in)
+    PT (pt):
+        Puntos (1/72 in)
+RELATIVAS:
+    EM (em): 
+        Depende del elemento que lo contiene. Es decir, si un elemento tiene font-size de 20px, el valor de em es igual a 20px. 2em será de 40px
+    REM (rem):
+        Depende del elemento raíz. El valor del font-size del elemento raíz es de 16px, por lo tanto, 2rem es igual a 32px.
+    VW (vw):
+        Representan el 1% del ancho de la pantalla (view width)
+    VH (vh): 	
+        Representa el 1% de la altura de la pantalla (view height)
+    VMIN (vmin):
+        Representa el 1% de la dimensión más pequeña de la pantalla
+    VMAX (vmax): 	
+        Representa el 1% de la dimensión más grande de la pantalla
+    CH (ch): 	
+        Anchura del caracter “0” del elemento que lo contiene
+    LH (lh): 	
+        Altura de la líne

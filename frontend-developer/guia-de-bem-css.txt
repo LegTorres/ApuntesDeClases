@@ -1,0 +1,348 @@
+Guía de BEM para CSS | Cohete Falcon 9 de SpaceX
+
+BEM es una convención o metodología para nombrar tus clases de CSS. Por sus siglas en inglés, BEM significa Bloque, Elemento y Modificador.
+
+
+-----------------------
+| ¿Cómo funciona BEM? |
+-----------------------
+
+
+    BEM funciona identificando el bloque, el elemento y el modificador de un componente.
+        - Bloque es el contenedor principal del componente.
+        - Elemento son las partes internas que conforman el componente.
+        - Modificador son las variaciones del bloque o del elemento.
+
+
+El cohete Falcon 9 de SpaceX está compuesto por varias partes que hacen posible el transporte confiable y seguro de personas o cargas útiles a la órbita terrestre (incluso más allá). Para cada una de las partes podemos crear una analogía.
+Vamos a identificar quién sería el elemento bloque, quiénes serían los elementos y quiénes serían los modificadores, así:
+    Bloque: Falcon 9
+    Elementos: First stage, Interstage, Second stage.
+    Modificador: Fairing, Dragon.
+
+
+Después de revisar la analogía con el cohete Falcon 9, revisemos algunos ejemplos que podemos encontrarnos en la vida real:
+    Bloque: card, button, form, menu, header…
+    Elemento: icon, text, item, image, input, button…
+    Modificador: active, big, right, secondary, red…
+
+
+---------------------------
+| Cómo se usar BEM en CSS |
+---------------------------
+
+
+Los nombres de clases con convención BEM,pueden tener la siguiente sintaxis:
+    [bloque]
+    [bloque]__[elemento]
+    [bloque]--[modificador]
+    [elemento]--[modificador]
+    [bloque]__[elemento]--[modificador]
+
+
+Teniendo en cuenta lo anterior, el CSS para nuestro Falcon 9 se escribiría así:
+    .falcon9 { ... }
+    .falcon9--fairing { ... }
+    .falcon9--dragon { ... }
+    .falcon9__first-stage { ... }
+    .falcon9__interstage { ... }
+    .falcon9__second-stage { ... }
+
+
+Y así se vería el HTML:
+    <rocketclass="falcon9 falcon9--dragon">
+        <stageclass="falcon9__first-stage">stage>
+        <stageclass="falcon9__interstage">stage>
+        <stageclass="falcon9__second-stage">stage>
+    rocket>
+
+
+Además, el CSS siguiendo BEM con un ejemplo de la vida real se escribiría así:
+    .button { ... }
+    .button--active { ... }
+    .button__icon { ... }
+    .button__text { ... }
+
+
+Y así se vería el HTML:
+    <buttonclass="button button--active">
+        <iclass="button__icon">i>
+        <spanclass="button__text">span>
+    button>
+
+
+Importante: recuerda que:
+    Los guiones bajos (__) se usan para separar el bloque del elemento,
+    Los guiones medios (--) se usan para separar el bloque o el elemento del modificador.
+    Nota: 
+        BEM permite cambiar esta nomenclatura. También puedes encontrar nombres de clase así: [bloque]__[elemento]-[modificador], [bloque]__[elemento]_[modificador], entre otros. Lo más importante a la hora de usar una de estas nomenclaturas es ser consistente en todo el proyecto.
+
+
+--------------------------
+| Casos practicos de BEM |
+--------------------------
+1 Card
+    class="card">
+        <imgclass="card__image"src="/image.png"alt="spacesuit" />
+        <pclass="card__text">p>
+        <pclass="card__text">p>
+    div>
+    De la seccion anterior, tenemos lo siguiente:
+        Bloque: card
+        Elementos: image, text
+        Modificadores: (no tiene)
+
+
+2 Navbar
+    class="navbar">
+        <liclass="navbar__item">class="navbar__icon">li>
+        <liclass="navbar__item">MENSli>
+        <liclass="navbar__item">WOMENSli>
+        <liclass="navbar__item">KIDSli>
+        <liclass="navbar__item">ACCESSORIESli>
+        <liclass="navbar__item">PREMIUMli>
+        <liclass="navbar__item navbar__item--gray">ACCOUNTli>
+        <liclass="navbar__item navbar__item--gray">SEARCHli>
+            <liclass="navbar__item">CART (0)li>
+    De la imagen anterior, tenemos lo siguiente:
+        Bloque: navbar
+        Elementos: logo, items
+        Modificadores: gray
+
+
+3 Section
+    <sectionclass="section">
+        <div>
+            <h2class="section__text section__text--primary">FALCON 9h2>
+            <pclass="section__text section__text--secondary-semibold">Falcon 9, the world's first orbital class reusable rocket...p>
+            <pclass="section__text section__text--secondary-bold">Learn more about Falcon 9p>
+            <ulclass="list">
+                <liclass="list__item">
+                    <spanclass="list__text">VEHICLE HEIGHTspan>
+                    <div>
+                        <spanclass="list__text">70mspan>
+                        <spanclass="list__text list__text--gray">/229.6 ftspan>
+                    div>
+                li>
+                <liclass="list__item">
+                    <spanclass="list__text">VEHICLE DIAMETERspan>
+                    <div>
+                        <spanclass="list__text">3.7mspan>
+                        <spanclass="list__text list__text--gray">/12 ftspan>
+                    div>
+                li>
+                <liclass="list__item">
+                    <spanclass="list__text">FAIRING HEIGHTspan>
+                    <div>
+                        <spanclass="list__text">13.1mspan>
+                        <spanclass="list__text list__text--gray">/43 ftspan>
+                    div>
+                li>
+                <liclass="list__item">
+                    <spanclass="list__text">FAIRING DIAMETERspan>
+                    <div>
+                        <spanclass="list__text">5.2mspan>
+                        <spanclass="list__text list__text--gray">/17.1 ftspan>
+                    div>
+                li>
+            ul>
+        div>
+        <div>
+        div>
+    section>
+    Para el bloque 1:
+        Bloque: section
+        Elementos: text, image
+        Modificadores: primary, secondary-semibold, secondary-bold
+
+    Para el bloque 2:
+        Bloque: list
+        Elementos: item, text
+        Modificadores: gray
+
+
+---------------------------------------------------
+| Casos con lo que debes y no debes hacer con BEM |
+---------------------------------------------------
+
+
+Primer caso
+    Lo que sí: dejar la clase principal card y añadir otra clase con modificador.
+        class="card card--flat">div>
+    Lo que no: usar la clase con modificador como clase principal.
+        class="card--flat">div>
+
+
+Segundo caso
+    Lo que sí: no representar los niveles de profundidad de HTML con BEM.
+        <divclass="card">
+            <imgclass="card__image"src="/image.png"alt="Crew Dragon" />
+            <pclass="card__text">
+                <iclass="card__icon">
+            p>
+        div>
+    Lo que no: representar los niveles de profundidad de HTML con BEM.
+        <divclass="card">
+            <imgclass="card__image"src="/image.png"alt="Crew Dragon" />
+            <pclass="card__text">
+                <iclass="card__text__icon">
+            p>
+        div>
+
+
+Tercer caso
+    Lo que sí: incluir la clase en un hijo que necesita estilos.
+        <divclass="card">
+            <imgclass="card__image"src="/image.png"alt="Crew Dragon" />
+        div>
+
+        <style>
+            .card { ... }
+            .card__image { ... }
+        style>
+    Lo que no: Omitir la clase en un hijo que necesita estilos.
+        <divclass="card">
+            <imgsrc="/image.png"alt="Crew Dragon" />
+        div>
+
+        <style>
+            .card { ... }
+            .card img { ... }
+        style>
+
+
+--------------------------------------------------
+| problemas comunes con BEM y cómo solucionarlos |
+--------------------------------------------------
+
+
+Primer caso
+    Problema: 
+        Tengo un componente A que ya tiene sus propias clases y deseo añadirlo a un nuevo componente B. ¿Debo agregar una nueva convención para el componente A que estará dentro de B?
+
+            Componente A:
+                <buttonclass="button button--active">button>
+            Componente B:
+                <divclass="card">
+                    <imgclass="card__image"src="/image.png"alt="Crew Dragon" />
+                div>
+
+    Solución: 
+        Puedes dejar el componente A con las clases que ya estaban establecidas así no sean coherentes con el nuevo componente B, por ejemplo:
+
+            <divclass="card">
+                <imgclass="card__image"src="/image.png"alt="Crew Dragon" />
+                <buttonclass="button button--active">button>
+            div>
+
+
+Segundo caso
+    Problema: 
+        En mi estructura de HTML tengo padres, hijos, nietos, tataranietos, etc; pero BEM sólo me deja usar 3 niveles. ¿Qué hago con los elementos nietos y sus descendientes?
+
+            <divclass="card">
+                <imgclass="card__image"src="/image.png"alt="Crew Dragon" />
+                <divclass="card__footer">
+                    <pclass="card__footer__text">
+                        <iclass="card__footer__text__icon">
+                    <p>
+                div>
+            div>
+
+    Solución: 
+        Como lo mencionamos anteriormente, BEM no representa los niveles de tu estructura de HTML. Lo ideal en este caso sería tener:
+
+            <divclass="card">
+                <imgclass="card__image"src="/image.png"alt="Crew Dragon" />
+                <divclass="card__footer">
+                    <pclass="card__text">
+                        <iclass="card__icon">
+                    <p>
+                div>
+            div>
+
+
+Tercer caso
+    Problema:
+        Quiero utilizar la propiedad display: none para ocultar desde JavaScript un componente de Card y un componente de Botón. ¿Debo crear una clase para cada componente siguiendo su propia estructura de BEM (card--hidden y button--hidden)?
+
+            <divclass="card card--hidden">
+                <imgclass="card__image"src="/image.png"alt="Crew Dragon" />
+            div>
+            <buttonclass="button button--hidden">button>
+
+            <style>
+                .card--hidden {
+                    display: none;
+                }
+                .button--hidden {
+                    display: none;
+                }
+            style>
+
+    Solución:
+        Puedes crear una clase independiente a la estructura de BEM para aplicar propiedades generales, así, reducirás la cantidad de líneas de JavaScript ya que no tendrás que usar una clase específica para cada componente.
+
+            <divclass="card hidden">
+                <imgclass="card__image"src="/image.png"alt="Crew Dragon" />
+            div>
+            <buttonclass="button hidden">button>
+
+            <style>
+                .hidden {
+                    display: none;
+                }
+            style>
+
+
+--------------
+| BEM + SASS |
+--------------
+
+
+SASS es un preprocesador de CSS que te permite anidar selectores, crear bucles, funciones, entre otras cosas. Y, adicionalmente, gracias a la sintaxis de SASS, podemos tener una combinación perfecta en nuestras hojas de estilos.
+
+Por ejemplo, uno de nuestros ejercicios anteriores fue el siguiente:
+
+    class="card">
+        <imgclass="card__image"src="/image.png"alt="Crew Dragon" />
+        <buttonclass="button button--active">button>
+    div>
+
+Donde, el CSS se ve de la siguiente forma:
+
+    .card {
+        ...
+    }
+    .card__image {
+        ...
+    }
+    .button {
+        ...
+    }
+    .button--active {
+        ...
+    }
+
+Pero si usamos SASS, nuestros estilos se verían de la siguiente forma:
+
+    .card {
+        &__image {
+            ...
+        }
+    }
+    .button {
+        &--active {
+            ...
+        }
+    }
+
+Aquí sólo alcanzamos a reducir 2 líneas de código, pero, ¿te alcanzas a imaginar cuántas líneas de código podríamos ahorrarnos en un proyecto con mucho más HTML y CSS? Este es uno de los súper poderes de combinar BEM con SASS, aparte de que se ve mucho más lindo y limpio nuestro código.
+
+
+---------------------------
+| Recomendaciones finales |
+---------------------------
+
+
+Los proyectos que usan BEM son fáciles de leer, muy intuitivos y permiten evitar los selectores de CSS anidados. También, es una herramienta que permite personalizar las reglas y nomenclatura para tener un código mucho más limpio y escalable.

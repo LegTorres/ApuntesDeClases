@@ -1,0 +1,157 @@
+==================
+| ETIQUETAS HTML |
+==================
+
+--------------------------------------------
+| ESTRUCTURA BASICA DE UN DOCUMENTO HTML 5 |
+--------------------------------------------
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Developer</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+
+   
+</body>
+</html>
+
+
+--------------------------------
+| ETIQUETAS DE HTML MAS USADAS |
+--------------------------------
+
+
+ETIQUETAS DE LAYOUT O DISEÑO:
+    HEADER (Block)
+        Define el encabezado de nuestro sitio web.
+        <header>...</header> 
+    NAV (Block):
+        Define la barra de navegacion en la pagina.
+        <nav>...</nav>
+    SECTION (Block):
+        Representa una seccion que agrupa otros elementos dentro de nuestro documento HTML, como capitulos, encabezados, etc. Normalmente contienen un encabezado.
+        <section>...</section>
+    ARTICLE (Block):
+        Especifica un contenido independiente y autonomo. Deberia tener sentido por si mismo, y deberia poder ser distribuido independientemente del resto del sitio.
+        <article>...</article>
+    ASIDE (block):
+        <aside>...</aside>
+    FOOTER (Block):
+        <footer>...</footer>
+
+
+ETIQUETAS DE ENLACE:
+    A (Inline):
+        Define un vinculo hacia una url. Se utiliza con el atributo href con el valor del enlace. <a href="URL">...</a> 
+
+
+ETIQUETAS PARA TEXTOS:
+    H1...H6 (Block): 
+        Definen diferentes tipos de titulos con diferente orden de importancia donde H1 tiene la mayor relevancia. Solo debe existir un H1 por pagina web. Ejemplo:
+        <h1>...</h1>
+    P (Block): 
+        Define un parrafo. Ejemplo:
+        <p>...</p>
+    SPAN (Inline): 
+        Define un contenedor generico de tipo inline. Igual que div, debe evitar su uso innecesario dado que no tiene valor semantico. Se suelen usar para darles estilo a alguna palabra o flase que queramos resaltar. Eemplo:
+        <span>...</span>
+
+
+ETIQUETAS PARA MULTIMEDIA:
+    IMG (Inline, Self-closing):
+        Define una imagen. Es necesario especificar el atributo SRC con la url de la imagen. El atributo ALT representa un texto alternativo en caso de que la imagen no cargue correctamente. Ejemplo:
+        <img src="URl" alt="TEXTO-ALTERNATIVO"/>
+    IFRAME (Block):
+        Define un contenerdor para una pagina web dentro de otra pagina web.
+        <iframe src="URL" frameborder="0">...</iframe>
+    VIDEO (Block):
+        Define un contenedor de video.
+        <video src="url"></video>
+    SVG:
+        Define un svg. Ejemplo
+        <svg>CONTENIDO</svg>
+
+
+ETIQUETAS PARA LISTAS: 
+    UL (Block): 
+        Define una lista DESORDENADA.
+        <ul>...</ul>
+    OL (Block):
+        Define una lista ORDENADA.
+        <ol>...</ol>
+    LI:
+        Define un elemento dentro de una lista ordenada (ol) o desordenada (ul).
+        <li>...</li>
+
+
+ETIQUETAS PARA FORMULARIOS:
+    FORM (Block):
+        Define un formulario.
+        <form action=""></form>
+    INPUT (Inline, Self-closing):
+        Define un elemento de entrada del formulario. Es necesario especificar el tipo de elemento con el atributo type. Exieten varios tipos de input.
+        <input type="TIPO">
+            Atributo type:
+                text: 
+                    Valor por defecto. Caja de texto.
+                button: 
+                    Botón sin un comportamiento específico.
+                checkbox: 
+                    Casilla de selección. Se debe usar el atributo value para definir el valor que se enviará por este elemento. Se usa el atributo checked para indicar si el elemento está seleccionado. También se puede usar el atributo indeterminate (el cual solo se puede establecer programaticamente) para indicar que la casilla está en un estado indeterminado (en la mayoría de las plataformas, se dibuja una línea horizontal a través de la casilla).
+                Color: HTML5
+                    Control para espicificar un color. Una interfaz de selección de color no requiere más funcionalidad que la de aceptar colores simples como texto.
+                date: HTML5
+                    Control para introducir una fecha (año, mes y día, sin tiempo).
+                datetime: HTML5 Deprecated 
+                    Control para introducir una fecha y hora (horas, minutos, segundos y fracción de segundo), basado en la zona horaria UTC. Esta característica ha sido removida de WHATWG HTML.
+                datetime-local: HTML5 
+                    Control para introducir fecha y hora, sin zona horaria específica.
+                email: HTML5 
+                    Campo para introducir una dirección de correo electrónico. El valor introducido se valida para que contenga una cadena vacía o una dirección de correo válida antes de enviarse. Las pseudo-clases :valid y :invalid son aplicadas segun corresponda.
+                file: 
+                    Control que permite al usuario seleccionar un archivo. Se puede usar el atributo accept para definir los tipos de archivo que el control podrá seleccionar.
+                hidden: 
+                    Control que no es mostrado en pantalla, pero cuyo valor es enviado al servidor.
+                image: 
+                    Botón de envío de formulario con gráfico. Se debe usar el atributo src para definir el origen de la imagen y el atributo alt para definir un texto alternativo. Se puede usar los atributos height y width para definir el tamaño de la imagen en píxeles.
+                month: HTML5 
+                    Control para introducir un mes y año, sin zona horaria específica.
+                number: HTML5 
+                    Control para introducir un número de punto flotante.
+                password: 
+                    Control de línea simple cuyo valor permanece oculto. Se puede usar el atributo maxlength para especificar la longitud máxima del valor que se puede introducir.
+                radio: 
+                    Botón radio. Se debe usar el atributo value para definir el valor que se enviará por este elemento. Se usa el atributo checked para indicar si el elemento está seleccionado de forma predeterminada. Los botones radio que tengan el mismo valor para su atributo name están dentro del mismo "grupo de botones radio". Solo un botón radio dentro de un grupo puede ser seleccionado a la vez.
+                range: HTML5 
+                    Control para introducir un número cuyo valor exacto no es importante. Este control usa los siguientes valores predeterminados si no se especifica cada atributo:
+                        min: 0
+                        max: 100
+                        value: min + (max - min) / 2, o min si max es menor que min
+                        step: 1
+                reset: 
+                    Botón que restaura los contenidos de un formulario a sus valores predeterminados.
+                search: HTML5 
+                    Cuadro de texto de línea simple para introducir textos de búsqueda. Los saltos de línea son eliminados automáticamente del valor introducido.
+                submit: 
+                    Botón que envía el formulario.
+                tel: HTML5 
+                    Control para introducir un número telefónico. Los saltos de línea son eliminados automáticamente del valor introducido, pero no hay otra sintaxis forzada. Se pueden usar atributos como pattern y maxlength para restringir los valores introducidos en este control. Las pseudo-clases CSS :valid y :invalid son aplicadas segun corresponda.
+                time: HTML5 
+                    Control para introducir un valor de tiempo sin zona horaria específica.
+                url: HTML5 
+                    Campo para editar una URL. El valor introducido se valida para que contenga una cadena vacía o una ruta URL absoluta antes de enviarse. Los saltos de línea y espacios en blanco al principio o al final del valor son eliminados automáticamente. Se pueden usar atributos como pattern y maxlength para restringir los valores introducidos en el control. Las pseudo-clases :valid y :invalid son aplicadas segun corresponda.
+                week: HTML5 
+                    Control para introducir una fecha que consiste en número de semana del año y número de semana sin zona horaria específica.
+
+    LABEL (Inline):
+        Define el titulo para la etiqueta INPUT. Es utilizado para acciones de accesibilidad.
+    BUTTON (Inline-block):
+        Define un boton. Es usado para la interactividad de la pagina.
+        <button></button>
