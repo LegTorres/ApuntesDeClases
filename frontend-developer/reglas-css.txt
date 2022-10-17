@@ -38,9 +38,9 @@ BACKGROUND-COLOR:
 BACKGROUND:
 
 
--------------------------
-| PROPIEDADES DE LAYOUT |
--------------------------
+------------------------------------
+| PROPIEDADES DE LAYOUT Y POSICION |
+------------------------------------
 
 DISPLAY:
     Establece los tipos de visualización interna y externa de un elemento. La tipo externa establece la participacion de un elemento en flow layout; la tipo interna establece el layout(Diseño) de los hijos. Sus valores son:
@@ -56,6 +56,37 @@ DISPLAY:
             Consiste en el ordenamiento de elementos hijos en un solo eje, por defecto horizontalmente. El elemento padre o contenedor deberá contener la propiedad display con el valor flex. A partir de aquí, ya puedes ordenar los hijos según sea necesario.
         GRID:
             Consiste en el ordenamiento de elementos hijos en dos ejes, como si fuera una cuadrícula o tabla. El elemento padre o contenedor deberá contener la propiedad display con el valor grid y debes definir las medidas de las columnas y de las filas. A partir de aquí, ya puedes ordenar los hijos según sea necesario.
+
+
+- (EN CONJUNTO CON PROPIEDAD DISPLAY FLEX EN ELEMENTO CONTENEDOR)
+JUSTIFY-CONTENT:
+    SPACE-BETWEEN: 
+        Deja un espacio entre cada elemento hijo. EL valor center los centra en el eje horizontal
+ALIGN-ITEMS:
+    CENTER:
+        Alinea los elementos hijos en el eje vertical (si flex-direction tiene el valor de column los alinea en el eje horizontal)
+FLEX-DIRECTION: 
+    Cambia la direccion en la que se ordenaran los elementos hijos Por defecto es row.
+    ROW:
+        Ordena los elementos en fila.
+    COLUMN:
+        Ordena los elementos en columna.
+- (EN CONJUNTO CON PROPIEDAD DISPLAY GRID EN ELEMENTO CONTENEDOR) 
+GRID-TEMPLATE-COLUMNS:
+    Establece el tamaño de cada una de las columna en la cuadricula.
+    Con el valor 1fr 1fr 1fr 1fr asignamos el valor de una fraccion para cada columna dividiendo el contenedor en 4 secciones. 
+GRID-TEMPLATE-ROWS:
+    Establece el tamaño de cada una de las filas en la cuadricula.
+    Con el valor 1fr 1fr 1fr 1fr asignamos el valor de una fraccion para cada fila dividiendo el contenedor en 4 secciones.
+- (APLICADO EN ELEMENTOS HIJOS)
+GRID-COLUMN
+    Especifica el tamaño y la ubicacion de un elemento dentro de una columna de una cuadrícula. Sus valores son:
+        columna-donde-inicia / columna-donde-termina
+        EJEMPLO: grid-column: 2 / 3; iniciaria en la columna 2 (borde entre columna 1 y 2) y termina en la columna 3 (borde entre columna 2 y 3)
+GRID-ROW:
+    : 2 / 3;
+
+
 POSITION:
     STATIC:
         Es el valor por defecto de todo elemento HTML, consiste en respetar el flujo normal del documento donde las propiedades de posición no pueden ser establecidas.
@@ -72,6 +103,7 @@ POSITION:
         Indica cual es la posicion inicial del elemento que queremos formatear.
     INHERITAL:
         Indica que el elemento hereda las propiedades del elemento padre.
+
 TOP:
 BOTTOM:
 LEFT:
@@ -163,7 +195,7 @@ COMBINADORES (Union de dos o mas selectores):
         Todos los elementos del selector de la derecha que esten adyacentes (que compraten el mismo padre y estan inmediatamente situados hacia abajo de otro elemento)  al selector de la izquierda. 
     GENERAL DE HERMANOS (elemento-uno ~ elemento-dos):
         Todos los elementos del selector de la derecha que son hermanos (Que comparten el mismo padre y estan situados hacia abajo de otro elemento) de selector de la izquierda. Estos selectores estan separados por el simbolo de virgulilla (~). 
-            Nota: Una vecumplida la regla especificada en el combinador(A inmediatamenbte despues de B), no importa si las siguentes etiquetas cumplen esa condicion, el estilo se aplicara siempre.
+            Nota: Una vecumplida la regla especificada en el combinador(A inmediatamente despues de B), no importa si las siguentes etiquetas cumplen esa condicion, el estilo se aplicara siempre.
 PSEUDOCLASES (Un estado especial de un elemento):
     :HOVER:
         El cursor esta encima del elemento.
@@ -245,3 +277,5 @@ RELATIVAS:
         Anchura del caracter “0” del elemento que lo contiene
     LH (lh): 	
         Altura de la líne
+    FR (fr):
+        Fraccion restante.

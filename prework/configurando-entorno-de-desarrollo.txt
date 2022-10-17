@@ -28,6 +28,8 @@
         Mueve la tabulacion de multiples lineas de codigo hacia la izquierda.
     CTRL + /
         Comenta las lineas seleccionadas.
+    SHIFT + DEL
+        Elimina una linea de codigo entera
 
 ---------------------------
 | INSTALACION DE NODE-JS: |

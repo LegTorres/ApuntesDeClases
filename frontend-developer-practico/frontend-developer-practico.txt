@@ -1,0 +1,20 @@
+========================================
+| CURSO PRACTICO DE FRONTEND DEVELOPER |
+========================================
+
+
+En que consiste la maquetacion o diagrama web?
+    En transformar un diseño gráfico (boceto) en una interfaz funcional en términos de programacion que entienda un navegador o dispositivo especifico.
+
+
+
+
+
+------------------------
+| LAYOUT Y COMPONENTES |
+------------------------
+
+
+-----------------------------------------------------
+| MAQUETACION RESPONSIVA: PANTALLA DE AUNTETICACION |
+-----------------------------------------------------
