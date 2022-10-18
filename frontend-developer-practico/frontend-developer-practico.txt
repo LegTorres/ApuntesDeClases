@@ -7,8 +7,17 @@ En que consiste la maquetacion o diagrama web?
     En transformar un diseño gráfico (boceto) en una interfaz funcional en términos de programacion que entienda un navegador o dispositivo especifico.
 
 
+Cual es la utilidad de un sistema de diseño?
+    Facilita las tareas de diseñadores y desarrolladores en el proceso de creación. También agiliza la toma de decisión entre equipos.
 
 
+Que son las variables en CSS?
+    Son las propiedades personalizadas. Contienen valores especificos que se pueden reutilizar muchas veces en un documento.
+    - Se establecen mediante la notacion de dos guiones:
+        --nombre-variable: valor;
+    - Se acceden mediante la funcion var()
+        propiedad: var(--nombre-variable);
+    - Normalmente se declaran dentro del selector :root para que su alcance(scope) sea global.
 
 ------------------------
 | LAYOUT Y COMPONENTES |
