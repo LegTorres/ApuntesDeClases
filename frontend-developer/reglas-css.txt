@@ -85,8 +85,18 @@ GRID-COLUMN
         EJEMPLO: grid-column: 2 / 3; iniciaria en la columna 2 (borde entre columna 1 y 2) y termina en la columna 3 (borde entre columna 2 y 3)
 GRID-ROW:
     : 2 / 3;
-
-
+JUSTIFY-SELF:
+    se usa para especificar la alineación de la posición de un contenido junto con el eje apropiado en una cuadrícula CSS. Sus valores son:
+        CENTER:
+            Permite que el contenido se alinee con el centro de la celda.
+        LEFT:
+            El contenido se alinee a la izquierda de la celda.
+        RIGHT:
+            El contenido se alinee a la derecha de la celda.
+PLACE-ITEMS:
+    (Combina las propiedades align-items y justify-items) Permite alinear el contenido tanto en la direccion de bloque como en linea con la misma propiedad, dentro de un grid o flexbox . Sus valores son:
+        CENTER
+    NOTA: Acepta dos valores, pero en caso de recibir solo uno aplicara el mismo a ambas situaciones.
 POSITION:
     STATIC:
         Es el valor por defecto de todo elemento HTML, consiste en respetar el flujo normal del documento donde las propiedades de posición no pueden ser establecidas.
@@ -153,6 +163,19 @@ OVERFLOW:
             El contenido es recortado y el navegador web usa las barras de desplazamiento, se haya recortado contenido o no. Esto previene cualquier problema con las barras de desplazamiento apareciendo o desapareciendo en un entorno dinámico. Puede que las impresoras impriman contenido excedente.
         AUTO
             Depende del agente de usuario. Navegadores de escritorio como Firefox proveen barras de desplazamiento si hay contenido excedente. 
+
+
+---------------------
+| VARIABLES CON CSS |
+---------------------
+
+
+Declaracion de una variable en CSS.
+    --nombre-variable: valor;
+    NOTA: Normalmente se declaran dentro del selector :root {...} para que su alcance(scope) sea global.
+
+Se acceden mediante la funcion var()
+    propiedad: var(--nombre-variable);
 
 
 ==================================
