@@ -27,3 +27,17 @@ Que son las variables en CSS?
 -----------------------------------------------------
 | MAQUETACION RESPONSIVA: PANTALLA DE AUNTETICACION |
 -----------------------------------------------------
+
+
+----------------------------------
+| SITIOS WEB DE APOYO Y RECURSOS |
+----------------------------------
+
+
+FUENTES DE GOOGLE
+    fonts.google.com
+
+
+CONSEJOS DE DISEÑO EN SHOPIFY
+    https://polaris.shopify.com/design/design
+
