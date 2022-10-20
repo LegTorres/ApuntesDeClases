@@ -59,18 +59,20 @@ DISPLAY:
 
 
 - (EN CONJUNTO CON PROPIEDAD DISPLAY FLEX EN ELEMENTO CONTENEDOR)
-JUSTIFY-CONTENT:
-    SPACE-BETWEEN: 
-        Deja un espacio entre cada elemento hijo. EL valor center los centra en el eje horizontal
-ALIGN-ITEMS:
-    CENTER:
-        Alinea los elementos hijos en el eje vertical (si flex-direction tiene el valor de column los alinea en el eje horizontal)
 FLEX-DIRECTION: 
     Cambia la direccion en la que se ordenaran los elementos hijos Por defecto es row.
     ROW:
         Ordena los elementos en fila.
     COLUMN:
         Ordena los elementos en columna.
+JUSTIFY-CONTENT:
+    SPACE-BETWEEN: 
+        Deja un espacio entre cada elemento hijo. EL valor center los centra en el eje horizontal o vertical, dependiendo de la propiedad flex-direction
+ALIGN-ITEMS:
+    CENTER:
+        Alinea los elementos hijos en el eje vertical (si flex-direction tiene el valor de column los alinea en el eje horizontal)
+
+
 - (EN CONJUNTO CON PROPIEDAD DISPLAY GRID EN ELEMENTO CONTENEDOR) 
 GRID-TEMPLATE-COLUMNS:
     Establece el tamaño de cada una de las columna en la cuadricula.
@@ -97,22 +99,24 @@ PLACE-ITEMS:
     (Combina las propiedades align-items y justify-items) Permite alinear el contenido tanto en la direccion de bloque como en linea con la misma propiedad, dentro de un grid o flexbox . Sus valores son:
         CENTER
     NOTA: Acepta dos valores, pero en caso de recibir solo uno aplicara el mismo a ambas situaciones.
+
+
 POSITION:
     STATIC:
-        Es el valor por defecto de todo elemento HTML, consiste en respetar el flujo normal del documento donde las propiedades de posición no pueden ser establecidas.
+        Es el valor de la posicion por defecto de todo elemento HTML Es el unico caso donde no se puede utilizar top, right, bottom y left.
     RELATIVE:
-        Consiste en respetar el flujo normal del documento donde las propiedades de posición sí pueden ser establecidas.
+        Conservan su posición original y espacio físico, pero podemos moverlos con las propiedades top, right, bottom, y left.
     ABSOLUTE:
-        Consiste en quitar al elemento del flujo normal del documento donde las propiedades de posición sí pueden ser establecidas. Nota, el elemento que sigue da la impresion de desaparecer de la pantalla debido a que se posiciona por detras de el elemento con posicionamiento absoluto.
-        NOTA: El elemento con posición absoluta se desplazará arriba, abajo, izquierda o derecha con respecto al elemento padre más próximo con posición relativa. Si no existe un padre con posición relativa de un elemento con posición absoluta, este se desplazará con respecto al elemento raíz del documento.
-    STICKY:
-        Consiste en quitar al elemento del flujo normal del documento y fijarlo en un lugar mientras su contenedor sea visible donde las propiedades de posición sí pueden ser establecidas. Cuando deja de ser visible, el siguiente elemento con la propiedad sticky ocupa su lugar. NOTA: Esta propiedad solo funciona si tiene otros elememtos hermanos con dicha propiedad
+        Los elementos permanecen en la posición donde fueron colocados, pero pierden su espacio físico, es decir, se sobreponen en otros elementos. NOTA: para poder aplicar este valor, el contendor padre debe tener position relative.
     FIXED:
-        Consiste en quitar al elemento del flujo normal del documento y fijarlo en un lugar; donde las propiedades de posición sí pueden ser establecidas.
+        Pierden su espacio físico y permanecen de forma fija.
+    STICKY:
+        Conservan su espacio físico, pero cuando el scroll los alcanza lo siguen sin perder dicho espacio físico.
+        NOTA: Es muy usado para barras de navegación.
     INITIAL:
-        Indica cual es la posicion inicial del elemento que queremos formatear.
+        Vuelve el position de un elemento a como estaba originalmente.
     INHERITAL:
-        Indica que el elemento hereda las propiedades del elemento padre.
+        Hereda las propiedades del elemento padre.
 
 TOP:
 BOTTOM:
