@@ -68,6 +68,8 @@ ETIQUETAS PARA MULTIMEDIA:
     IMG (Inline, Self-closing):
         Define una imagen. Es necesario especificar el atributo SRC con la url de la imagen. El atributo ALT representa un texto alternativo en caso de que la imagen no cargue correctamente. Ejemplo:
         <img src="URl" alt="TEXTO-ALTERNATIVO"/>
+    FIGURE ():
+    PICTURE ():
     IFRAME (Block):
         Define un contenerdor para una pagina web dentro de otra pagina web.
         <iframe src="URL" frameborder="0">...</iframe>

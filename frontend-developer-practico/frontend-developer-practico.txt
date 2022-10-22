@@ -19,6 +19,12 @@ Que son las variables en CSS?
         propiedad: var(--nombre-variable);
     - Normalmente se declaran dentro del selector :root para que su alcance(scope) sea global.
 
+
+Cuales son las etiquetas contenedoras que nos permiten organizar imagenes de una manera semantica?
+    - Figure
+    - Picture
+
+
 ------------------------
 | LAYOUT Y COMPONENTES |
 ------------------------
@@ -40,4 +46,8 @@ FUENTES DE GOOGLE
 
 CONSEJOS DE DISEÑO EN SHOPIFY
     https://polaris.shopify.com/design/design
+
+
+SITIO PARA OBTENER URL'S DE IMAGENES.
+    https://images.pexels.com/
 

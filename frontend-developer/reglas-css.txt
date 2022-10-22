@@ -27,7 +27,10 @@ WIDTH:
     Establece el ancho de un elemento.
 HEIGHT:
     Establece la altura de un elemento.
-
+OBJECT-FIT:
+    Redimensiona el tamaño de un elemento (img, video...) para que se ajuste al elemento contenedor. Sus opciones son:
+        COVER: 
+            Si la relacion de aspecto no coincide con la del contenedor, la imagen se recortara para que se ajuste.
 
 -----------------------------------
 | PROPIEDADES DE COLORES DE FONDO |
@@ -58,7 +61,7 @@ DISPLAY:
             Consiste en el ordenamiento de elementos hijos en dos ejes, como si fuera una cuadrícula o tabla. El elemento padre o contenedor deberá contener la propiedad display con el valor grid y debes definir las medidas de las columnas y de las filas. A partir de aquí, ya puedes ordenar los hijos según sea necesario.
 
 
-- (EN CONJUNTO CON PROPIEDAD DISPLAY FLEX EN ELEMENTO CONTENEDOR)
++ (EN CONJUNTO CON PROPIEDAD DISPLAY FLEX EN ELEMENTO CONTENEDOR)
 FLEX-DIRECTION: 
     Cambia la direccion en la que se ordenaran los elementos hijos Por defecto es row.
     ROW:
@@ -73,13 +76,22 @@ ALIGN-ITEMS:
         Alinea los elementos hijos en el eje vertical (si flex-direction tiene el valor de column los alinea en el eje horizontal)
 
 
-- (EN CONJUNTO CON PROPIEDAD DISPLAY GRID EN ELEMENTO CONTENEDOR) 
++ (EN CONJUNTO CON PROPIEDAD DISPLAY GRID EN ELEMENTO CONTENEDOR) 
 GRID-TEMPLATE-COLUMNS:
     Establece el tamaño de cada una de las columna en la cuadricula.
     Con el valor 1fr 1fr 1fr 1fr asignamos el valor de una fraccion para cada columna dividiendo el contenedor en 4 secciones. 
+        REPEAT(NUM-ELEMEN-A-REPETIR, TAMAÑO)
+            Repite las caracteristicas de tamaño de una columna o fila en varias otras.
+            NOTA: Se puede usar con grid-template-columns y grid-template-rows.
+            NOTA: Con el valor auto-fill como primer parametro de repeat() nos aseguramos que la grid ocupe el 100% de del espacio disponible sin importar el tamaño de la pantalla.
 GRID-TEMPLATE-ROWS:
     Establece el tamaño de cada una de las filas en la cuadricula.
     Con el valor 1fr 1fr 1fr 1fr asignamos el valor de una fraccion para cada fila dividiendo el contenedor en 4 secciones.
+GAP: 
+    Genera un espacio entre los items de la grid.
+PLACE-CONTENT:
+    Alinea horizontal y verticalmente. Sus propiedades son:
+        CENTER...
 - (APLICADO EN ELEMENTOS HIJOS)
 GRID-COLUMN
     Especifica el tamaño y la ubicacion de un elemento dentro de una columna de una cuadrícula. Sus valores son:
@@ -97,7 +109,7 @@ JUSTIFY-SELF:
             El contenido se alinee a la derecha de la celda.
 PLACE-ITEMS:
     (Combina las propiedades align-items y justify-items) Permite alinear el contenido tanto en la direccion de bloque como en linea con la misma propiedad, dentro de un grid o flexbox . Sus valores son:
-        CENTER
+        CENTER...
     NOTA: Acepta dos valores, pero en caso de recibir solo uno aplicara el mismo a ambas situaciones.
 
 
