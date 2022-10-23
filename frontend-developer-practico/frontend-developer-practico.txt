@@ -42,7 +42,26 @@ Como se aplica CSS en una orden de compra?
         5
             Definir la parte visual de "shopping-cart".
         
-            
+
+Cual es el estilo basico de CSS para un menu?
+    Se deben alinear los elementos en una barra horizontal para que ocupe el total de la pantalla.
+
+
+Como se logra estilizar el menu?
+    1
+        Ocultar de la vista de desktop el icono del menu, dejamndolo visible solamente en la vista mobile.
+    2
+        Remover la decoracion de los enlaces y listas.
+    3
+        Centrar los elementos con flexbox, eliminar el padding y margin por defecto de las etiquetas y definir los colores y tamaños de fuentes.
+    4
+        Aplicar los cambios para el movil.
+
+
+En el ejemplo del curso, como se centraria el carrito de compras junto al numero de articulos agregados a la orden?
+    Empleando las posiciones absolute y relative.
+    
+
 ------------------------
 | LAYOUT Y COMPONENTES |
 ------------------------
