@@ -1,0 +1,19 @@
+SNIPPET:
+    .my-order>(.my-order-container>(h1.title{My order}+.my-order-content>(.order>(p>(span{03.25.21}+span{6 articles}))+p{560,00})+.shoping-cart>(figure>img)+p{Bike}+p{30,00}))
+RESULTADO:
+     <div class="my-order">
+        <div class="my-order-container">
+            <h1 class="title">My order</h1>
+            <div class="my-order-content">
+                <div class="order">
+                    <p><span>03.25.21</span><span>6 articles</span></p>
+                    <p>560,00</p>
+                </div>
+                <div class="shoping-cart">
+                    <figure><img src="" alt=""></figure>
+                    <p>Bike</p>
+                    <p>30,00</p>
+                </div>
+            </div>
+        </div>
+    </div>
