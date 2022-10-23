@@ -42,8 +42,17 @@ HEIGHT:
     Establece la altura de un elemento.
 OBJECT-FIT:
     Redimensiona el tamaño de un elemento (img, video...) para que se ajuste al elemento contenedor. Sus opciones son:
-        COVER: 
-            Si la relacion de aspecto no coincide con la del contenedor, la imagen se recortara para que se ajuste.
+        CONTAIN:
+            Mantiene la relación de aspecto mientras le ajusta dentro del contendedor.
+        COVER:
+            Mantiene la realción de aspecto, pero la ajusta para llenar el contenedor (Recorta el elemento si sobresale en algun borde).
+        FILL:
+            Modifica su tamaño para llenar el contenedor.
+        NONE:
+            No se redimensiona.
+        SCALE-DOWN:
+            El contenido se dimensiona como si none o contain estuvieran especificados, lo que resulta en un tamaño de objeto concreto más pequeño.
+
 
 -----------------------------------
 | PROPIEDADES DE COLORES DE FONDO |

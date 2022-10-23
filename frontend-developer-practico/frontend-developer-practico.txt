@@ -29,6 +29,20 @@ Que es el menu desplegable?
     Es un elemento de control grafico que muestra al usuario una variedad de opciones de una categoria que puede elegir para realizar una accion como una compra. Esta tiene dos estados: activa e inactiva. Cuando esta incativa, enseña un solo valor.
 
     
+Como se aplica CSS en una orden de compra?
+    Deben implementarse estilos que funcionen tanto para ventas menores como para ventas de miles de articulos. Se definiran de la siguiente manera:
+        1 
+            Denfinir las dimensiones del contenedor principal y centrar su contenido.
+        2
+            Establecer el tamaño de la fuente del titulo y su separacion de la barra de totales.
+        3
+            Preparar la grid de CSS Grid.
+        4
+            Brindar espacio a los elementos y confeccionar otra Grid.
+        5
+            Definir la parte visual de "shopping-cart".
+        
+            
 ------------------------
 | LAYOUT Y COMPONENTES |
 ------------------------
