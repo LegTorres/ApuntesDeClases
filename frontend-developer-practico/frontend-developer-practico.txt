@@ -60,8 +60,20 @@ Como se logra estilizar el menu?
 
 En el ejemplo del curso, como se centraria el carrito de compras junto al numero de articulos agregados a la orden?
     Empleando las posiciones absolute y relative.
-    
 
+
+
+Cuales son los pasos a aplicar para hacer un aside?
+    1
+        Añadir al boton una clase para los estilos comunes y otra para aplicar el flexbox.
+    2
+        Estilizar la imagen y la x de cerrar la vista.
+    3
+        Continuar con la parte de la informacion del producto.
+    4
+        Modificar el width para que ocupe el 100% de la pantalla en un movil.
+
+        
 ------------------------
 | LAYOUT Y COMPONENTES |
 ------------------------
