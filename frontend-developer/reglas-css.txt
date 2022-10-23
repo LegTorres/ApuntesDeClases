@@ -222,7 +222,6 @@ POSITION:
         Vuelve el position de un elemento a como estaba originalmente.
     INHERITAL:
         Hereda las propiedades del elemento padre.
-
 TOP:
 BOTTOM:
 LEFT:
@@ -233,6 +232,33 @@ Z-INDEX:
     Define si un elemento estara por delante de los demas. Por defecto, todos los elementos tienen un valor de AUTO. Los primeros elementos estaran por detras y los ultimos estaran por delante. Si su valor es negativo, se situa por detras.
 
 
+TRANSFORM:
+    Permite modificar el espacio de coordenadas del modelo de formato visual CSS. Usándola, los elementos pueden ser trasladados, rotados, escalados o sesgados de acuerdo a los valores establecidos. Sus valores son:
+        ROTATE(deg): 
+            Gira un elemento en la cantidad de grados especificados entre parentesis en sentido horario si el valor es positivo o antihorario si es negativo. Ejemplo: transform: rotate(90deg); 
+        ROTATEX(deg):
+            Rotación 3D de un elemento en el eje X. 
+            Ejemplo: transform: rotateX(90deg);
+        ROTATEY(deg):
+            Rotación 3D de un elemento en el eje Y. 
+            Ejemplo: transform: rotateY(90deg);
+        ROTATEZ(deg):
+            Rotación 3D de un elemento en el eje Z. 
+            Ejemplo: transform: rotateZ(90deg);
+        SCALE(sx, sy):
+            Especifica una operación de escalado 2D descrita por [sx, sy]. NOTA: Si sy no es especificado se asumira que ambos valores seran iguales.
+            Ejemplo: transform: scale(2.5, 4);
+        SKEWX(deg):
+            Sesga el elemento a lo largo del eje X por el ángulo especificado.
+        SKEWY(deg):
+            Sesga el elemento a lo largo del eje Y por el ángulo especificado.
+        TRANSLATE(px,px):
+            Especifica una tanslación 2D dada por el vector [tx, ty]. Si ty no es específicada, se asumirá que su valor es cero.
+        TRANSLATE(px):
+            Translada un elemento a lo largo del eje X.
+        TRANSLATE(px):
+            Translada un elemento a lo largo del eje Y
+            
 
 ---------------------
 | VARIABLES CON CSS |
