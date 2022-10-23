@@ -25,6 +25,10 @@ Cuales son las etiquetas contenedoras que nos permiten organizar imagenes de una
     - Picture
 
 
+Que es el menu desplegable?
+    Es un elemento de control grafico que muestra al usuario una variedad de opciones de una categoria que puede elegir para realizar una accion como una compra. Esta tiene dos estados: activa e inactiva. Cuando esta incativa, enseña un solo valor.
+
+    
 ------------------------
 | LAYOUT Y COMPONENTES |
 ------------------------

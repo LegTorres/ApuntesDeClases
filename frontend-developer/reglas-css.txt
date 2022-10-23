@@ -16,7 +16,20 @@ FONT-WEIGHT:
 FONT-FAMILY: 
     Establece el tipo de fuente.
 TEXT-ALIGN: 
-    Establece la posición del texto: right, left, center y justify.
+    Establece la posición del texto: right, left, center y justify, end.
+TEXT-DECORATION:
+    Establece el formato del texto. Sus valores son:
+        UNDERLINE:
+            Subrayado.
+        OVERLINE:
+            Suprarrayado.
+        LINE-THROUGH:
+            Tachado.
+        BLINK: 
+            Parpadeo. NOTA: Dejo de ser compatible en la mayoria de los navegadores.
+    NOTA: La propiedad text-decoration se dibuja a traves de los elemntos descendientes, por lo que no es posible dehabilitar la decoracion de un descendiente si la propiedad se especifica en un elemento ancestro.
+    NOTA: Se puede especificar en la misma linea el color de la decoracion, asi como el estilo de esta.
+
 
 
 --------------------------
@@ -39,6 +52,77 @@ OBJECT-FIT:
 BACKGROUND-COLOR:
     Establece un color de fondo de un elemento.
 BACKGROUND:
+
+
+-------------------------
+| PROPIEDADES DE LISTAS |
+-------------------------
+
+LIST-STYLE:
+    Da estilos a las etiquetas de lista (li). Sus valores son:
+        NONE:
+            Quita los puntos o numeros de la izquierda de cada elemento de lista.
+        DISC:
+            Un disco.
+        CIRCLE:
+            Un círculo.
+        SQUARE:
+            Un cuadrado.
+        DECIMAL:
+            Números decimales empezando con 1.
+        DECIMAL-LEADING-ZERO:
+            Números decimales empezando eventualmente por ceros (por ejemplo: 01, 02, 03, ..., 98, 99).
+        LOWER-ROMAN:
+            Números romanos en minúscula (i, ii, iii, iv, v, etc.).
+        UPPER-ROMAN:
+            Números romanos en mayúscula (I, II, III, IV, V, etc.).
+        LOWER-GREEK:
+            Letras griegas en minúscula alfa/α, beta/β, gamma/γ, ...
+        LOWER-LATIN:
+            Letras ASCII en minúscula (a, b, c, ... z).
+        UPPER-LATIN:
+            Letras ASCII en mayúscula (A, B, C, ... Z).
+
+
+---------------------------------
+| PROPIEDADES DE MODELO DE CAJA |
+---------------------------------
+
+MARGING:
+    Consiste en el espacio entre el borde y otro elemento HTML. Puedes establecer el margin en cada posición en una sola línea de las siguientes maneras:
+            [arriba] [derecha] [abajo] [izquierda]
+            [arriba] [abajo] [derecha e izquierda]
+            [arriba y abajo] [derecha e izquierda]
+PADDING:
+    Es el espacio entre el borde y el contenido del elemento HTML. Puedes establecer el padding en cada posición en una sola línea de las siguientes maneras:
+            [arriba] [derecha] [abajo] [izquierda]
+            [arriba] [abajo] [derecha e izquierda]
+            [arriba y abajo] [derecha e izquierda]
+BORDER:
+    El perfil o borde de un elemento HTML. Tiene las siguientes propiedades:
+            border-color: El color del borde.
+            border-width: La anchura del borde.
+            border-style: El estilo propio del borde, estos pueden ser: 
+                none (Sin borde)
+                dotted (puntos)
+                dashed (guiones)
+                solid (continuo)
+                double (doble continuo)
+                groove (recuadro)
+BOX-SIZING:
+    Es aquella que establece como se calculara el width y el height si incluyen bordes y espacios internos (padding). Sus valores son:
+        BORDER-BOX:
+            El tamaño total del elemento sera igual al especificado en el width y height, provocando que las medidas del contenido cambien con respecto a los bordes y espacios internos para adaptarse a la media especificada. 
+OVERFLOW:
+    Especifica: si recortar contenido, dibujar barras de desplazamiento o mostrar el contenido excedente en un elemento a nivel de bloque.  Sus valores son:
+        VISIBLE:
+            Valor por defecto. El contenido no es recortado, podría ser dibujado fuera de la caja contenedora.
+        HIDDEN
+            El contenido es recortado y no se muestran barras de posición.
+        SCROLL
+            El contenido es recortado y el navegador web usa las barras de desplazamiento, se haya recortado contenido o no. Esto previene cualquier problema con las barras de desplazamiento apareciendo o desapareciendo en un entorno dinámico. Puede que las impresoras impriman contenido excedente.
+        AUTO
+            Depende del agente de usuario. Navegadores de escritorio como Firefox proveen barras de desplazamiento si hay contenido excedente. 
 
 
 ------------------------------------
@@ -139,46 +223,6 @@ RIGHT:
 Z-INDEX:
     Define si un elemento estara por delante de los demas. Por defecto, todos los elementos tienen un valor de AUTO. Los primeros elementos estaran por detras y los ultimos estaran por delante. Si su valor es negativo, se situa por detras.
 
-
----------------------------------
-| PROPIEDADES DE MODELO DE CAJA |
----------------------------------
-
-MARGING:
-    Consiste en el espacio entre el borde y otro elemento HTML. Puedes establecer el margin en cada posición en una sola línea de las siguientes maneras:
-            [arriba] [derecha] [abajo] [izquierda]
-            [arriba] [abajo] [derecha e izquierda]
-            [arriba y abajo] [derecha e izquierda]
-PADDING:
-    Es el espacio entre el borde y el contenido del elemento HTML. Puedes establecer el padding en cada posición en una sola línea de las siguientes maneras:
-            [arriba] [derecha] [abajo] [izquierda]
-            [arriba] [abajo] [derecha e izquierda]
-            [arriba y abajo] [derecha e izquierda]
-BORDER:
-    El perfil o borde de un elemento HTML. Tiene las siguientes propiedades:
-            border-color: El color del borde.
-            border-width: La anchura del borde.
-            border-style: El estilo propio del borde, estos pueden ser: 
-                none (Sin borde)
-                dotted (puntos)
-                dashed (guiones)
-                solid (continuo)
-                double (doble continuo)
-                groove (recuadro)
-BOX-SIZING:
-    Es aquella que establece como se calculara el width y el height si incluyen bordes y espacios internos (padding). Sus valores son:
-        BORDER-BOX:
-            El tamaño total del elemento sera igual al especificado en el width y height, provocando que las medidas del contenido cambien con respecto a los bordes y espacios internos para adaptarse a la media especificada. 
-OVERFLOW:
-    Especifica: si recortar contenido, dibujar barras de desplazamiento o mostrar el contenido excedente en un elemento a nivel de bloque.  Sus valores son:
-        VISIBLE:
-            Valor por defecto. El contenido no es recortado, podría ser dibujado fuera de la caja contenedora.
-        HIDDEN
-            El contenido es recortado y no se muestran barras de posición.
-        SCROLL
-            El contenido es recortado y el navegador web usa las barras de desplazamiento, se haya recortado contenido o no. Esto previene cualquier problema con las barras de desplazamiento apareciendo o desapareciendo en un entorno dinámico. Puede que las impresoras impriman contenido excedente.
-        AUTO
-            Depende del agente de usuario. Navegadores de escritorio como Firefox proveen barras de desplazamiento si hay contenido excedente. 
 
 
 ---------------------
