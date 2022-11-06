@@ -1,0 +1,73 @@
+=====================================
+| COMANDOS BASICOS EN EL EDITOR VIM |
+=====================================
+
+
+---------
+| MODOS |
+---------
+
+COMANDO:
+    - Permite ingresar comandos y movernos a traves del documento con las teclas de direccion y las letras H (Izquierda), J (Abajo), K (Arriba) y L (Derecha).
+    - Para regresar al modo edicion desde cualquier otro se uace presionando la tecla ESC.
+
+    COMANDOS MAS USADOS: 
+        :q  
+            Cierra el editor. Para forzar el cierre sin pregintar se agrega el simbolo de admiracion (!)
+        :w
+            Guarda los cambios efectuados en el documento.
+        :x
+            Combinacion de los comandos para guardar y salir.
+        dd
+            Corta la linea donde estamos posicionados.
+        d<num>d
+            especificando un numero seguido del comando, como por ejemplo d5d, corta las 5 lineas empezando desde donde estamos posicionados hacia abajo.
+        yy
+            Copia la linea donde estamos posicionados.
+        y<num>y
+            especificando un numero seguido del comando, como por ejemplo y5y, copia las 5 lineas empezando desde donde estamos posicionados hacia abajo.
+        p
+            Pega la linea copiada anteriormente con el comando YY (yy), o cortada con el comando DD (dd) inmediatamente debajo de la linea donde estamos posicionados. 
+            NOTA: No pega lo copiado fuera del editor, para eso debe pegarse usando la combinacion de teclas CTRL + SHIFT + V.
+        o
+            Crea una linea nueva inmediatamente debajo de la linea donde estamos posicionados y entra en el modo de INSERCION.
+        u
+            Deshace los cambios hechos. NOTA: Si hemos escrito varias lineas en el modo de INSERCION, este comando las borrara todas.
+        CTRL + R
+            Rehace los cambios deshechos con el comando U (u).
+        /<texto>
+            Permite realizar busquedas dentro del documento. 
+            NOTA: Para desplazarse entre las coincidencias se hace presionando la n (Para adelante) y N (Para atras. Funciona con SHIFT + n).
+        gg
+            Desplaza el cursor hasta el PRINCIPIO del archivo.
+        G
+            Desplaza el cursor hasta el FINAL del archivo.
+            NOTA: Funciona con SHIFT + n
+
+INSERCION:
+    - Permite insertar o editar codigo. Se puede acceder a el presionando ya sea la techa I o la techa A. 
+
+VISUAL:
+    Permite seleccionar tanto cartacteres como lineas de texto. 
+    NOTA: Para cortar o copiar el texto seleccionado no es necesario presionar dos veces las teclas D o Y. Basta con una sola vez.
+
+
+----------------------------------
+| CONFIGURANDO EL ARCHIVO .VIMRC |
+----------------------------------
+
+Agregar las siguientes lineas dentro del archivo .vimrc
+    set number
+        Establece el numero de linea en el editor.
+    syntax on
+        Asigna color a la sintaxis en lenguajes de programacion.
+    set ts=4
+        Establece el numero de espacios al presionar la tecla TAB.
+    set background=dark
+        Utiliza un color de texto conforme a el color de fondo de la terminal para mejorar la visibilidad. 
+    set autoindent
+        Asigna la indentacion de la linea actual en base a la de la linea anterior.
+    set ignorecase
+        Establece que las busquedas no hagan distincion entre mayusculas y minusculas.
+    
+    
