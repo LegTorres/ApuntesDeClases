@@ -1,6 +1,5 @@
-# CURSO DEFINITIVO DE HTML Y CSS
-## Cuestionario:
-___
+# **CURSO DEFINITIVO DE HTML Y CSS**
+
 ### **Que es el Frontend?**
 Es la parte de un programa o dispositivo a la que un usuario puede acceder directamente. Son todas las tecnologías de diseño y desarrollo web que corren en el navegador y que se encargan de la interactividad con los usuarios.
 
@@ -123,6 +122,10 @@ Evita que se reinicie la pagina al darle click al enlace.
 
 > Nota: Un elemento es la combinacion de una **etiqueta** mas su **contenido**
 
+___
+# **ETIQUETAS MULTIMEDIA**
+
+
 ## **Cuales son los tipos de imagenes para la web?**
 - **Lossless** (sin pérdida):
     - Capturan todos los datos del archivo original.
@@ -150,3 +153,70 @@ Evita que se reinicie la pagina al darle click al enlace.
     - Tiny PNG
 - Retirar metadatos de las imagenes:
     - Verefix
+
+## **Cual es la funcion de la etiqueta `<figure> </figure>`?**
+Es un contenedor mas apropiado para almacenar una imagen, ilustracion, diagrama, etc. Se puede usar en conjunto con la etiqueta `<figcaption> </figcaption>` para mostrar una pequeña descripcion de la imagen, como el autor, fuente, etc.
+> Nota: La etiqueta **figure** representa contenido independiente, a menudo con un titulo. Por lo general contiene imagenes a las que se hace referencia en texto principal, pero que se puede mover a otra pagina o a un apendice sin que afecte al flujo principal.
+Ejemplo:
+~~~html
+<figure>
+    <img
+        src="./pics/tinified/small.jpg"
+        alt="Es una imagen de un perrito"
+    />
+    <figcaption>Es una imagen de un perrito</figcaption>  
+</figure>
+~~~
+
+## **Cual es la etiqueta HTML utilizada para insertar un video en nuestra pagina?**
+~~~html
+<video src="./videos/video.m4v#t=10,60" controls preload="auto"></video>
+~~~
+> El atributo `controls` es necesario para mostrar los botones de control en el video. Es un atributo que no necesita de un valor para funcionar.
+
+> El atributo `preload` hace que el video empiece a cargar desde el inicio del renderizado de la pagina para que cuando el usuario quiera visualizarlo este disponible. Nota: Solo hace que el video se cargue desde el principio, no que se reproduzca automaticamente, ya que dicho comportamiento es considerado una mala practica y algunos navegadores penalizan su uso.
+
+> El agregado `#t=10,60` implica que al darle reprodicir al video, este comenzara el segundo **10** y que se detendra en el segundo **60**.
+
+## **Cual seria la forma recomendable de agregar fuentes de diferentes formatos de un video?**
+Utilizando la etiqueta `<source>`. Por ejemplo:
+~~~html
+<video controls preload="auto">
+    <source src="./videos/video.m4v#t=10,60"/>
+    <source src="./videos/video.mp4#t=10,60"/>
+    <source src="./videos/video.webm#t=10,60"/>
+</video>
+~~~
+> Esto es util en caso de que el navegador no reconozca alguno de los formatos de video. Omitira los que **no** reconoce y reproducira aquel que **si**.
+
+___
+# **FORMULARIOS**
+
+## **Cual seria un ejemplo de formulario en HTML?**
+La etiqueta `<form> </form>` define un formulario. Dentro de ella se colocan los diferentes input para obtener la informacion del usuario.
+
+Se define el tipo de `input` por medio del atributo `type`. Algunos ejemplos mas comunes son los siguientes:
+- `text`: Define un input de tipo texto.
+- `date`: Define un input de tipo fecha.
+- `time`: Define un input de tipo hora.
+
+~~~html
+<form action="">
+    <label for="nombre">
+        <span>Ingresa tu nombre:</span>
+        <input type="text" id="nombre" placeholder="Cual es tu nombre?">
+    </label>
+    <label for="inicio-clase">
+        <span>Ingresa tu fecha de inicio a clases:</span>
+        <input type="date" id="inicio-clase">
+    </label>
+    <label for="horario">
+        <span>Ingrese su horario:</span>
+        <input type="time" id="horario">
+    </label>
+</form>
+~~~
+
+> El atributo `placeholder` coloca un texto auxiliar dentro del delemento input.
+
+> El atributo `for` de la etiqueta `label` vincula una etiqueta `input` a traves del **id** de esta ultima.
