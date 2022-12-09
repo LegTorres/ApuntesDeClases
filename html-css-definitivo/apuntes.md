@@ -214,9 +214,82 @@ Se define el tipo de `input` por medio del atributo `type`. Algunos ejemplos mas
         <span>Ingrese su horario:</span>
         <input type="time" id="horario">
     </label>
+    <input type="submit">
 </form>
 ~~~
 
 > El atributo `placeholder` coloca un texto auxiliar dentro del delemento input.
 
-> El atributo `for` de la etiqueta `label` vincula una etiqueta `input` a traves del **id** de esta ultima.
+> El atributo `for` de la etiqueta `label` vincula una etiqueta `input` a traves del **id** de esta ultima, por lo tanto, el `id` de un elemento debe ser igual que el `for` de su respectivo `label`
+
+> El elemento de tipo `submit` genera un boton que enviara al servidor la informacion recogida en los campos en nuestra pagina web.
+
+## **Ejemplo de creacion de un calendario dentro de un formulario HTML**
+La manera mas facil de crear un calendario para programar eventos en un sitio web es a traves input de tipo `datetime-local`, lo cual creara un input en el que podemos escoger el **dia**, el **mes**, el **año**, y la hora de una sola vez. El codigo seria asi:
+
+~~~html
+<input type="datetime-local" id="calendario" name="calendario">
+~~~
+
+Otra manera seria creando las etiquetas para dia, semana, mes, y hora de manera individual. Esto, si bien es un poco mas laborioso permite tener un mayor control al momento de trabajar con las fechas. Ejemplo:
+
+~~~html
+<input type="time" id="hora" name="hora"/>
+
+<input type="date" id="dia" name="dia"/>
+
+<input type="week" id="semana" name="semana"/>
+
+<input type="month" id="mes" name="mes"/>
+~~~
+
+> El atributo `name` en el ejemplo anterior, identifica un input dentro de el formulario, y nos permite hacer referencia al control cuando la informacion contenida es enviada.
+
+## **Haciendo uso de `autocomplete` y `require`**
+El atributo `autocomplete` permite dar la opcion de rellenar automaticamente la informacion en el campo correspondiente de un formulario, siempre que esta se haya ingresado en el navegador previamente, ya sea en esta pagina o en otra. Los valores del atributo `autocomplete` **no** se fijan automaticamente en nuestros campos de formulario. Deben ser especificados por el desarrollador y elegidos por el usuario al momento de rellenar la informacion.
+
+El atributo `require` hace que rellenar el campo especificado sea de caracter obligatorio. Es un atributo que no necesita un **valor**.
+
+Ejemplos:
+
+~~~html
+<input type="text" id="nombre" name="nombre" autocomplete="name" required>
+
+<input type="email" id="correo" name="correo" autocomplete="email" required>
+
+<input type="text" id="pais" name="pais" autocomplete="country" required>
+
+<input type="number" id="cp" name="cp" autocomplete="postal-code" required>
+~~~
+
+## **Etiqueta select**
+~~~html
+<select name="cursos" id="">
+    <option value="JavaScript">JavaScript</option>
+    <option value="HTML 5">HTML 5</option>
+    <option value="CSS 3">CSS 3</option>
+    <option value="Web Standars">Web Standars</option>
+</select>
+~~~
+> Nota: El atributo ``value` es especialmente importante en esta etiqueta, debido a que si no se especifica no se enviara el valor seleccionado al momento de mandar la informacion del formulario, enviando un campo vacio. 
+
+Es mas recomendable utilizar la etiqueta `input` con el atributo `list`, seguido de la etiqueta `<datalist> </datalist>`, dentro de la cual se colocaran las etiquetas `<option> </option>`, en lugar de la etiqueta select, pues es mas accesible al haber multitud de opciones a elegir, sobretodo al acceder al formulario desde un dispositivo movil, pues esta opcion nos permite escribir lo que estamos buscando para filtrar resultados, ademas que permmite capturar el texto que hayamos escrito aun si ese no se encuentra entre las opciones a elegir.
+En este caso no se debe escribir contenido dentro de la etiqueta `option`, pues lo que sera visible sera el valor del atributo `value` y no su contenido.
+
+Ejemplo:
+~~~html
+<input list="clases">
+<datalist id="clases">
+    <option value="JavaScript"></option>
+    <option value="HTML 5"></option>
+    <option value="CSS 3"></option>
+    <option value="Web Standars"></option>
+</datalist>
+~~~
+
+## **Diferencia y similitudes entre input tipo `submit` y la etiqueta `button`**
+Ambos se pueden utilizar para enviar la informacion del formulario. Al la etiqueta `button` se le puede agregar el atributo `type="submit"` y tendra la misma funcion que la etiqueta `input`. 
+- La etiqueta `button` se abre y se cierra, mientras que el input tipo `submit` no.
+- Para modificar el texto en la etiqueta `button` lo hacemos escribiendo el contenido en la etiqueta. Para hacerlo en la etiqueta `input`, lo hacemos especificandolo como valor en el atributo `value`.
+- La etiqueta `button` es mas flexible y personalizable que la etiqueta `input`.
+
