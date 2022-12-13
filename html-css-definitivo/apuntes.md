@@ -262,7 +262,7 @@ Ejemplos:
 <input type="number" id="cp" name="cp" autocomplete="postal-code" required>
 ~~~
 
-## **Etiqueta select**
+## **Etiqueta `select`**
 ~~~html
 <select name="cursos" id="">
     <option value="JavaScript">JavaScript</option>
@@ -271,7 +271,7 @@ Ejemplos:
     <option value="Web Standars">Web Standars</option>
 </select>
 ~~~
-> Nota: El atributo ``value` es especialmente importante en esta etiqueta, debido a que si no se especifica no se enviara el valor seleccionado al momento de mandar la informacion del formulario, enviando un campo vacio. 
+> Nota: El atributo `value` es especialmente importante en esta etiqueta, debido a que si no se especifica no se enviara el valor seleccionado al momento de mandar la informacion del formulario, enviando un campo vacio. 
 
 Es mas recomendable utilizar la etiqueta `input` con el atributo `list`, seguido de la etiqueta `<datalist> </datalist>`, dentro de la cual se colocaran las etiquetas `<option> </option>`, en lugar de la etiqueta select, pues es mas accesible al haber multitud de opciones a elegir, sobretodo al acceder al formulario desde un dispositivo movil, pues esta opcion nos permite escribir lo que estamos buscando para filtrar resultados, ademas que permmite capturar el texto que hayamos escrito aun si ese no se encuentra entre las opciones a elegir.
 En este caso no se debe escribir contenido dentro de la etiqueta `option`, pues lo que sera visible sera el valor del atributo `value` y no su contenido.
@@ -292,4 +292,75 @@ Ambos se pueden utilizar para enviar la informacion del formulario. Al la etique
 - La etiqueta `button` se abre y se cierra, mientras que el input tipo `submit` no.
 - Para modificar el texto en la etiqueta `button` lo hacemos escribiendo el contenido en la etiqueta. Para hacerlo en la etiqueta `input`, lo hacemos especificandolo como valor en el atributo `value`.
 - La etiqueta `button` es mas flexible y personalizable que la etiqueta `input`.
+
+
+___
+# **MANEJO DE CSS**
+
+## ***Definicion de CSS*
+CSS (Cascading Style Sheets), es el estandar para poder dar estilos a nuestros documentos HTML.
+
+##   **Etiquetas para aplicar CSS en un documento HTML**
+se puede aplicar estilos CSS de varias maneras.
+
+La forma mas recomendada es enlazando nuestra pagina web a un archivo con extencion **.css** a traves de la etiqueta `link`. dentro del `head` de nuestro documento HTML.
+~~~html
+<link rel="stylesheet" href="archivo.css">
+~~~
+La segunda forma de agregar estilos es escribiendo el codigo CSS dentro de las etiquetas `style` en el head de nuestro documento HTML. Esto es recomendable solo si son muy pocas lineas de codigo CSS, ya que hara mas pesada nuestra pagina y tardara mas en cargar.
+~~~html
+<style>
+    /*Codigo CSS*/
+</style>
+~~~
+Y la tercer forma es aplicando el codigo CSS con el atributo `style` dentro de una etiqueta HTML. A esto se le llama **Estilo embebido**. Hay que tratar de evitar esta practica lo mas que se pueda.
+~~~html
+<p style="color: blue; font-size: 30px;">Parrafo de texto.</p>
+~~~
+
+## **Tipos de selectores CSS**
+
+ **Selectores Basicos**:
+- **Selectores de Tipo**:
+Que coincidan con el nombre de una etiqueta HTML.
+- **Selector de Clase**:
+Que coincidan con el atributo `class` de la etiqueta HTML. Se especificarla escribiendo el signo de punto `(.)` delante del nombre de clase.
+- **Selector de Identificador Unico (id)**:
+Que coincida con el atributo `id` de la etiqueta HTML. Se especifica colocando el simbolo de numeral `(#)` delante del nombre de id.
+> Para nombrar clases en CSS es recomendable usar la tecnica **BEM**, una de las mas utilizadas en desarrollo.
+- **Selector de Atributo**:
+Que coincidan con el atributo y valor especificado. Se especifica escribiendo el nombre de la etiqueta HTML, seguido de atributo y valor entre corchetes. Por ejemplo: `a[href="URL"]{ }`
+- **Selector Universal**:
+Selecciona todos los elementos del documento mediante un asterisco (*).
+> Recomendacion: Es recomendable agregar en todos los proyectos es selector universal para establecer un `marging` y `padding` en 0 ademas de hacer uso de la propiedad `box-sizing`, para evitar problemas con los bordes en nuestros proyectos. Ejemplo:
+~~~css
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+~~~
+
+**Selectores Combinadores** (Union de dos o mas selectores):
+- Combinadores Descendientes:
+Todos los elementos del selector de la derecha que son hijos del selector de la izquierda, independientemente de la profundidad. Van separados por espacio. Ejemplo: 
+        `padre hijo { }`
+- Combinador de Hijo Directo:
+Todos los elementos de la redecha que son hijos directos (En el primer nivel de profundidad) de la izquierda. Estan separados por el simbolo mayor que (>). Por ejemplo:
+        `padre > hijos_directos { }`
+- Combinador de Elementos Adyacentes:
+Todos los elementos del selector de la derecha que esten adyacentes (que compraten el mismo padre y estan inmediatamente situados hacia abajo de otro elemento)  al selector de la izquierda. Estan separados por el signo mas (+). Ejemplo:
+        `elemento_html + elemento_adyacente { }`
+- Combinador General de Hermanos:
+Todos los elementos del selector de la derecha que son hermanos (Que comparten el mismo padre y estan situados hacia abajo de otro elemento) de selector de la izquierda. Estos selectores estan separados por el simbolo de virgulilla (~). 
+> Nota: Una vez cumplida la regla especificada en el combinador(A inmediatamenbte despues de B), no importa si las siguentes etiquetas cumplen esa condicion, el estilo se aplicara siempre.
+
+**Selectores Pseudoclases**:
+- Definen el estilo de un estado especial de un elemento. Por ejemplo si esta posicionado el puntero del mouse sobre un elemento o si un enlace ha sido visitado o no, etc.  La pseudoclase va separada del selector por los dos puntos (:). Ejemplo:
+    `selector : pseudoclase { }`
+
+**Selectores Pseudoelementos**:
+- Definen el estilo de una parte especifica de un elemento. Los pseudoelementos van separados de los selectores por dos puntos dobles (::). Ejemplo:
+    `selector ::pseudoelemento { }`
+> Nota: No debe haber espacio entre los dos puntos dobles y el pseudoelemento.
 
