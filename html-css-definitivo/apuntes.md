@@ -364,3 +364,44 @@ Todos los elementos del selector de la derecha que son hermanos (Que comparten e
     `selector ::pseudoelemento { }`
 > Nota: No debe haber espacio entre los dos puntos dobles y el pseudoelemento.
 
+## **Herencia en CSS**
+Es el codigo de CSS que se va a transferir de un padre a un hijo. En el siguiente ejemplo se puede ver como `h1` hereda el tamaño de fuente de la etiqueta `html` utilizando el valor `inherit` en la propiedad `font-size`
+~~~css
+html {
+    font-size: 12px;
+}
+
+h1 {
+    font-size: inherit;
+}
+~~~
+
+## **Especificidad en los selectores**
+**Importancia:**
+1.  Hoja de estilo de agente de usuario. (Estilos del navegador)
+2.  Declaraciones normales en hojas de estilo de autor. (Nuestro CSS)
+3.  Declaraciones importantes en hojas de estilo de autor. (Utilizando el !important)
+
+**Especificidad**
+|Selectores|Especificidad|Descripcion|
+|--|--|--|
+|!important|1.0.0.0.0|Es el mas importante de todos|
+|Inline styles|0.1.0.0.0|Estilos dentro de la etiqueta HTML|
+|#id|0.0.1.0.0|Elementos que tienen un id|
+|.class|0.0.0.1.0|Elementos que tienen una clase|
+|tag|0.0.0.0.1|Etiquetas de HTML|
+> Nota: La especificidad se puede combinar si aplica mas de un tipo de selector: Por ejemplo: Si tenemos una etiqueta que tiene un id y una clase, eso tendra mas importancia para el navegador al momento de aplicar estilos que aquellas que solo tienen un id, ya que su especificidad de suma.
+> Nota: Editores como **Visual Studio Code** ayudan a identificar la especificidad que posee un selector cuando pasamos el puntero del mouse sobre el. Por ejemplo si muestra un `1.0.1` quiere decir que este selector tiene la especificidad de un **ID** y de una **Etiqueta** mas no el de una clase, pues su valor esta en cero.
+> No se recomienda usar demasiados IDs en nuestro documento HTML, ya que el abuso puede ocasionar conflictos al momento de aplicar estilos con CSS.
+
+**Orden de las fuentes**
+
+Las declaraciones al final del documento anularan a las que sucedan antes en caso de conflicto. Eso aplica tambien a los documentos CSS si tenemos enlazada nuestra pagina web a mas de uno.
+
+## **Reglas de cascada**
+En el caso de darse un conflicto en la declaracion el navegador evaluara lo siguiente en el orden a continuacion hasta encontrar la que aplique para resolver el conflicto:
+1. Las declaraciones tienen diferente origen o *!important*?
+2. Tienen algun *Inline style*?
+3. Los selectores tienen una especificidad diferente?
+
+> En caso de que el resultado sea verdadero aplica la declaracion copn la mayor prioridad. Si no es el caso, entonces utiliza la declaracion que viene en su fuente original.

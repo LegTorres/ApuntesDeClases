@@ -59,3 +59,10 @@ Escribiendo un bloque de `codigo` entre un parrafo
 
 ## Anular Marckdown:
 \## Markdown anulado escribiendo una barra invertida \(\\\)
+
+## Tablas
+|Header 1|Header 2|Header 3|
+|--|--|--|
+|Element 1|Element 2|Element 3|
+|Element 4|Element 5|Element 6|
+|Element 7|Element 8|Element 9|
