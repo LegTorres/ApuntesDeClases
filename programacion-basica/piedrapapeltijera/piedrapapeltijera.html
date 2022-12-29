@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Piedra, Papel o Tijera</title>
+    <script>
+        // la etiqueta <!DOCTYPE html> da compatibilidad con navegadores viejos
+        // Math.floor(valor) elimina los decimales de cualquier numero que se le asigne
+        // Math.random() genera un numero con decimales aleatorios entre 0 y 1
+        // No es necesario declarar previamente las variables de parametros para la funcion
+
+        // Creando funcion para generar numeros aleatorios entre un rango
+        function aleatorio(min, max){
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        // Funcion para elegir opcion de jugada
+        function eleccion (jugada){
+            let resultado =""
+            if (jugada == 1){
+                resultado = "Piedra"
+            } else if (jugada == 2){
+                resultado = "Papel"
+            } else if (jugada == 3){
+                resultado = "Tijera"
+            } else {
+                resultado = "Opcion NO VÁLIDA"
+            }
+            return resultado
+        }
+     
+        let jugador = 0
+        let pc = aleatorio(1,3)
+
+        jugador = prompt("ELige: 1 = piedra, 2 = papel, y 3 = tijera")
+
+        alert("Eliges: " + eleccion(jugador))
+        alert("PC elige: " + eleccion(pc))
+
+        // Comparando resultados para definir ganador
+        if (pc == jugador){
+            alert("EMPATE")
+        } else if (jugador == 1 && pc == 3){
+            alert("GANASTE")
+        } else if (jugador == 2 && pc == 1){
+            alert("GANASTE")
+        } else if (jugador == 3 && pc == 2){
+            alert("GANASTE")
+        } else {
+            alert("PERDISTE")
+        }
+
+
+        
+        /* algoritmo para comparar la seleccion e identificar un ganador
+
+        if (jugador == 1){
+            alert("Ejegiste Piedra")
+        } else if (jugador == 2){
+            alert("Ejegiste Papel")
+        } else if (jugador == 3){
+            alert("Ejegiste Tijera")
+        } else {
+            alert("Elegiste una opcion no valida")
+        }
+
+        if (pc == 1){
+            alert("PC elige Piedra")
+        } else if (pc == 2){
+            alert("PC elige Papel")
+        } else if (pc == 3){
+            alert("PC elige Tijera")
+        } else {
+            alert("Elegiste una opcion no valida")
+        }
+
+       
+        */
+
+    </script>
+</head>
+<body>
+   
+</body>
+</html>
