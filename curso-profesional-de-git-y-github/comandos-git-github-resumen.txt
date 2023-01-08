@@ -216,6 +216,12 @@ Gestionar el origen de un repositorio remoto (REMOTE).
         # Actualiza la url del repositorio remoto.
 
 
+push desde un repositorio existente desde linea de comandos a GitHub.
+    $ git remote add origin [URL-de-repositorio-GitHub]
+    $ git branch -M main
+    $ git push -u origin main
+
+    
 Manejar un fork de GitHub.
     $ git clone <url-del-repositorio-remoto-fork>
         # Clonar el repositorio despues de haber sido creado el fork en el sitio web de GitHub.
