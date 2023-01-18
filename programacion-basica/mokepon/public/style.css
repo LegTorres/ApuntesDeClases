@@ -1,0 +1,202 @@
+/*  Tipos de selectores: tipo (nombre de la etiqueta), clase, id, etc
+    para especificar un selector solo se escribe el nombre de la etiqueta HTML
+    para especificar un selector de tipo clase se agrega un punto (.) antes del nombre del selector
+    para especificar un selector de tipo id se agrega un numeral (#) antes del nombre del selector
+
+    Tipos de visualizacion (Display):
+        block: ocupa toda la pantalla de lado a lado
+        inline: ocupa sooo una parte de la pantalla. este tipo de visualizacion no aplica las propiedades que modifiquen su tamano
+        inlineblock: tiene caracteristicas de ambas, inline y block. 
+            Se ubican una al lado del otro como en inline pero acepta propiedades como width y height
+
+    Flexbox: podemos alinear nuestros elementos de forma horizontal o vertical (Solo una de ellas, no se puede ambas)
+        flex-direction: column; Coloca los elementos en vertical
+        justify-content: center; Alinea el justificado horizantal del contenido.
+        align-items: center; Alinea el justificado vertical del contenido.
+    Modelo de cajas
+        padding: tamano interno del elemento. Por ejemplo: si un elemento tiene 10px por 10px y el padding es de 10px entonces
+            el tamano seria 30px por 30px
+        border: tamano externo del elemento, pero que tambien agrega dimensiones a nuestro elemento.
+        margin: es un espaciado entre elementos
+*/
+/*Agregando fuente personalizada. Se pueden agregar mas de una familia de fuentes en un mismo enlace*/
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:ital,wght@0,300;0,400;1,300&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #041562;
+}
+.titulo{
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    font-size: 32px;
+}
+.subtitulo{
+ color: white;
+ font-size: 20px;
+}
+#seleccionar-mascota{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjetas, .tarjetas-ataques{
+    display: flex;
+    gap: 10px; /*La propiedad gap agrega un espaciado entre dos elementos de un flexbox*/
+}
+.tarjeta-de-mokepon{
+    width: 180px;
+    height:120px;
+    background:#11468F;
+    padding:10px;
+    box-sizing:border-box; /* esta propiedad hace que el padding no incremente el tamano de el contenedor*/
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    /*margin: 10px;
+    border: 1px solid hotpink;/*border: tamano-del-border tipo-de-borde color-de-borde*/
+}
+.tarjeta-de-mokepon img{/* especificando que la img que esta dentro de .tarjeta-de-mokepon tome las propiedades detalladas*/
+    width: 80px;
+    height: 80px;
+}
+#boton-mascota, #ver-mapa button{
+    width: 180px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 20px 0 0 0;/* configurando margenes con diferentes medidas en sentido horario partiendo de la parte superior */
+
+}
+input{
+    display:none;
+}
+/*El signo + permite que seleccionemos un elemento hermano
+en este caso el label relacionado al input. 
+Es importante tener en cuenta que se aplicara el estilo al label que esta inmediatamente despues del input checado en el html*/
+input:checked + label{
+    background-color: #5D8BF4;
+}
+
+#seleccionar-ataque{
+   /* display: flex; En este caso no esta aplicando el estilo porque lo esta tomando de javascript */
+    flex-direction: column;
+    align-items: center;
+}
+.boton-de-ataque{
+    background: #11468F;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border-color: transparent;
+    width: 100px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+
+}
+#mensajes{
+    width: 280px;
+    background: #EEEEEE;
+    padding: 20px;
+    margin: 20px 0 0 0;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#boton-reiniciar{
+    border: none;
+    color: #041562;
+    font-family: 'Poppins', sans-serif;
+}
+.ataques{
+    display: grid; /*la propiedad grid sirve para crear filas y columnas en css*/
+    grid-template-columns: 100px 100px; /*la propiedad grid-template-columns sirve p[ara definir en cuantas columnas se separar, segun el numero de valores que incorpore*/
+    color: white;
+}
+#vidas-jugador, #vidas-enemigo{
+    font-size: 32px;
+    margin-bottom: 0;
+}
+.ataques-jugador, .ataques-enemigo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ver-mapa{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#ver-mapa button{
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 10px 0 0 0;/* configurando margenes con diferentes medidas en sentido horario partiendo de la parte superior */
+
+}
+#mapa{
+    border: 2px solid white;
+}
+
+/*diseno responsivo usando media query. En el siguiente caso especificamos que todo lo que vaya desde 0px hasta 360px estara
+sujedo a las siguientes reglas css*/
+
+@media (max-width: 270px){
+    #ver-mapa div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width: 1150px){
+    .tarjetas, .tarjetas-ataques{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
+
+/*Seudo clases. Ejemplos: 
+:hover(Al pasar el mouse sobre el elemento), :active(Cuando le damos click a un boton), :checked(Que sucede si nuestro input esta seleccionado)*/
+
+
+
+
+
+
+/*
+label{
+    background-color: tomato;
+    width: 185px;
+    height: 50px;
+    background-color: teal;
+}
+
+input{
+    background-color: aliceblue;
+    width: 185px;
+    height: 50px;
+    background-color: teal;
+}
+
+button{
+    background-color: violet;
+    width: 185px;
+    height: 50px;
+    background-color: teal;
+
+}
+*/

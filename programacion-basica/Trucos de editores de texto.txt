@@ -1,0 +1,7 @@
+COMENTAR VARIAS LINEAS EN VISUALSTUDIO CODE
+    Alt + Shift + A     Crea un comentario multilinea
+    Ctrl + /            Comenta todas las lineas una a una
+
+PARA INSERTAR EMOJIS EN WINDOWS
+    Windows + .
+
