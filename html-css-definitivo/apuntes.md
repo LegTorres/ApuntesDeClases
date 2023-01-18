@@ -405,3 +405,28 @@ En el caso de darse un conflicto en la declaracion el navegador evaluara lo sigu
 3. Los selectores tienen una especificidad diferente?
 
 > En caso de que el resultado sea verdadero aplica la declaracion copn la mayor prioridad. Si no es el caso, entonces utiliza la declaracion que viene en su fuente original.
+
+## **Cuatro tipos de combinadores que nos permiten combinar multiples selectores y crear una mayor especificidad.**
+- Hermano adyacente o cercano (Adjacent Sibling):  
+`h2 + p { }` En este caso aplica estilos a los **parrafos** que estan inmediatamente despues de un **h2**
+- Hermano general (General sibling):  
+`h2 ~ p { }`Aplica estilos a los **parrafos** que sean hermanos generales (esten en el mismo contenedor con un **h2**, sin importar si son inmediatos o no)
+- Hijo:  
+`div > p { }` Aplica estilo a un **parrafo** que sea hijo directo de un **div**. Un hijo directo es aquella etiqueta que esta contenida dentro de la etiqueta padre pero fuera de cualquier otra etiqueta.
+- Descendiente (Descendant):  
+`div p { }` Aplica a todos los **parrafos** que esten dentro de un **div**, ya sean hijos directos o si esta dentro de otra etiqueta.
+
+## **Tipos de medidas en CSS**
+- Medidas absolutas:  
+Estas no cambian sin importar el tamaño de la pantalla.
+    - **pixeles (px)**. 
+- Medidas relativas:  
+Medidas en base al tamaño de la pantalla del dispositivo deonde visualizaremos nuestra pagina.
+    - **Porcentaje (%)**
+    - **Elemento (em)**:  
+    El elemento tomara el tamaño de fuente que tiene el padre directo y eso equivaldra a **1em**. Por ejemplo, los navegadores por defecto asignan un tamaño de fuente de **16px** heredada desde la etiqueta **html**, por lo que **1.5em** serian **24px**. Es importante tomar en cuenta que el aplicar a varios elementos anidades una medidas en **em** pueden tener resultados no deseados si no somos cuidadosos con la aplicacion de esta medida.
+    - **Root em (rem)**
+    - **(max-width / min-width)**
+    - **(max-height / min-height)**
+    - **Viewport width (vw)**
+    - **Viewport height (vh)**
