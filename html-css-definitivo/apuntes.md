@@ -332,12 +332,15 @@ Que coincida con el atributo `id` de la etiqueta HTML. Se especifica colocando e
 Que coincidan con el atributo y valor especificado. Se especifica escribiendo el nombre de la etiqueta HTML, seguido de atributo y valor entre corchetes. Por ejemplo: `a[href="URL"]{ }`
 - **Selector Universal**:
 Selecciona todos los elementos del documento mediante un asterisco (*).
-> Recomendacion: Es recomendable agregar en todos los proyectos es selector universal para establecer un `marging` y `padding` en 0 ademas de hacer uso de la propiedad `box-sizing`, para evitar problemas con los bordes en nuestros proyectos. Ejemplo:
+> Recomendacion: Es recomendable agregar en todos los proyectos es selector universal para establecer un `marging` y `padding` en 0 ademas de hacer uso de la propiedad `box-sizing`, para evitar problemas con los bordes en nuestros proyectos. Ademas, es buena practica establecer el font-size de la etiqueta html un valor de 62.5% para facilitar los calculos de los tamaños de fuentes. Ejemplo:
 ~~~css
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+}
+html {
+    font-size:62.5%;
 }
 ~~~
 
@@ -425,8 +428,34 @@ Medidas en base al tamaño de la pantalla del dispositivo deonde visualizaremos 
     - **Porcentaje (%)**
     - **Elemento (em)**:  
     El elemento tomara el tamaño de fuente que tiene el padre directo y eso equivaldra a **1em**. Por ejemplo, los navegadores por defecto asignan un tamaño de fuente de **16px** heredada desde la etiqueta **html**, por lo que **1.5em** serian **24px**. Es importante tomar en cuenta que el aplicar a varios elementos anidades una medidas en **em** pueden tener resultados no deseados si no somos cuidadosos con la aplicacion de esta medida.
-    - **Root em (rem)**
-    - **(max-width / min-width)**
-    - **(max-height / min-height)**
-    - **Viewport width (vw)**
-    - **Viewport height (vh)**
+    - **Root em (rem)**:  
+    Es similar a la medida **em**, pero siempre tomara como referencia la medida de el elemento **root (en etiqueta HTML)**. Asi se evita el problema de los elementos anidados como en el caso anterior.
+    > Una manera de facilitar el calculo en pixeles utilizando esta medida es asignando un **font-size: 62.5%** a la etiqueta **HTML**, eso establecera un **rem** en **10px**. De esta manera si queremos los 16px de el documento html solo asignamos un font-size de 1.6rem.  
+    > Siempre es recomendable reiniciar 
+    - **(max-width / min-width)**:  
+    Establece el width minimo y maximo que tendra un contenedor, en base al tamaño de la pantalla. Por lo general, se utiliza en conjunto con un **width** con un porcentaje como valor.  
+    Por ejemplo:  
+    ~~~css
+    div {
+        width: 80%;
+        min-width: 350px;
+        max-width: 700px;
+    }
+    ~~~
+    - **(max-height / min-height)**:  
+    Igual que min-width y max-width, pero aplicandose a la altura de la pantalla. Se utiliza mucho para evitar el **overflow**
+    - **Viewport width (vw)**:  
+    Establece el porcentaje del tamaño de la pantalla qe ocupara un elemento. **100vw** equivale a un 100% de la pantalla.
+    - **Viewport height (vh)**:  
+    Igual que **viewport height**, pero aplicandose en la altura.
+
+## **Posisionamiento de elementos (Position)**
+Es la forma en la que podmos posicionar los elementos HTML. Algunos posicionamientos son:  
+- Static:  
+Posicionamiento por defecto. No se mueven de donde son colocados en el documento HTML. En esta propiedad **no** se puede mover el elemento con las propiedades **right, left, top ni bottom.**
+- Absolute:  
+Cuando se aplica esta propiedad a un elemento se superpone al siguiente elemento HTML, por lo cual el elemento posicionado pierde su posicion en la pantalla, pero oculta a el elemento que toma su ubicacion.
+- Relative:  
+A diferencia del absolute, el relative no pierde su posicion en la pantalla, pero puede ser posicionado a traves de las propiedades **top, right, left y bottom**.
+- Fixed:
+- Sticky:
