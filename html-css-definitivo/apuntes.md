@@ -459,3 +459,12 @@ Cuando se aplica esta propiedad a un elemento se superpone al siguiente elemento
 A diferencia del absolute, el relative no pierde su posicion en la pantalla, pero puede ser posicionado a traves de las propiedades **top, right, left y bottom**.
 - Fixed:
 - Sticky:
+
+## **Propiedad `Display`**
+Esta propiedad define la manera en la que se mostrara el contenido de la etiqueta HTML. Los valores mas comunes son:
+- **Block**:  
+Los elementos ocuparan el cien por ciento del width de la pantalla aun si su contenido es un solo caracter.
+- **Inline**:  
+Ocupa el espacio que abarca su contenido. Se puede manipular si margin o padding derecho e izquierdo, pero no la altura. Tampoco se puede asignar un width ni hight.
+- **Inline-Block**:  
+Al igual que inline ocupa el tamaño de su contenido, pero si se puede asignar un width y height ademas de margin y padding
