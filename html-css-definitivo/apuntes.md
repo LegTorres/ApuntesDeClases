@@ -468,3 +468,39 @@ Los elementos ocuparan el cien por ciento del width de la pantalla aun si su con
 Ocupa el espacio que abarca su contenido. Se puede manipular si margin o padding derecho e izquierdo, pero no la altura. Tampoco se puede asignar un width ni hight.
 - **Inline-Block**:  
 Al igual que inline ocupa el tamaño de su contenido, pero si se puede asignar un width y height ademas de margin y padding
+- **Flex**:  
+Permite hacer layouts responsive mas facilmente. Para utilizar flexbox es preciso cambiar la propiedad `display: flex;` a el contenedor padre, de este modo los elementos hijos tendran un comportamiento mas responsivo.  
+Para manejar esta propiedad de manera adecuada, algunas propiedades se estableceran en el contenedor padre mientras otras se asignaran a los elementos hijos.  
+**Propiedades de elemento padre**:
+    - **flex-direction**:  
+    Define la alineacion de los elementos hijos. Sus valores pueden ser:
+        - **row**:  
+        Es el valor por defecto, los elementos hijos se alinearan de manera horizontal.
+        - **column**:  
+        Alinea los elementos de manera vertical.
+        - **row-reverse**:  
+        Alinea los elementos formando una fila en orden inverso.
+        - **column-reverse**:  
+        Alinea los elementos formando una columna en orden inverso.
+    - **flex-wrap**:  
+    Especifica si os elementos hijos son obligados a permanecer en una misma linea o si spueden fluir en varias lineas.  
+    Sus valores pueden ser:
+        - **nowrap**:  
+        Los elementos flex son distribuidos en una sola linea, lo cual puede llevar a que se desvorde el contenedor.
+        - **wrap**:  
+        Permite que cuando no hay suficiente espacio en la pantalla los elementos bajen para acommodarse al espacio disponible, de esa manera podemos despreocuparnos del numero de elementos ya que siempre dispondremos de espacio y evitaremos el scroll horizontal.
+        - **wrap-reverse**:  
+        Igual que el valor anterior, pero en sentido inverso; cada elemento que ya no tiene espacio en pantalla pasa a la parte superior de la misma.
+    - **justify-content**:  
+    Permite alinear el contenido de forma horizontal dentro del contenedor padre.  
+    Sus valores son:
+        - **center**:  
+        Coloca los elementos de manera centrada.
+        - **flex-end**:
+        Acomoda los elementos hacia el extremo final.
+        - **flex-start**:  
+        Es el valor por defecto. Acomoda los elementos al principio.
+        - **space-around**:  
+        Divide el espacio libre del contenedor padre entre cada uno de los hijos, asignandoles un margen de la misma medida a cada lado, por lo cual, el espacio entre cada elemento sera el doble de ancho que el que hay entre el contenedor padre y el primer/ultimo elemento.
+        - **space-evenly**:  
+        Es igual que el valor *space-around*, pero corrige el problema del anterior, ya que distribuye espacio de manera perfecta tanto entre los elementos como entre los elementos y el contenedor.
