@@ -23,24 +23,30 @@
         .container {
             border: 0.3rem solid black;
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-evenly;
-        }
+            /* justify-content: space-between;
+            height: 50vh;
+            align-items: center; */
+        } 
 
         .box {
-            width: 10rem;
+            /* width: 10rem; */
             height: 10rem;
+            flex-basis: 10rem;
+            flex-grow: 1;
         }
 
         .box1 {
             background-color: purple;
+            /* flex-grow: 3; */
         }
         .box2 {
             background-color: blue;
+            /* flex-grow: 2; */
         }
         .box3 {
             background-color: green;
+            /* flex-grow: 1; */
         }
         .box4 {
             background-color: yellow;

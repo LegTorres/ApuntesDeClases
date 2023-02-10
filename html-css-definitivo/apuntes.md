@@ -471,7 +471,7 @@ Al igual que inline ocupa el tamaño de su contenido, pero si se puede asignar u
 - **Flex**:  
 Permite hacer layouts responsive mas facilmente. Para utilizar flexbox es preciso cambiar la propiedad `display: flex;` a el contenedor padre, de este modo los elementos hijos tendran un comportamiento mas responsivo.  
 Para manejar esta propiedad de manera adecuada, algunas propiedades se estableceran en el contenedor padre mientras otras se asignaran a los elementos hijos.  
-**Propiedades de elemento padre**:
+**Propiedades de contenedor padre**:
     - **flex-direction**:  
     Define la alineacion de los elementos hijos. Sus valores pueden ser:
         - **row**:  
@@ -504,3 +504,27 @@ Para manejar esta propiedad de manera adecuada, algunas propiedades se establece
         Divide el espacio libre del contenedor padre entre cada uno de los hijos, asignandoles un margen de la misma medida a cada lado, por lo cual, el espacio entre cada elemento sera el doble de ancho que el que hay entre el contenedor padre y el primer/ultimo elemento.
         - **space-evenly**:  
         Es igual que el valor *space-around*, pero corrige el problema del anterior, ya que distribuye espacio de manera perfecta tanto entre los elementos como entre los elementos y el contenedor.
+        - **space-between**:  
+        Los items flex se distribuyen uniformemente sobre la línea. El espaciamiento se hace de tal manera que el espacio adyacente entre dos items es el mismo. El borde del comienzo principal y el borde del final principal se alinean al ras con el borde del primer y último item respectivamente.
+    - **align-items**:  
+    Controla la alineacion de los elementos a lo largo de su eje transversal, alineandolos en el eje vertical si estan ordenados como fila y de forma horizontal si es en columna..  
+    Sus valores pueden ser: 
+        - **stretch**:  
+        Los elementos aparecen estirados ( stretched ) para ocupar el espacio restante, siempre y cuando no limitemos su medida.
+        - **center**:  
+        Los elementos aparecen agrupados al centro de la caja.
+        - **flex-start**:  
+        Los elementos aparecen agrupados al principio ( start ) del eje transversal.
+        - **flex-end**:  
+        Los elementos aparecen agrupados al final ( end ) del eje transversal.
+        - **baseline**:  
+        Los elementos aparecen alineados relativamente a su línea de base. Ocupa el espacio de su contenido.
+- **Propiedades de elemento hijo**
+    - **order**:  
+    Especifica el orden utilizado para disponer los elementos en su contenedor padre. Como valor recibe un numero entero que especifica el orden en el que se ubicara el elemento. Ejemplo: `order: 6;`.  
+    Cuando alguno de los elementos no tiene especificada la propiedad order pasan automaticamente a la izquierda mientras que los que si tienen un valor establecido quedan ordenados a la derecha.
+    - **flex-grow**:  
+    Especifica el factor de crecimiento de un elemento en su direccion principal (anchura o altura, dependiendo de la propiedad flex-direction). Especifica que cantidad de espacio restante dentro del contenedor deberia ocupar el elemento en cuestion.  
+    Ejemplo: `flex-grow: 1;`
+    - **flex-basis**:  
+    Especifica la base flexible, la cual es el tamaño inicial de un elemento flexible. Ésta propiedad determina el tamaño de una caja de contenidos a no ser que se haya especificado de otra forma usando box-sizing. Como valor puede recibir un numero seguido por una unidad absoluta o porcentaje (`flex-basis: 10rem`), o una dimension automatica (`flex-basis: auto;`), basado en el contenido del elemento flexible.
