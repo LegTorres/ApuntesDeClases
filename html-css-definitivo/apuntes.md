@@ -297,8 +297,14 @@ Ambos se pueden utilizar para enviar la informacion del formulario. Al la etique
 ___
 # **MANEJO DE CSS**
 
-## ***Definicion de CSS*
+## **Definicion de CSS**
 CSS (Cascading Style Sheets), es el estandar para poder dar estilos a nuestros documentos HTML.
+
+## **Partes de una regla CSS**
+- Selector
+- Declaracion
+- Propiedad
+- Valor de propiedad
 
 ##   **Etiquetas para aplicar CSS en un documento HTML**
 se puede aplicar estilos CSS de varias maneras.
@@ -467,64 +473,107 @@ Los elementos ocuparan el cien por ciento del width de la pantalla aun si su con
 - **Inline**:  
 Ocupa el espacio que abarca su contenido. Se puede manipular si margin o padding derecho e izquierdo, pero no la altura. Tampoco se puede asignar un width ni hight.
 - **Inline-Block**:  
-Al igual que inline ocupa el tamaño de su contenido, pero si se puede asignar un width y height ademas de margin y padding
-- **Flex**:  
+Al igual que inline ocupa el tamaño de su contenido, pero si se puede asignar un width y height ademas de margin y padding.  
+> Tanto el valor **inline**, como **inline-block** nos serviran si queremos mantener los elementos de forma horizontal, pero ambos tienen resultados diferentes.
+
+## **Propiedad `display: flex;`**
 Permite hacer layouts responsive mas facilmente. Para utilizar flexbox es preciso cambiar la propiedad `display: flex;` a el contenedor padre, de este modo los elementos hijos tendran un comportamiento mas responsivo.  
-Para manejar esta propiedad de manera adecuada, algunas propiedades se estableceran en el contenedor padre mientras otras se asignaran a los elementos hijos.  
+Para manejar esta propiedad de manera adecuada, algunas propiedades se estableceran en el contenedor padre mientras otras se asignaran a los elementos hijos.
+
 **Propiedades de contenedor padre**:
-    - **flex-direction**:  
-    Define la alineacion de los elementos hijos. Sus valores pueden ser:
-        - **row**:  
-        Es el valor por defecto, los elementos hijos se alinearan de manera horizontal.
-        - **column**:  
-        Alinea los elementos de manera vertical.
-        - **row-reverse**:  
-        Alinea los elementos formando una fila en orden inverso.
-        - **column-reverse**:  
-        Alinea los elementos formando una columna en orden inverso.
-    - **flex-wrap**:  
-    Especifica si os elementos hijos son obligados a permanecer en una misma linea o si spueden fluir en varias lineas.  
-    Sus valores pueden ser:
-        - **nowrap**:  
-        Los elementos flex son distribuidos en una sola linea, lo cual puede llevar a que se desvorde el contenedor.
-        - **wrap**:  
-        Permite que cuando no hay suficiente espacio en la pantalla los elementos bajen para acommodarse al espacio disponible, de esa manera podemos despreocuparnos del numero de elementos ya que siempre dispondremos de espacio y evitaremos el scroll horizontal.
-        - **wrap-reverse**:  
-        Igual que el valor anterior, pero en sentido inverso; cada elemento que ya no tiene espacio en pantalla pasa a la parte superior de la misma.
-    - **justify-content**:  
-    Permite alinear el contenido de forma horizontal dentro del contenedor padre.  
-    Sus valores son:
-        - **center**:  
-        Coloca los elementos de manera centrada.
-        - **flex-end**:
-        Acomoda los elementos hacia el extremo final.
-        - **flex-start**:  
-        Es el valor por defecto. Acomoda los elementos al principio.
-        - **space-around**:  
-        Divide el espacio libre del contenedor padre entre cada uno de los hijos, asignandoles un margen de la misma medida a cada lado, por lo cual, el espacio entre cada elemento sera el doble de ancho que el que hay entre el contenedor padre y el primer/ultimo elemento.
-        - **space-evenly**:  
-        Es igual que el valor *space-around*, pero corrige el problema del anterior, ya que distribuye espacio de manera perfecta tanto entre los elementos como entre los elementos y el contenedor.
-        - **space-between**:  
-        Los items flex se distribuyen uniformemente sobre la línea. El espaciamiento se hace de tal manera que el espacio adyacente entre dos items es el mismo. El borde del comienzo principal y el borde del final principal se alinean al ras con el borde del primer y último item respectivamente.
-    - **align-items**:  
-    Controla la alineacion de los elementos a lo largo de su eje transversal, alineandolos en el eje vertical si estan ordenados como fila y de forma horizontal si es en columna..  
-    Sus valores pueden ser: 
-        - **stretch**:  
-        Los elementos aparecen estirados ( stretched ) para ocupar el espacio restante, siempre y cuando no limitemos su medida.
-        - **center**:  
-        Los elementos aparecen agrupados al centro de la caja.
-        - **flex-start**:  
-        Los elementos aparecen agrupados al principio ( start ) del eje transversal.
-        - **flex-end**:  
-        Los elementos aparecen agrupados al final ( end ) del eje transversal.
-        - **baseline**:  
-        Los elementos aparecen alineados relativamente a su línea de base. Ocupa el espacio de su contenido.
-- **Propiedades de elemento hijo**
-    - **order**:  
-    Especifica el orden utilizado para disponer los elementos en su contenedor padre. Como valor recibe un numero entero que especifica el orden en el que se ubicara el elemento. Ejemplo: `order: 6;`.  
-    Cuando alguno de los elementos no tiene especificada la propiedad order pasan automaticamente a la izquierda mientras que los que si tienen un valor establecido quedan ordenados a la derecha.
-    - **flex-grow**:  
-    Especifica el factor de crecimiento de un elemento en su direccion principal (anchura o altura, dependiendo de la propiedad flex-direction). Especifica que cantidad de espacio restante dentro del contenedor deberia ocupar el elemento en cuestion.  
-    Ejemplo: `flex-grow: 1;`
-    - **flex-basis**:  
-    Especifica la base flexible, la cual es el tamaño inicial de un elemento flexible. Ésta propiedad determina el tamaño de una caja de contenidos a no ser que se haya especificado de otra forma usando box-sizing. Como valor puede recibir un numero seguido por una unidad absoluta o porcentaje (`flex-basis: 10rem`), o una dimension automatica (`flex-basis: auto;`), basado en el contenido del elemento flexible.
+- **flex-direction**:  
+Define la alineacion de los elementos hijos. Sus valores pueden ser:
+    - **row**:  
+    Es el valor por defecto, los elementos hijos se alinearan de manera horizontal.
+    - **column**:  
+    Alinea los elementos de manera vertical.
+    - **row-reverse**:  
+    Alinea los elementos formando una fila en orden inverso.
+    - **column-reverse**:  
+    Alinea los elementos formando una columna en orden inverso.
+- **flex-wrap**:  
+Especifica si os elementos hijos son obligados a permanecer en una misma linea o si spueden fluir en varias lineas.  
+Sus valores pueden ser:
+    - **nowrap**:  
+    Los elementos flex son distribuidos en una sola linea, lo cual puede llevar a que se desvorde el contenedor.
+    - **wrap**:  
+    Permite que cuando no hay suficiente espacio en la pantalla los elementos bajen para acommodarse al espacio disponible, de esa manera podemos despreocuparnos del numero de elementos ya que siempre dispondremos de espacio y evitaremos el scroll horizontal.
+    - **wrap-reverse**:  
+    Igual que el valor anterior, pero en sentido inverso; cada elemento que ya no tiene espacio en pantalla pasa a la parte superior de la misma.
+- **justify-content**:  
+Permite alinear el contenido de forma horizontal dentro del contenedor padre.  
+Sus valores son:
+    - **center**:  
+    Coloca los elementos de manera centrada.
+    - **flex-end**:
+    Acomoda los elementos hacia el extremo final.
+    - **flex-start**:  
+    Es el valor por defecto. Acomoda los elementos al principio.
+    - **space-around**:  
+    Divide el espacio libre del contenedor padre entre cada uno de los hijos, asignandoles un margen de la misma medida a cada lado, por lo cual, el espacio entre cada elemento sera el doble de ancho que el que hay entre el contenedor padre y el primer/ultimo elemento.
+    - **space-evenly**:  
+    Es igual que el valor *space-around*, pero corrige el problema del anterior, ya que distribuye espacio de manera perfecta tanto entre los elementos como entre los elementos y el contenedor.
+    - **space-between**:  
+    Los items flex se distribuyen uniformemente sobre la línea. El espaciamiento se hace de tal manera que el espacio adyacente entre dos items es el mismo. El borde del comienzo principal y el borde del final principal se alinean al ras con el borde del primer y último item respectivamente.
+- **align-items**:  
+Controla la alineacion de los elementos a lo largo de su eje transversal, alineandolos en el eje vertical si estan ordenados como fila y de forma horizontal si es en columna.  
+Sus valores pueden ser: 
+    - **stretch**:  
+    Los elementos aparecen estirados ( stretched ) para ocupar el espacio restante, siempre y cuando no limitemos su medida.
+    - **center**:  
+    Los elementos aparecen agrupados al centro de la caja.
+    - **flex-start**:  
+    Los elementos aparecen agrupados al principio ( start ) del eje transversal.
+    - **flex-end**:  
+    Los elementos aparecen agrupados al final ( end ) del eje transversal.
+    - **baseline**:  
+    Los elementos aparecen alineados relativamente a su línea de base. Ocupa el espacio de su contenido.
+
+**Propiedades de elemento hijo**
+- **order**:  
+Especifica el orden utilizado para disponer los elementos en su contenedor padre. Como valor recibe un numero entero que especifica el orden en el que se ubicara el elemento. Ejemplo: `order: 6;`.  
+Cuando alguno de los elementos no tiene especificada la propiedad order pasan automaticamente a la izquierda mientras que los que si tienen un valor establecido quedan ordenados a la derecha.
+- **flex-grow**:  
+Especifica el factor de crecimiento de un elemento en su direccion principal (anchura o altura, dependiendo de la propiedad flex-direction). Especifica que cantidad de espacio restante dentro del contenedor deberia ocupar el elemento en cuestion.  
+Ejemplo: `flex-grow: 1;`
+- **flex-basis**:  
+Especifica la base flexible, la cual es el tamaño inicial de un elemento flexible. Ésta propiedad determina el tamaño de una caja de contenidos a no ser que se haya especificado de otra forma usando box-sizing. Como valor puede recibir un numero seguido por una unidad absoluta o porcentaje (`flex-basis: 10rem`), o una dimension automatica (`flex-basis: auto;`), basado en el contenido del elemento flexible.
+
+## **Variables en CSS (Custom Properties)**
+Para utilizar variables en CSS se crean dentro de el selector especial `:root`, el cual hace referencia al elemento HTML de nuestro documento. Las variables se crean agregando dos guiones (--) delante del nombre de la variable.  
+Para mandar a llamar una variable se escribe el nombre de la variable dentro de parentesis detras de la palabra **var** en el area del valor de una propiedad.  
+Por ejemplo:  
+
+~~~css
+:root {
+    --primary-color: blue;
+    --secundary-color: red;
+    --header-size: 4rem
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: var(--header-size);
+}
+~~~
+
+## **Web fonts**
+Las Web Fonts son grupos familiares de fuentes, los navegadores web poseen fuentes predeterminadas y dependiendo del mismo cada uno de ellos posee estilos diferentes.  
+Algunas Generic Families:
+- Serif: son un tipo de fuente de estilo formal o clásico como Times New Roman.
+- Sans-serif: No tienen acabado en las puntas, como: Verdana.
+- Cursive: Son las que tienen estilo cursivo.
+- Monospace: Son tipos de fuentes con espaciado entre las letras, como: Roboto mono. 
+
+¿Como puedo saber que tipo de fuente tengo instaladas en mi navegador?  
+**Menú>Configuración>Diseño>Personalizar Fuentes>Fuente Serif/Fuente Sans-serif**  
+
+¿Como puedo importar tipos de fuentes a mi proyecto?  
+1. Ir a Google Fonts.
+2. Seleccionar la fuente.
+3. Seleccionar Estilo de fuente.
+4. Agregar al proyecto
+
+Se considera buena práctica agregar las fuentes externas utilizando la etiqueta `<link>` en el `<head>` de HTML, en lugar de importarla en el CSS, ya que la fuente cambia una vez que se haya cargado la página y no ralentiza el renderizado de nuestro sitio mientras recibe la respuesta de el servidor externo. En el CSS se suele poner una `font-family` generica para que se renderice mientras carga la fuente externa o en caso de que no cargue por algun problema en la conexion. 
+Tambien es una buena prácticas cargar una sola fuente. 
