@@ -492,7 +492,7 @@ Define la alineacion de los elementos hijos. Sus valores pueden ser:
     - **column-reverse**:  
     Alinea los elementos formando una columna en orden inverso.
 - **flex-wrap**:  
-Especifica si os elementos hijos son obligados a permanecer en una misma linea o si spueden fluir en varias lineas.  
+Especifica si os elementos hijos son obligados a permanecer en una misma linea o si spueden fluir en varias lineas. En otras palabras, indica si los elementos pueden reposicionarse en caso de que su tamaño les permita cuando vaya creciendo el viewport.  
 Sus valores pueden ser:
     - **nowrap**:  
     Los elementos flex son distribuidos en una sola linea, lo cual puede llevar a que se desvorde el contenedor.
@@ -577,3 +577,61 @@ Algunas Generic Families:
 
 Se considera buena práctica agregar las fuentes externas utilizando la etiqueta `<link>` en el `<head>` de HTML, en lugar de importarla en el CSS, ya que la fuente cambia una vez que se haya cargado la página y no ralentiza el renderizado de nuestro sitio mientras recibe la respuesta de el servidor externo. En el CSS se suele poner una `font-family` generica para que se renderice mientras carga la fuente externa o en caso de que no cargue por algun problema en la conexion. 
 Tambien es una buena prácticas cargar una sola fuente. 
+
+## **Responsive Design**
+Para que un sitio web se vea bien en multiples dispositivos se trabaja con las **media queries** y **break points** para definir el tamaño de la pantalla de el dispositivo.
+
+## **Mobile First/Only**
+Es la estrategias para aplicar el responsive design mas utilizada actualmente. Consiste en crear el codigo base enfocado en telefonos moviles, y a partir de ahi, crear un break point para adaptarlos a pantallas mas grandes; luego crear otro break point para pantallas como tablets, y por ultimo, definir la visualizacion para pantallas de computadores.  
+Ejemplo:  
+~~~css
+/* 
+* Codigo base para 
+* visualizarse en un
+* dispositivo movil
+*/
+
+@media (min-width: 480px) {
+    /*     
+    * Codigo para dispositivos moviles 
+    * con pantallas mayores a 480 pixeles.
+    */
+}
+
+@media (min-width: 768px) {
+    /*     
+    * Codigo para dispositivos como tablets.
+    */
+}
+
+@media (min-width: 1024px) {
+    /*     
+    * Codigo para ordenadores. 
+    */
+}
+~~~
+
+> Siempre es importante empezar con el codigo para las pantallas mas pequeñas y luego ir agregando las instrucciones para las pantallas mas grandes; de lo contrario, habra codigo que, por la razon del estilo en cascada nunca llegara a aplicarse.
+
+> Por buenas practicas, los media queries deben ir en la parte de abajo de nuestro documento CSS.
+
+
+Con el metodo anterior aplicamos las queries desde un mismo archivo CSS, pero la manera mas recomendable es crear las diferentes queries en archivos CSS separados (que podrian tener el nombre de tablets.css desktops.css, por ejemplo) y a traves de etiquetas `<link` llamarlas desde el header de el HTML agregando el atributo media en el enlace y respetando el orden de menor a mayor pantalla. De esa manera, el usuario no necesita descargar todo el CSS al mismo tiempo, sino le dara prioridad a el que necesita para su dispositivo.  
+Por ejemplo:  
+
+~~~html
+<!--Codigos enfocados a mobile-->
+<link href="styles.css" rel="stylesheet"> 
+
+<!--Codigos enfocados a tablets-->
+<link href="tablets.css" rel="stylesheet" media="screen and (min-width: 768px)">
+~~~
+
+> Como en la querie es agregada en la etiqueta link del HTML no debemos repetirla en el archivo CSS.
+
+## **Estrategias de Responsive: Mostly Fluid**
+Existen varios **patrones de maquetacion responsive design**; algunos de ellos son:
+- **Mostly Fluid**:  
+Empezamos organizando el contenido en columnas y al momento que empiece a crecer a una tablet reacomodamos algunos elementos en fila y un contenido central ocupando el 100% del ancho. Luego, al rotar la tablet, acomodamos mas elementos en horizontal y finalmente en un pc de escritorio mostramos todo el contenido expandido.
+- ****
+- c
