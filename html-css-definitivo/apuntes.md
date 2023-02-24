@@ -629,9 +629,32 @@ Por ejemplo:
 
 > Como en la querie es agregada en la etiqueta link del HTML no debemos repetirla en el archivo CSS.
 
-## **Estrategias de Responsive: Mostly Fluid**
-Existen varios **patrones de maquetacion responsive design**; algunos de ellos son:
+## **Patrones de Maquetacion de Responsive Design**
 - **Mostly Fluid**:  
 Empezamos organizando el contenido en columnas y al momento que empiece a crecer a una tablet reacomodamos algunos elementos en fila y un contenido central ocupando el 100% del ancho. Luego, al rotar la tablet, acomodamos mas elementos en horizontal y finalmente en un pc de escritorio mostramos todo el contenido expandido.
-- ****
-- c
+- **Layout Shifter**:  
+Consiste en empezar con una columna de elementos, a medida que la pantalla va creciendo se reacomodan. Tenemos contenedores dentro de contenedores padres que se pueden reposicionar dependiendo de el tamaño de la pantalla. Podemos modificar el orden en el que se posicionan los contenedores.
+- **Column Drop**:  
+Al igual que los anteriores, comienza como una columna en dispositivos con pantallas pequeñas, y a medida que va creciendo la pantalla va subiendo los contenedores a las lineas superiores.
+
+## **Recomendaciones para la aplicacion de estilos**
+- Separar siempre los archivos de CSS por **break point**
+    - mobile.css/style.css
+    - tablet.css
+    - desktop.css
+- No es recomendable agregar demasiados break point a nuestro sitio web; 3 seria el maximo recomendado.
+
+## **Imagenes Responsive**
+Es recomendable utilizar la etiqueta `<picture> ... </picture>` para insertar imagenes en nuestro sitio web. Con la etiqueta `<source/>` especificamos los diferentes origenes que puede tener nuestra imagen para que a partir del tamaño del viewport el navegador descargue la imagen mas optima.  
+Es la mejor practica establecer el width de la etiqueta `img` en un **100%**.
+Ejemplo:
+
+~~~html
+<picture>    
+    <source media=(min-width:1300px) srcset="./img/large.jpg"/>
+    <source media=(min-width:1000px) srcset="./img/medium.jpg"/>
+    <img src="./img/small.jpg" alt="Imagen de ejemplo">
+</picture>
+~~~
+
+> NOTA: Es necesario colocar las etiquetas `source` en orden descendente, de lo contrario se sobreescribiran las imagenes para un viewport mas grande.
