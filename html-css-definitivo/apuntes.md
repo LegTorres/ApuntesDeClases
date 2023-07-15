@@ -637,7 +637,7 @@ Consiste en empezar con una columna de elementos, a medida que la pantalla va cr
 - **Column Drop**:  
 Al igual que los anteriores, comienza como una columna en dispositivos con pantallas pequeñas, y a medida que va creciendo la pantalla va subiendo los contenedores a las lineas superiores.
 
-## **Recomendaciones para la aplicacion de estilos**
+## **Recomendaciones para la Aplicacion de Estilos**
 - Separar siempre los archivos de CSS por **break point**
     - mobile.css/style.css
     - tablet.css
@@ -658,3 +658,14 @@ Ejemplo:
 ~~~
 
 > NOTA: Es necesario colocar las etiquetas `source` en orden descendente, de lo contrario se sobreescribiran las imagenes para un viewport mas grande.
+
+## **Recomendaciones para Accesibilidad**
+La accesibilidad nos permite desarrollar productos para todos, que incluyan usuarios con cualquier tipo de problema o discapacidad.  
+Unos puntos importantes aconsiderar para el tema de la accesibilidad son:  
+- **Usar etiquetas HTML Semanticas**:  
+Consiste en utilizar las etiquetas **HTML** y dejar de utilizar etiquetas `<div></div>` en exceso. Estas etiquetas son las que nos indican en que parte de nuestro sitio web nos encontramos. Esto tiene la ventaja de que permite, por ejemplo, que ciertos softwares que permiten leer la pantalla para personas con dificultades visuales puedan escuchar el contenido de nuestro sitio web y navegar a traves de el.
+- **Tamaños de los Textos**:  
+No se recomienda usar la medida de los textos en **pixeles**, ya que al necesitar incrementar el tamaño de el texto, si lo hemos asignado en pixeles no podremos cambiarlo, ya que es una medida absoluta. La manera mas recomendable de solucionar esto es utilizando medidas relativas, como **rem**.
+- **Hacer uso de etiquetas Labels, y atributos Alt y Titles**:  
+Simpre se recomienda utilizar etiquetas `<label></label>` para los diferentes tipos de inputs, ya que esta es un contenedor para nuestro elemento input y nos permite seleccionar dicho input sin tener que hacer click directamente en el. Bastara con hacer click en el texto del **label**.  
+Los atributos `alt` y `title` tambien son muy imprtantes para la accesibilidad de nuestro sitio web, ya que si el usuario usa un software de lectura de pantalla el software leera la descripcion y el titulo de la imagen al momento de posicionarse en ella. El atributo `title` nos muestra un texto al momento de posicionar el puntero sobre la imagen.
