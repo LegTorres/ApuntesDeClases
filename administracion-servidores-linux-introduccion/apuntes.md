@@ -116,6 +116,43 @@ Existen dos tipos de hypervisors.
 
 Es muy comun el uso de **contenedores**, que por lo general son sistemas que van a correr sobre **docker** o sistemas que soporten contenedores.  Un contenedor no es lo mismo que una maquina virtual, y la diferencia radica en que la maquina virtual tiene sus recursos fisicos directamente asignados, mientras que un contenedor, aunque se podria considerar como una especie de "virtualizacion" ya que comparte recursos con el sistema operativo principal, pero no es tan personalizable como una maquina virtual, sobretodo al momento de la asignacion de hardware. Un contenedor es mucho mas libiano que una maquina virtual, por lo general pesan en orden de MB mientras que las VMs pesan por lo general GBs.
 
-# **Instalacion de VirtualBox**
+# **Instalacion y configuracion de VirtualBox**
 Para el curso utilizaremos el software VirtualBox, de preferencia sobre Windows o Linux, ya que en los nuevos dispositivos MacOS que usan el procesador M1 epor el momento generan problemas para crear servidores.
 
+Luego de instalado VirtualBox devemos crear nuestra primera maquina virtual para eso seguimos los siguientes pasos:  
+- Damos click a el boton **Nueva**.
+- Ingresamos el **nombre** de nuestra maquina virtual, el archivo **.ISO** y la informacion de nuestra maquina virtual.
+- Configuramos la cantidad de **memoria** y el numero de **procesadores** que contendra nuestra VM.
+- Configurar la cantidad de espacio del **disco virtual**.
+- Mostrara un resumen de las configuraciones de nuestra VM, damos click en **Terminar**.
+- Teniendo seleccionada nuestra VM le damos click a boton **Configuracion**.
+- Nos vamos a la opcion **Red**, luego en la opcion **Conectado a:** escogemos la opcion **Adaptador puente**, y escogemos el adaptador de red de nuestro sistema operativo en la opcion **nombre:**. Damos click en **Aceptar**
+
+## **Instalacion de Ubuntu Server**
+
+Para comenzar con el proceso de instalacion de Ububtu Server damos click en el boton **Iniciar** y se nos abrira una ventana con la carga del sistema operativo. Para interactuar con la VM solo necesitamos dar click en cualquier parte de la ventana que simula la pantalla de nuestra VM.  
+Una vez cargando seguimos los siguientes pasos:
+- Seleccionamos la opcion **Probar o instalar Ubuntu Server**.
+- Selecionamos el **Idioma** de nuestra distribucion.
+- Seleccionamos la **Distribucion de Teclado**.
+- Escogemos el **tipo de instalacion**. Esta puede ser la instalacion minima o completa.
+- Escogemos nuestro **adaptador de Red**. En caso de haberlo seleccionado en el momento de crear nuestra VM sera mas sencillo. Por lo general sera la opcion **enp0s3 eth -**.
+- Configuracion del **servidor Proxi**. Estos servidores son los encargados de monitorizar todo el trafico de nuestra red. Para el caso actual podemos dejarlo en blanco.
+- Configurar los **repositorios del sistema operativo** en caso de que queramos modificarlo.
+- Configuramos las **particiones de nuestro disco**.Podemos elegir entre usar el disco entero o hacer un particionado custom. Es aqui donde podemos seleccionar la opcion de **encriptar el grupo LVM con LUKS**. Esto nos permite agregar una contraseña para nuestro servidor pueda arrancar.
+- **Verificamos** las configuraciones hechas.
+- Nos pedira que confirmemos las configuraciones y le damos enter a **Continuar**.
+- Creamos nuestro **Perfil de Usuario**.
+- Escogemos **Instalar servidor OpenSSH** para las conexiones remotas.
+- Escogemos en caso de preferirlo, podemos **configurar nuestro servidor de una manera especifica** escogiendo los paquetes que podamos necesitar, como paquetes para trabajar con contenedores... etc.
+- Comienza la **instalacion de sistema operativo**. Luego solo necesitamos reiniciar el sistema e iniciar sesion con nuestro usuario y contraseña.
+
+>En la particion **BIOS grub Spacer** se instala el gestor de arranque del sistema (grub). 
+
+> Para salir de la maquina virtual soolo necesitamnos presionar dos veces la tecla **Ctrl Derecha**.
+
+En caso de que aparezca un mensaje de error **Kernel driver not installed (rc=-1908)** en nuestra distribucion Linux podemos solucionarlo instalando el siguiente paquete y luego reiniciamos:
+
+~~~bash
+sudo pacman -S linux61-virtualbox-host-modules
+~~~
